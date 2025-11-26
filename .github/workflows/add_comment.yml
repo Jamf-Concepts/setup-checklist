@@ -1,0 +1,62 @@
+name: Append release comment
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  update-release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v3
+
+    - name: Add release info
+      id: add_release_info
+      run: |
+        echo "Starting the process to append information to the release notes."
+
+        # Get the release details
+        echo "Extracting release details from the event payload."
+        RELEASE_ID=$(jq -r '.release.id' $GITHUB_EVENT_PATH)
+        REPO_NAME=$(jq -r '.repository.full_name' $GITHUB_EVENT_PATH)
+        echo "Release ID: $RELEASE_ID"
+        echo "Repository Name: $REPO_NAME"
+        
+        # Define the additional text to add to the release notes
+        ADDITIONAL_TEXT="Note: The source code files contain only the project documentation at the time of release."
+        echo "Additional text to append: $ADDITIONAL_TEXT"
+
+        # Get the current release body
+        echo "Fetching the current release body."
+        RELEASE_BODY=$(curl -s \
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          "https://api.github.com/repos/$REPO_NAME/releases/$RELEASE_ID" | jq -r '.body')
+        echo "Current release body fetched."
+
+        # Append the additional text to the release body
+        echo "Appending additional text to the release body."
+        UPDATED_RELEASE_BODY="$RELEASE_BODY\n\n$ADDITIONAL_TEXT"
+
+        # Update the release with the new body
+        echo "Updating the release with the new body."
+        RESPONSE=$(curl -s \
+          -X PATCH \
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Content-Type: application/json" \
+          -d "{\"body\": \"$UPDATED_RELEASE_BODY\"}" \
+          "https://api.github.com/repos/$REPO_NAME/releases/$RELEASE_ID")
+        echo "Release update response received."
+
+        # Check if the update was successful
+        if [[ "$(echo "$RESPONSE" | jq -r '.body')" == "$UPDATED_RELEASE_BODY" ]]; then
+          echo "Release notes updated successfully."
+          echo "::set-output name=update_status::success"
+        else
+          echo "Failed to update release notes."
+          echo "::set-output name=update_status::failure"
+        fi
+
+    - name: Output result
+      run: echo "The release update status is ${{ steps.add_release_info.outputs.update_status }}"
