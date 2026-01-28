@@ -20,4 +20,4 @@ THIS SOFTWARE IS PROVIDED "AS-IS," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPL
 
 ## Copyright notice
 
-Jamf-developed portions of the project are ©2023-2024, JAMF
+Jamf-developed portions of the project are ©2026, JAMF
