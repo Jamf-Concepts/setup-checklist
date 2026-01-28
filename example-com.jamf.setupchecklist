@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DEBUG</key>
+	<false/>
+	<key>accentColor</key>
+	<string>#FF0088</string>
+	<key>steps</key>
+	<array>
+		<dict>
+			<key>background</key>
+			<string>/Library/Desktop Pictures/Rancho.heic</string>
+			<key>kind</key>
+			<string>fullScreenWelcome</string>
+			<key>title</key>
+			<dict>
+				<key>de</key>
+				<string>Willkommen bei Jamf</string>
+				<key>en</key>
+				<string>Welcome to Jamf</string>
+				<key>fr</key>
+				<string>Bienvenu à Jamf</string>
+				<key>nl</key>
+				<string>Welcom bij Jamf</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>kind</key>
+			<string>message</string>
+		</dict>
+		<dict>
+			<key>kind</key>
+			<string>wallpaper</string>
+			<key>path</key>
+			<string>/Library/Desktop Pictures</string>
+		</dict>
+		<dict>
+			<key>kind</key>
+			<string>browser</string>
+			<key>path</key>
+			<string>/Applications/Firefox.app</string>
+		</dict>
+		<dict>
+			<key>kind</key>
+			<string>browser</string>
+			<key>path</key>
+			<string>/Applications/Safari.app</string>
+		</dict>
+		<dict>
+			<key>icon</key>
+			<string>hand.thumbsup</string>
+			<key>kind</key>
+			<string>message</string>
+			<key>message</key>
+			<dict>
+				<key>de</key>
+				<string>Die Konfiguration is abgeschlossen. Sie können diese Einstellungen wiederholen, indem sie die Setup Checklist Aop wieder starten. Viel Vergnügen mit Ihrem Mac!</string>
+				<key>en</key>
+				<string>The configuration is complete. You can re-apply these settings by running the Setup Checklist app again. Enjoy your Mac!</string>
+			</dict>
+			<key>title</key>
+			<dict>
+				<key>de</key>
+				<string>Danke schön</string>
+				<key>en</key>
+				<string>Thank you</string>
+				<key>fr</key>
+				<string>Merci</string>
+				<key>nl</key>
+				<string>Bedankt</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
