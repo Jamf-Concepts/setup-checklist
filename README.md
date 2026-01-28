@@ -2,8 +2,6 @@
 
 # Setup Checklist App from Jamf Concepts
 
-<img src="Checklist.png" alt="Setup Checklist icon" width="300" height="auto">
-
 ![minOS](https://img.shields.io/badge/macOS-15%2B-success)
 ![GitHub Release](https://img.shields.io/github/v/release/Jamf-Concepts/setup-checklist?color=green)
 ![GitHub Pre-Release](https://img.shields.io/github/v/release/Jamf-Concepts/setup-checklist?include_prereleases&label=pre-release)
@@ -54,5 +52,4 @@ There is also a [`#jamf-setup-checklist`](https://macadmins.slack.com/archives/C
 - there is no custom JSON to get a custom profile interface in Jamf Pro and there won't be until we are fairly certain the profile schema is stable
 - there is a very limited number of steps right now, we have plans for more, but your feedback on which kinds of steps you need is appreciated and will help us prioritize
 
-Please report issues, feature requests [as an issue.](/issues)
 
