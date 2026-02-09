@@ -4,6 +4,8 @@ Note that the Welcome app which displays the full screen welcome and language is
 
 Preference domain: `com.jamf.setupchecklist`
 
+You can find [an example plist file here](../Examples/com.jamf.setupchecklist.plist).
+
 #### Debug Mode
 
 key: `DEBUG`, boolean, optional, default: `false`
@@ -16,17 +18,34 @@ key: `icon`, string/[image source](ImageSources.md), [localizable](Localization.
 
 The icon used at the top of the sidebar. The size of the icon is 90x90 pixels. (180x180 @ 2x)
 
+```xml
+<key>icon</key>
+<string>name:Checklist</string>
+```
+
+![Setup Checklist top level keys](../Images/SetupChecklist-top-level-keys.png)
+
 #### Title
 
 key: `title`, string, [localizable](Localization.md), default: 'Setup Checklist'
 
 The title shown at the top of the sidebar, under the icon.
 
+```xml
+<key>title</key>
+<string>Checklist</string>
+```
+
 #### Message
 
 key: `message`, string/markdown, [localizable](Localization.md), default: 'Start here to set up your Mac.' (localized)
 
-Short 
+Short message shown under the icon and title in the sidebar.
+
+```xml
+<key>message</key>
+<string>Configure your new Mac!</string>
+```
 
 #### Accent Color
 
@@ -100,13 +119,15 @@ The identifier is used for logging and tracking which steps have already been co
 
 ### Keys Common to all Steps
 
+![Setup Checklist all steps keys](../Images/SetupChecklist-step-keys.png)
+
 All steps share these keys:
 
 #### Title
 
 key: `title`, string, [localizable](Localization.md), optional, default depends on the step kind
 
-The title of the shown in the sidebar and the step view.
+The title of the shown in the sidebar list and the step view.
 
 #### Message
 
@@ -163,9 +184,9 @@ key: `movie`, String, [localizable](Localization.md), optional
 
 When set, the app will load this movie and display at the top of the step area. When the `image` key is set, that will be displayed instead of a movie.
 
-The `movie` can be an absolute path to a local movie file or a `https`
+The `movie` can be an absolute path to a local movie file or a `https` url.
 
-The movie will loop (start over when it reaches the end) and is muted. Animated GIFs do not work as movies.
+The movie will loop (start over when it reaches the end) and is muted. Animated GIFs do _not_ work as movies.
 
 The size of the area available to the image will vary with window size and position, but 16:9 ratio landscape or square movies work well.
 
@@ -176,7 +197,7 @@ The size of the area available to the image will vary with window size and posit
 
 ### Window Position
 
-key: `windowPosition`, string, default: center
+key: `windowPosition`, string, default: `center`
 
 When this key is set to `left` or `right` the window will be moved to left or right edge of the screen for this step and the sidebar will be hidden.
 
@@ -195,7 +216,7 @@ Different kinds of steps may have more keys to configure their behavior.
 
 kind: `message`
 
-A Message step displays a title, a message and an icon.
+A Message step displays a title, a message and an icon. This is the most basic step and has no interaction.
 
 Example: 
 
@@ -205,6 +226,8 @@ Example:
   <string>symbol:hand.thumbsup</string>
   <key>identifier</key>
   <string>message-thankyou</string>
+  <key>image</key>
+  <string>/Library/Branding/BrandImage.png
   <key>kind</key>
   <string>message</string>
   <key>message</key>
@@ -220,11 +243,7 @@ kind: `wallpaper`
 
 This step presents a grid of images in the given folder path and allows the user to set one as their wallpaper on all attached screens.
 
-#### Folder of images
-
-key: `path`, string, optional, default: `/Library/Desktop Pictures`
-
-All image files in this folder will be presented.
+![Setup Checklist wallpaper step keys](../Images/SetupChecklist-wallpaper-keys.png)
 
 Example:
 
@@ -239,6 +258,13 @@ Example:
 </dict>
 ```
 
+#### Path to Folder of images
+
+key: `path`, string, optional, default: `/Library/Desktop Pictures`
+
+All image files in this folder will be presented.
+
+
 ### Open
 
 (kind: `open`)
@@ -247,18 +273,7 @@ Prompts the user to open an app, file or URL.
 
 When the `title` is unset it will be 'Open <name>…' where '<name>' is the name of the app that will open the item. When `icon` is unset, it will be the icon of the app that will open the item.
 
-#### Item
-
-key: `item`, string, required
-
-The item to open. The item can be an absolute path to a local file or app, e.g. `/Applications/Microsoft Company Portal.app`, or it can be a URL, e.g. `https://jamf.com` or `x-apple.systempreferences:com.apple.preference.security?Privacy_ScreenCapture`
-
-#### Open Automatically
-
-key: `openAutomatically`, boolean, default: false
-
-When enabled, the item will be opened automatically when the step is displayed.
-
+![Setup Checklist open step keys](../Images/SetupChecklist-open-keys.png)
 
 Examples:
 
@@ -291,44 +306,28 @@ Since the `icon` is not set this will show the calculator app icon. Since the `t
   <string>/System/Applications/Calculator.app</string>
   <key>kind</key>
   <string>open</string>
-</dict>
-```
-
-Open the Screen Sharing pane in System Settings:
-
-```xml
-<dict>
-  <key>icon</key>
-  <string>symbol:rectangle.on.rectangle.angled</string>
-  <key>iconColor</key>
-  <string>##green</string>
-  <key>identifier</key>
-  <string>screensharing</string>
-  <key>image</key>
-  <string>/System/Applications/Utilities/Screen Sharing.app</string>
-  <key>item</key>
-  <string>x-apple.systempreferences:com.apple.preference.security?Privacy_ScreenCapture</string>
-  <key>kind</key>
-  <string>open</string>
-  <key>message</key>
-  <dict>
-    <key>de</key>
-    <string>Aktiviere die Aufnahme von BIldschirm &amp; Systemaudio für Microsoft Teams</string>
-    <key>en</key>
-    <string>Enable Screen &amp; System Audio Recording for Microsoft Teams</string>
-    <key>fr</key>
-    <string>Activer l'enregistrement de l'écran et des sons du système pour Microsoft Teams</string>
-    <key>nl</key>
-    <string>Scherm- en systeemaudio-opname inschakelen voor Microsoft Teams</string>
-  </dict>
   <key>openAutomatically</key>
   <true/>
-  <key>title</key>
-  <string>Screen &amp; System Audio Recording</string>
-  <key>windowPosition</key>
-  <string>right</string>
 </dict>
 ```
+
+#### Item
+
+key: `item`, string, required
+
+The item to open. The item can be an absolute path to a local file or app, e.g. `/Applications/Microsoft Company Portal.app`, or it can be a URL, e.g. `https://jamf.com` or `x-apple.systempreferences:com.apple.preference.security?Privacy_ScreenCapture`
+
+#### Open Automatically
+
+key: `openAutomatically`, boolean, default: false
+
+When enabled, the item will be opened automatically when the step is displayed.
+
+#### Hide
+
+key: `hide`, boolean: default: false
+
+Launches the app or URL, but hides the app (or keeps the app in the background). This is useful when you need to launch a process that should not be visible to the user.
 
 ### Default Browser
 
@@ -336,11 +335,7 @@ kind: `browser`
 
 Prompts the user to set this browser as the default. The user cannot continue without approving the browser choice. When no `image` is given, the target browser's app icon will be used.
 
-#### Browser Identifier
-
-(key: `identifier`, String, required)
-
-The app bundle identifier for the browser, e.g. `org.mozilla.firefox`. When the app cannot be found when Welcome app runs (i.e. the browser is not installed yet, this step will be skipped)
+![Setup Checklist browser step keys](../Images/SetupChecklist-browser-keys.png)
 
 Example: 
 
@@ -357,19 +352,11 @@ Example:
 </dict>
 ```
 
-You can determine the identifier for an app with:
+#### Bundle Identifier
 
-```shell
-$ osascript -e 'id of app "Firefox"'
-org.mozilla.firefox
-```
+(key: `bundle-id`, String, required)
 
-or
-
-```shell
-$ mdls /Applications/Firefox.app -name kMDItemCFBundleIdentifier
-kMDItemCFBundleIdentifier = "org.mozilla.firefox"
-```
+The app [bundle identifier](../Extras/BundleIdentifiers.md) for the browser, e.g. `org.mozilla.firefox`. When the app cannot be found when Welcome app runs (i.e. the browser is not installed yet, this step will be skipped)
 
 Common browser identifiers:
 
@@ -379,4 +366,87 @@ Common browser identifiers:
 |Firefox            |org.mozilla.firefox  |
 |Google Chrome      |com.google.Chrome    |
 |Microsoft Edge     |com.microsoft.edgemac|
+
+
+### Screen Recording/Sharing
+
+kind: `screensharing`
+
+This step will open the Screen Recording pane in Settings > Privacy & Security and monitor the state of the switches for the designated apps until all are enabled.
+
+This step works well with a `windowPosition` setting of `left` or `right`
+
+![Setup Checklist browser step keys](../Images/SetupChecklist-screensharing-keys.png)
+
+Example: 
+
+```xml
+<dict>
+  <key>bundle-id</key>
+  <array>
+    <string>com.microsoft.teams2</string>
+    <string>us.zoom.xos</string>
+  </array>
+  <key>icon</key>
+  <string>symbol:rectangle.on.rectangle.angled</string>
+  <key>identifier</key>
+  <string>screensharing</string>
+  <key>kind</key>
+  <string>screensharing</string>
+  <key>message</key>
+  <string>Enable Screen &amp; System Audio Recording for Microsoft Teams</string>
+  <key>openAutomatically</key>
+  <true/>
+  <key>title</key>
+  <string>Configure Screen Sharing</string>
+  <key>windowPosition</key>
+  <string>right</string>
+</dict>
+```
+
+#### Bundle Identifier
+
+(key: `bundle-id`, String or array of strings, required)
+
+The app [bundle identifier](../Extras/BundleIdentifiers.md) or identifiers for the application or tool which should be enabled for Screen Recording.
+
+When no app with the bundle-identfier is found (usually the app is not installed yet) then it will be shown with a "not installed" label, but the user can proceed. When none of the apps are installed, this step will be skipped. The user can launch the app later, after the app(s) are installed and this step will show status correctly then.
+
+You can give a single bundle identifier with a `string`:
+
+```xml
+<key>bundle-id</key>
+<string>com.microsoft.teams2</string>
+```
+
+Or you can provide multiple identifiers with an array of strings:
+
+```xml
+<key>bundle-id</key>
+<array>
+  <string>com.microsoft.teams2</string>
+  <string>us.zoom.xos</string>
+</array>
+```
+
+Common identifiers for apps requiring Screen Recording access:
+
+|Browser            |identifier           |
+|-------------------|---------------------|
+|zoom.us            |us.zoom.xos          |
+|Microsoft Teams    |com.microsoft.teams2 |
+
+
+#### Open Automatically
+
+key: `openAutomatically`, boolean, default: false
+
+When enabled, the Screen Recording pane in System Settings app will be opened automatically when the step is displayed.
+
+```xml
+<key>openAutomatically</key>
+<true/>
+```
+
+
 
