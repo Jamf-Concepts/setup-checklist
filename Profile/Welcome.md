@@ -4,6 +4,10 @@ Note that the Setup Checklist is controlled by [a separate preference domain.](S
 
 Preference domain: `com.jamf.setup.welcome`
 
+![Welcome screen keys](../Images/Welcome-keys.png)
+
+You can find [an example plist file here](../Examples/com.jamf.setup.welcome.plist).
+
 #### Debug Mode
 
 key: `DEBUG`, boolean, optional, default: Setup Checklist `DEBUG` value or `false`
@@ -31,28 +35,6 @@ Skip Welcome screen (and language chooser)
 
 ```xml
 <key>showWelcome</key>
-<false/>
-```
-
-#### Show Languages
-
-key; `showWelcome`, boolean, default: true
-
-When set to `false` the language chooser will not be shown in the bottom leading corner.
-
-Examples: 
-
-Show "Change Language":
-
-```xml
-<key>showLanguages</key>
-<true/>
-``` 
-
-Do not show "Change Language"
-
-```xml
-<key>showLanguages</key>
 <false/>
 ```
 
