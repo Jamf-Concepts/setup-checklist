@@ -14,6 +14,8 @@ You can launch Setup Checklist with `jamf-setupchecklist:`
 
 ## Go to a specific step
 
-You can tell Setup Checklist to launch and go to a specific step, determined by the step's identifier. Example: `jamf-setupchecklist:/goto/browser-edge
+You can tell Setup Checklist to launch and go to a specific step, determined by the step's identifier.
+
+Example: `jamf-setupchecklist:goto/browser-edge
 
 

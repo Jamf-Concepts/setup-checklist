@@ -78,6 +78,19 @@ Example:
 <true/>
 ```
 
+#### Open When Finished
+
+key: `openWhenFinished`, String, optional
+
+When set, this item will be opened when the user clicks "Done" on the last step and Setup Checklist quits. This item can be written as an absolute path, e.g. `/Applications/Self Service+.app`, a URL scheme, e.g. `jamfselfservice:`, or an app bundle identifer, e.g. `com.jamf.selfserviceplus`.
+
+Example:
+
+```xml
+<key>openWhenFinished</key>
+<string>com.jamf.selfserviceplus</string>
+```
+
 #### Show Icon in Dock
 
 key: `showIconInDock`, Boolean, optional, default: `true`
@@ -315,7 +328,7 @@ Since the `icon` is not set this will show the calculator app icon. Since the `t
 
 key: `item`, string, required
 
-The item to open. The item can be an absolute path to a local file or app, e.g. `/Applications/Microsoft Company Portal.app`, or it can be a URL, e.g. `https://jamf.com` or `x-apple.systempreferences:com.apple.preference.security?Privacy_ScreenCapture`
+The item to open. The item can be an absolute path to a local file or app, e.g. `/Applications/Microsoft Company Portal.app`, or it can be a URL, e.g. `https://jamf.com` or `x-apple.systempreferences:com.apple.preference.security?Privacy_ScreenCapture`, or it can be an app bundle identifier, e.g. `com.jamf.selfserviceplus`
 
 #### Open Automatically
 

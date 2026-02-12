@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+   "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1">
+  <dict>
+    <key>PayloadUUID</key>
+    <string>2B97D645-ABDE-44E5-8B8B-301BDF34E8A2</string>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadOrganization</key>
+    <string>Armin Briegel</string>
+    <key>PayloadIdentifier</key>
+    <string>2B97D645-ABDE-44E5-8B8B-301BDF34E8A2</string>
+    <key>PayloadDisplayName</key>
+    <string>Setup Checklist - PPPC and login</string>
+    <key>PayloadDescription</key>
+    <string />
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+    <key>PayloadEnabled</key>
+    <true />
+    <key>PayloadRemovalDisallowed</key>
+    <true />
+    <key>PayloadScope</key>
+    <string>System</string>
+    <key>PayloadContent</key>
+    <array>
+      <dict>
+        <key>PayloadUUID</key>
+        <string>6819A836-793F-4408-ADA7-55AAE949F4C4</string>
+        <key>PayloadType</key>
+        <string>com.apple.TCC.configuration-profile-policy</string>
+        <key>PayloadOrganization</key>
+        <string>Armin Briegel</string>
+        <key>PayloadIdentifier</key>
+        <string>6819A836-793F-4408-ADA7-55AAE949F4C4</string>
+        <key>PayloadDisplayName</key>
+        <string>PRIVACY_PREFERENCES_POLICY_CONTROL</string>
+        <key>PayloadDescription</key>
+        <string />
+        <key>PayloadVersion</key>
+        <integer>1</integer>
+        <key>PayloadEnabled</key>
+        <true />
+        <key>Services</key>
+        <dict>
+          <key>SystemPolicyAllFiles</key>
+          <array>
+            <dict>
+              <key>Identifier</key>
+              <string>com.jamf.setupchecklist</string>
+              <key>CodeRequirement</key>
+              <string>anchor apple generic and identifier "com.jamf.setupchecklist" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "483DWKW443")</string>
+              <key>IdentifierType</key>
+              <string>bundleID</string>
+              <key>StaticCode</key>
+              <false />
+              <key>Allowed</key>
+              <true />
+            </dict>
+          </array>
+        </dict>
+      </dict>
+      <dict>
+        <key>PayloadDisplayName</key>
+        <string>Managed Login Items</string>
+        <key>PayloadIdentifier</key>
+        <string>13887830-5198-4FF4-9E70-7B82182D9F13</string>
+        <key>PayloadOrganization</key>
+        <string>JAMF Software</string>
+        <key>PayloadType</key>
+        <string>com.apple.servicemanagement</string>
+        <key>PayloadUUID</key>
+        <string>13887830-5198-4FF4-9E70-7B82182D9F13</string>
+        <key>PayloadVersion</key>
+        <integer>1</integer>
+        <key>Rules</key>
+        <array>
+          <dict>
+            <key>RuleType</key>
+            <string>BundleIdentifier</string>
+            <key>RuleValue</key>
+            <string>com.jamf.setupchecklist</string>
+          </dict>
+        </array>
+      </dict>
+    </array>
+  </dict>
+</plist>
