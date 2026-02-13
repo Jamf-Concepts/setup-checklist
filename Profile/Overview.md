@@ -23,13 +23,30 @@ The main configuration in the Setup Checklist app are the [steps](SetupChecklist
 
 There are different 'kinds' of steps:
 
-- [message](SetupChecklist.md#message-3)
+- [message](SetupChecklist.md#message-2)
 - [open](SetupChecklist.md#open)
 - [wallpaper](SetupChecklist.md#wallpaper)
-- [browser](SetupChecklist.md#browser)
-- [screensharing](SetupChecklist.md#screensharing)
+- [browser](SetupChecklist.md#default-browser)
+- [screensharing](SetupChecklist.md#screen-recordingsharing)
 
 And we are planning to add more going forward.
+
+## Managed Login Items and Privacy Preferences Policy Control
+
+Setup Checklist requires the following exemptions in privacy, which you should deploy with a PPPC profile:
+
+- SystemPolicyAllFiles (Full disk access): required for `screensharing` step
+
+The app identifier is `com.jamf.setupchecklist` and the code requirement is:
+
+```
+anchor apple generic and identifier "com.jamf.setupchecklist" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "483DWKW443")
+```
+
+You also want to pre-approve the launch agent. Add a 'Managed Login Items' payload to the profile with the rule type 'Bundle Identifier', rule value `com.jamf.setupchecklist` and team identifier `483DWKW443`.
+
+You can find a [mobileconfig file with these two payloads](../Examples/SetupChecklistPPPCLogin.mobileconfig) in the [Examples](../Examples).
+
 
 ## Workflow
 

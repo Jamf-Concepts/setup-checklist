@@ -38,20 +38,18 @@ There is also a [`#jamf-setup-checklist`](https://macadmins.slack.com/archives/C
   - [Overview](Profile/Overview.md)
   - [Setup Checklist](Profile/SetupChecklist.md)
   - [Welcome screen and language chooser](Profile/Welcome.md)
-  - [Image Sources](Profile/ImageSources.md)
-  - [Defining Colors](Profile/DefiningColors.md)
-  - [Localization](Profile/Localization.md)
 - Extras
   - [Logging](Extras/Logging.md)
   - [Telemetry](Extras/Telemetry.md)
   - [Bundle Identifiers](Extras/BundleIdentifiers.md)
   - [URL Scheme](Extras/URLScheme.md)
+  - [Command Line Tool](Extras/CommandLineTool.md)
 
 ## Known Issues (and Plans)
 
+- there is a very limited number of steps right now, we have plans for more, but your feedback on which kinds of steps you need is appreciated and will help us prioritize
 - currently, Setup Checklist only works with Jamf Pro, we want to extend that Jamf School at some time
 - `background` key in Welcome screen only allows local files
 - there is no custom JSON to get a custom profile interface in Jamf Pro and there won't be until the profile schema is stable
-- there is a very limited number of steps right now, we have plans for more, but your feedback on which kinds of steps you need is appreciated and will help us prioritize
-
-
+- icons determined for `open` steps may just show a spinner. workaround: hard code the `icon` key
+- there is known issue in Self Service Plus where launching an action through a URL stalls
