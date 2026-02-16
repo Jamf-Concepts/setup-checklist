@@ -1,5 +1,16 @@
 #  Setup Checklist - Change Log
 
+## v0.2.3
+
+(2026-02-16)
+
+- icons in open step show correctly instead of an indeterminate spinner
+- screensharing step
+  - closes settings app on continue
+  - `image`, `icon` or `movie` is shown above target app(s)
+- minor UI fixes
+
+
 ## v0.2.2
 
 (2026-02-12)

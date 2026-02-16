@@ -51,5 +51,4 @@ There is also a [`#jamf-setup-checklist`](https://macadmins.slack.com/archives/C
 - currently, Setup Checklist only works with Jamf Pro, we want to extend that Jamf School at some time
 - `background` key in Welcome screen only allows local files
 - there is no custom JSON to get a custom profile interface in Jamf Pro and there won't be until the profile schema is stable
-- icons determined for `open` steps may just show a spinner. workaround: hard code the `icon` key
 - there is known issue in Self Service Plus where launching an action through a URL stalls
