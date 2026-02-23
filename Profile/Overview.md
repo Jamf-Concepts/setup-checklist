@@ -28,6 +28,8 @@ There are different 'kinds' of steps:
 - [wallpaper](SetupChecklist.md#wallpaper)
 - [browser](SetupChecklist.md#default-browser)
 - [screensharing](SetupChecklist.md#screen-recordingsharing)
+- [script](SetupChecklist.md#script)
+  - [detailed example implementation](ScriptStep.md)
 
 And we are planning to add more going forward.
 

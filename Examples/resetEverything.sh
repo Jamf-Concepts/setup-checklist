@@ -16,7 +16,7 @@ desktoppr=/usr/local/bin/desktoppr
 utiluti=/usr/local/bin/utiluti
 
 echo "clear completed steps"
-defaults delete com.jamf.setupchecklist completedSteps
+defaults delete com.jamf.setupchecklist statuses
 
 echo "clear welcome app completed"
 defaults delete com.jamf.setup.welcome completed

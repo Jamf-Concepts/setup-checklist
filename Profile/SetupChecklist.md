@@ -419,7 +419,7 @@ Example:
 
 #### Bundle Identifier
 
-(key: `bundle-id`, String or array of strings, required)
+key: `bundle-id`, String or array of strings, required
 
 The app [bundle identifier](../Extras/BundleIdentifiers.md) or identifiers for the application or tool which should be enabled for Screen Recording.
 
@@ -461,5 +461,96 @@ When enabled, the Screen Recording pane in System Settings app will be opened au
 <true/>
 ```
 
+### Script
 
+kind: `script`
 
+This is a special step where you can configure the behavior in each phase of the step's life cycle with custom scripts, provided in the profile.
+
+You can find [a detailed discussion of an example implementation here](ScriptStep.md).
+
+The `script` step is based on the `open` step, so all those keys are available here as well. In addition you get a number of keys to provide scripts to influence the step's behavior. All keys are optional and default behavior is described in each script description.
+
+#### Lifecycle
+
+App launches/Step is loaded:
+
+- `prepareScript`
+- `updateStatusScript`
+- when status is set to `completed`, or `updatedStatusScript` returns success, Step is sorted under completed
+
+Script is selected/activated:
+
+- `prepareScript`
+  - `updateStatusScript`
+- `activateScript`
+- when `openAutomatically` is set, action button is 'clicked' automatically at activation
+
+Action Button clicked:
+
+- `actionButtonScript`
+- starts polling cycle which calls `updateStatusScript` repeatedly
+
+Status set to `completed`:
+
+- Continue button enables, action button disables
+
+Continue Button clicked:
+
+- `willContineScript`
+
+#### Prepare Script
+
+key: `prepareScript`, String, optional
+
+This script will be executed when the app prepares the step. Preparation occurs when the step is loaded _and_ everytime just before the step displayed. You can use this step to evaluate if all the resources for the step are present, if there are missing resources, you should set the step's status to `error` with
+
+```
+setupchecklist status <identifier> error
+```
+
+**Default behavior:** After prepare, Setup Checklist will run the `updateStatusScript` (when present) which should update the status based on facts on the system, so you don't have to check for those facts redundantly in the `prepareScript`
+
+You can also use the `prepareScript` to set dynamically set `title`, `icon`, etc., though generally it is easier to set those with values in the profile.
+
+If an `item` value is set for this step, Setup Checklist will use this to determine default icon and title.
+
+#### Activate Script
+
+key: `activateScript`, String, optional
+
+This script will be run immediately before showing the step in the main area, after the `prepareScript`.
+
+**Default behavior:** When the step has an `item` and `openAutomatically` is set Setup Checklist will open the item in this phase. 
+
+If you have a more complicated system that you want launch automatically when the step is activated/shown, you can do so here.
+
+#### Action Button Script
+
+key: `actionButtonScript`, String, optional
+
+This script is executed when the user clicks the action button or `openAutomatically` is set which sets of this script when the step is shown.
+
+**Default behavior:** When an `item` is set, that item will be opened. The Continue will not be automatically enabled, you need to explicitly do so. When an `updateStatusScript` is set, this will also setup a loop in which the `updateStatusScript` is called once per second to poll the status until it returns success.
+
+#### Update Status Script
+
+key: `updateStatusScript`, String, optional
+
+The `updateStatusScript` behaves differently than other scripts. This script is called at different times during a step's lifecycle. It should evaluate the facts on the system and return and exit code of `0` (success) when the fact match the desired outcome and and exit code of `1` (failure) when the don't.
+
+The updateStatusScript is evaluated at the end of preparation (regardless of whether a `prepareScript` script exists). If the `updateScript` returns `0/success here, the step is immediately marked as completed and not shown in the normal workflow, unless the user explicitly clicks on it.
+
+If an `updateStatusScript` exists, clicking the action button will start a polling cycle that evaluates the `updateStatusScript` _once per second_. For this reason, the update status script needs to be small and fast. The idea here is that the polling cycle monitors the desired outcome and sets the step to completed when that occurs.
+
+When the `updateStatusScript` returns an exit code of `0`/success, the step's status will set to `completed`. Which will enable the 'Continue' button.
+
+**Default behavior:** None
+
+#### Will Continue Script
+
+key: `willContinueScript`, String, optional
+
+This script is called when the user clicks the 'Continue' button. Use this script to 'clean up' things created or launched in activate phase or actionButtonScript. For example, you can quit an app that was launched.
+
+**Default behavior:** None

@@ -50,5 +50,5 @@ There is also a [`#jamf-setup-checklist`](https://macadmins.slack.com/archives/C
 - there is a very limited number of steps right now, we have plans for more, but your feedback on which kinds of steps you need is appreciated and will help us prioritize
 - currently, Setup Checklist only works with Jamf Pro, we want to extend that Jamf School at some time
 - `background` key in Welcome screen only allows local files
-- there is no custom JSON to get a custom profile interface in Jamf Pro and there won't be until the profile schema is stable
-- there is known issue in Self Service Plus where launching an action through a URL stalls
+- there is no custom JSON to get a custom profile interface in Jamf Pro and we are not planning to provide one until the profile schema is stable
+- there is known issue in Self Service Plus where launching an action through a URL stalls in Self Service Plus

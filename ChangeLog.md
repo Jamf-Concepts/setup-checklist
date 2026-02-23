@@ -1,5 +1,22 @@
 #  Setup Checklist - Change Log
 
+
+## v0.3.0
+
+(2026-02-23)
+
+- new step kind: shell
+- improved state observance
+- cli tool
+  - `status`: get and change status of a step
+  - `step`: change values of a step
+  - `quit`: quit Setup Checklist
+- urlscheme: change values of a step
+- changed status tracking and storage logic
+- fixed a crashing bug when the window resizes while a movie is playing
+- icons update correctly on change
+- no longer displays steps with status 'error'
+
 ## v0.2.3
 
 (2026-02-16)

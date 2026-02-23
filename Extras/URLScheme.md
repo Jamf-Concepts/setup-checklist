@@ -12,10 +12,20 @@ $ open "jamf-setupchecklist:"
 
 You can launch Setup Checklist with `jamf-setupchecklist:`
 
-## Go to a specific step
+## Go to a Specific Step
 
 You can tell Setup Checklist to launch and go to a specific step, determined by the step's identifier.
 
 Example: `jamf-setupchecklist:goto/browser-edge
 
+## Change Status
 
+You can change the `completed` status of a step with this call.
+
+`jamf-setupchecklist:step/browser-edge?status=completed`
+
+`jamf-setupchecklist:step/browser-edge?status=suggested`
+
+Note that many will recalculate the completed status when the step is loaded and right before it is shown, so manually overwriting the completed status may have limited effect.
+
+Valid values are `completed`, `suggested`, `error`
