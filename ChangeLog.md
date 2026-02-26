@@ -1,5 +1,16 @@
 #  Setup Checklist - Change Log
 
+## v0.3.1
+
+(2026-02-26)
+
+- new step: `defaultApp`, see docs for details
+- updated to Swift version 6.2, now fully uses "approachable concurrency"
+- disabled region setting in Welcome app as it always set region to "World"
+
+### Deprecations
+
+- `browser` step is deprecated and will be removed (soon!) from a future update. Use `defaultApp` with a `urlScheme` of `http` instead.
 
 ## v0.3.0
 

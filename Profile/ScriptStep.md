@@ -139,7 +139,7 @@ The `updateStatusScript` is a key piece of the `script` step and works slightly 
 
 The `updateStatusScript` will be called after the `prepareScript`. When it returns success, the step will be marked as completed immediately and not presented to the user. (The user can still click on it in the list to repeat the process.) When it returns a non-zero value, the step will remain in the 'suggested section.'
 
-When an `updateStatusScript` exists, Setup Manager will start observing by running the `updateStatusScript` once per second, when the action button is clicked. For that reason, it should not have complicated, long running logic.
+When an `updateStatusScript` exists, Setup Checklist will start observing by running the `updateStatusScript` once per second, when the action button is clicked. For that reason, it should not have complicated, long running logic.
 
 Not all `script` steps will require an `updateStatusScript` you can also use logic in the `activateScript` or `buttonActionScript` to update the status of the step. If you don't update the status of the script to `completed` or `canContinue`, the 'Continue' button will not activate and the user will be stuck.
 

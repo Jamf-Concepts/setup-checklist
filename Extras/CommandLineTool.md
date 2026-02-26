@@ -48,7 +48,21 @@ $ setupchecklist status <identifier> <newStatus>
 
 Possible status values are `suggested`, `error`, `canContinue`, and `completed`
 
-## Update step values
+## Get and update step values
+
+You can read a value of a step with:
+
+```shell
+$ setupchecklist step <identifier> <key>
+```
+
+e.g.
+```shell
+$ setupchecklist step thankyou-message image
+symbol:hands.and.sparkles
+```
+
+
 
 You can update values of a step with
 
@@ -59,5 +73,20 @@ $ setupchecklist step <identifier> <key> <newValue>
 e.g.
 
 ```shell
-$ setupchecklist step browser-edge icon "/Applications/Microsoft Edge.app"
+$ setupchecklist step browser-edge image "/Applications/Microsoft Edge.app"
 ```
+
+The values you can use are: 
+
+- `title`
+- `icon`
+- `image`
+- `iconColor`
+- `windowPosition`
+- `image`
+- `movie`
+- `accentColor`
+- `item`
+- `actionButtonLabel`
+
+(Note: not all combinations haven been tested yet. Please file issues, when something doesn't work as expected.)

@@ -4,7 +4,7 @@ Colors are defined with strings in the profile.
 
 ## Hex Codes
 
-When the icon source starts with `#`, Setup Manager will interpret it as a hex color.
+When the icon source starts with `#`, Setup Checklist will interpret it as a hex color.
 
 You can use hex color notation with three digits, e.g `#0f0` or six digits, e.g. `#f900a2`. (capitalization of the hex digits is ignored)
 

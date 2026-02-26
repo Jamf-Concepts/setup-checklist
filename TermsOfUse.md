@@ -8,7 +8,7 @@ This application is an add-on utility that may enhance your use of Jamf Pro. How
 
 We send an anonymous event notification to our monitoring system whenever the app is launched. The collected data is used to measure the project's adoption and helps us prioritize future development.
 
-The data format of the event record is as follows: {"uuid": "<uuid>", "event": "Setup Manager - Launch"}. The "uuid" value is randomly-generated. The application will not collect or transmit information about you, your organization, your users, or anything related to the device being used or the data it contains.
+The data format of the event record is as follows: {"uuid": "<uuid>", "event": "Setup Checklist - Launch"}. The "uuid" value is randomly-generated. The application will not collect or transmit information about you, your organization, your users, or anything related to the device being used or the data it contains.
 
 ## Testing
 
