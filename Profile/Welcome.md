@@ -75,7 +75,7 @@ key: `background`, string, optional, default: default system background image
 
 Local path to an image that is used as the background for the welcome screen.
 
-(**Note:** this does not use the [image source](ImageSource.md) syntax yet.)
+(**Note:** this does not use the [image source](ImageSources.md) syntax yet.)
 
 Example:
 

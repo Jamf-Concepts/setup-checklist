@@ -9,7 +9,7 @@
 	<key>icon</key>
 	<string>name:Checklist</string>
 	<key>message</key>
-	<string>Configure your new Mac!</string>
+	<string>Let's configure your new Mac!</string>
 	<key>showIconInDock</key>
 	<true/>
 	<key>steps</key>
@@ -24,7 +24,27 @@
 			<key>kind</key>
 			<string>message</string>
 			<key>message</key>
-			<string>Just a _few_ more steps to configure your new Mac.</string>
+			<dict>
+				<key>de</key>
+				<string>Nur noch ein paar Schritte, um Ihren neuen Mac zu konfigurieren.</string>
+				<key>en</key>
+				<string>Just a few more steps to configure your new Mac.</string>
+				<key>fr</key>
+				<string>Juste quelques étapes de plus pour configurer votre nouveau Mac.</string>
+				<key>nl</key>
+				<string>Nog een paar stappen om je nieuwe Mac te configureren.</string>
+			</dict>
+			<key>title</key>
+			<dict>
+				<key>de</key>
+				<string>Willkommen bei Setup Checklist</string>
+				<key>en</key>
+				<string>Welcome to Setup Checklist</string>
+				<key>fr</key>
+				<string>Bienvenue à Setup Checklist</string>
+				<key>nl</key>
+				<string>Welkom bij Setup Checklist</string>
+			</dict>
 		</dict>
 		<dict>
 			<key>identifier</key>
@@ -32,21 +52,101 @@
 			<key>kind</key>
 			<string>wallpaper</string>
 			<key>message</key>
-			<string>Please choose a wallpaper from our list of branded images. You can always change it later.</string>
-			<key>path</key>
-			<string>/Library/Desktop Pictures/</string>
+			<dict>
+				<key>de</key>
+				<string>Bitte wählen Sie ein Hintergrundbild aus unserer Liste. Sie können es später jederzeit ändern.</string>
+				<key>en</key>
+				<string>Please choose a wallpaper from our list of branded images. You can always change it later.</string>
+				<key>fr</key>
+				<string>Veuillez choisir un fond d'écran dans notre liste d'images. Vous pouvez toujours le changer plus tard.</string>
+				<key>nl</key>
+				<string>Kies een achtergrond uit onze lijst met afbeeldingen. Je kunt het altijd later veranderen.</string>
+				<key>path</key>
+				<string>/Library/Desktop Pictures/</string>
+			</dict>
 			<key>title</key>
-			<string>Choose a Wallpaper</string>
+			<dict>
+				<key>de</key>
+				<string>Hintergrundbild wählen</string>
+				<key>en</key>
+				<string>Choose a wallpaper</string>
+				<key>fr</key>
+				<string>Choisir un fond d'écran</string>
+				<key>nl</key>
+				<string>Kies een achtergrond</string>
+			</dict>
 		</dict>
 		<dict>
 			<key>bundle-id</key>
 			<string>com.microsoft.edgemac</string>
+			<key>icon</key>
+			<string>symbol:network</string>
 			<key>identifier</key>
-			<string>browser-edge</string>
+			<string>default-app-browser</string>
 			<key>kind</key>
-			<string>browser</string>
+			<string>defaultApp</string>
+			<key>mayKeepCurrent</key>
+			<false/>
 			<key>message</key>
-			<string>Confirm Microsoft Edge as default browser</string>
+			<dict>
+				<key>de</key>
+				<string>Microsoft Edge als Standardbrowser bestätigen.</string>
+				<key>en</key>
+				<string>Confirm Microsoft Edge as default browser.</string>
+				<key>fr</key>
+				<string>Confirmer Microsoft Edge comme navigateur par défaut.</string>
+				<key>nl</key>
+				<string>Bevestig Microsoft Edge als standaardbrowser.</string>
+			</dict>
+			<key>title</key>
+			<dict>
+				<key>de</key>
+				<string>Standardbrowser bestätigen</string>
+				<key>en</key>
+				<string>Confirm Default Browser</string>
+				<key>fr</key>
+				<string>Confirmer Navigateur par défaut</string>
+				<key>nl</key>
+				<string>Standaardbrowser bevestigen</string>
+			</dict>
+			<key>urlScheme</key>
+			<string>http</string>
+		</dict>
+		<dict>
+			<key>bundle-id</key>
+			<string>com.microsoft.Outlook</string>
+			<key>icon</key>
+			<string>symbol:mail</string>
+			<key>identifier</key>
+			<string>default-app-mail</string>
+			<key>kind</key>
+			<string>defaultApp</string>
+			<key>mayKeepCurrent</key>
+			<true/>
+			<key>message</key>
+			<dict>
+				<key>de</key>
+				<string>Wähle deine bevorzugte app für Email.</string>
+				<key>en</key>
+				<string>Choose your preferred app for email.</string>
+				<key>fr</key>
+				<string>Choisissez votre application préférée pour le courrier électronique.</string>
+				<key>nl</key>
+				<string>Kies uw favoriete app voor e-mail.</string>
+			</dict>
+			<key>title</key>
+			<dict>
+				<key>de</key>
+				<string>Email App wählen</string>
+				<key>en</key>
+				<string>Choose Mail App</string>
+				<key>fr</key>
+				<string>Choisir l'application Mail</string>
+				<key>nl</key>
+				<string>Kies de Mail-app</string>
+			</dict>
+			<key>urlScheme</key>
+			<string>mailto</string>
 		</dict>
 		<dict>
 			<key>bundle-id</key>
@@ -74,7 +174,16 @@
 			<key>openAutomatically</key>
 			<true/>
 			<key>title</key>
-			<string>Configure Screen Sharing</string>
+			<dict>
+				<key>de</key>
+				<string>Bildschirmfreigabe</string>
+				<key>en</key>
+				<string>Screen Sharing</string>
+				<key>fr</key>
+				<string>Partage d’écran</string>
+				<key>nl</key>
+				<string>Schermdeling</string>
+			</dict>
 			<key>windowPosition</key>
 			<string>right</string>
 		</dict>

@@ -1,5 +1,33 @@
 #  Setup Checklist - Change Log
 
+## v0.3.1
+
+(2026-02-26)
+
+- new step: `defaultApp`, see docs for details
+- updated to Swift version 6.2, now fully uses "approachable concurrency"
+- disabled region setting in Welcome app as it always set region to "World"
+
+### Deprecations
+
+- `browser` step is deprecated and will be removed (soon!) from a future update. Use `defaultApp` with a `urlScheme` of `http` instead.
+
+## v0.3.0
+
+(2026-02-23)
+
+- new step kind: shell
+- improved state observance
+- cli tool
+  - `status`: get and change status of a step
+  - `step`: change values of a step
+  - `quit`: quit Setup Checklist
+- urlscheme: change values of a step
+- changed status tracking and storage logic
+- fixed a crashing bug when the window resizes while a movie is playing
+- icons update correctly on change
+- no longer displays steps with status 'error'
+
 ## v0.2.3
 
 (2026-02-16)

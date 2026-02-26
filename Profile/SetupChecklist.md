@@ -1,6 +1,6 @@
 #  Configuration Profile - Setup Checklist
 
-Note that the Welcome app which displays the full screen welcome and language is controlled by [a separate preference domain.](ConfigurationProfile-Welcome.md)
+Note that the Welcome app which displays the full screen welcome and language is controlled by [a separate preference domain.](Welcome.md)
 
 Preference domain: `com.jamf.setupchecklist`
 
@@ -14,7 +14,7 @@ When set to true, the app will not actually perform any steps that will change a
 
 #### Icon
 
-key: `icon`, string/[image source](ImageSources.md), [localizable](Localization.md), default: Setup Checklist app icon
+key: `icon`, string/[image source](../Extras/ImageSources.md), [localizable](../Extras/Localization.md), default: Setup Checklist app icon
 
 The icon used at the top of the sidebar. The size of the icon is 90x90 pixels. (180x180 @ 2x)
 
@@ -27,7 +27,7 @@ The icon used at the top of the sidebar. The size of the icon is 90x90 pixels. (
 
 #### Title
 
-key: `title`, string, [localizable](Localization.md), default: 'Setup Checklist'
+key: `title`, string, [localizable](../Extras/Localization.md), default: 'Setup Checklist'
 
 The title shown at the top of the sidebar, under the icon.
 
@@ -38,7 +38,7 @@ The title shown at the top of the sidebar, under the icon.
 
 #### Message
 
-key: `message`, string/markdown, [localizable](Localization.md), default: 'Start here to set up your Mac.' (localized)
+key: `message`, string/[markdown](../Extras/Markdown.md), [localizable](../Extras/Localization.md), default: 'Start here to set up your Mac.' (localized)
 
 Short message shown under the icon and title in the sidebar.
 
@@ -49,9 +49,9 @@ Short message shown under the icon and title in the sidebar.
 
 #### Accent Color
 
-key: `accentColor`, String/[color definition](DefiningColors.md), optional, default: system accent color
+key: `accentColor`, String/[color definition](../Extras/DefiningColors.md), optional, default: system accent color
 
-Sets the accent color for buttons, progress bar, SF Symbols, and other UI elements. Use this to match branding. See ['Defining Colors'](#defining-colors) for details.
+Sets the accent color for buttons, progress bar, SF Symbols, and other UI elements. Use this to match branding. See ['Defining Colors'](../Extras/DefiningColors.md) for details.
 
 Examples:
 
@@ -138,19 +138,19 @@ All steps share these keys:
 
 #### Title
 
-key: `title`, string, [localizable](Localization.md), optional, default depends on the step kind
+key: `title`, string, [localizable](../Extras/Localization.md), optional, default depends on the step kind
 
 The title of the shown in the sidebar list and the step view.
 
 #### Message
 
-key: `message`, string/markdown, [localizable](Localization.md), optional
+key: `message`, string/[markdown](../Extras/Markdown.md), [localizable](../Extras/Localization.md), optional
 
 A longer description of the step. This should contain some instructions of what needs to done.
 
 #### Icon
 
-key: `icon`, string/[image source](ImageSources.md), [localizable](Localization.md), optional, default depends on the step kind
+key: `icon`, string/[image source](../Extras/ImageSources.md), [localizable](../Extras/Localization.md), optional, default depends on the step kind
 
 The icon used for the step in the sidebar list. When no `image` or `movie` is set for a step, generally the `icon` is displayed in the step area, as well, though some kinds of steps have different behavior here.
 
@@ -163,7 +163,7 @@ The size of the icons in the list view is 36x36 pixels. (72x72 @2x) But since th
 
 #### Image
 
-key: `image`, String/[image source](#image-sources), [localizable](Localization.md), optional, default: `icon`
+key: `image`, String/[image source](../Extras/ImageSources.md), [localizable](../Extras/Localization.md), optional, default: `icon`
 
 The image shown at the top of the step area. When the `image` has a value, that will be shown instead of a `movie`. When no `image` or `movie` key is set, `icon` will be used.
 
@@ -178,7 +178,7 @@ The size of the area available to the image will vary with window size and posit
 
 #### Icon Color
 
-key: `iconColor`, String/[color definition](DefiningColors.md), optional, default depends on the step kind
+key: `iconColor`, String/[color definition](../Extras/DefiningColors.md), optional, default depends on the step kind
 
 The highlight color used for SF Symbol icons and images. (Not all SF Symbols have a highlight color.)
 
@@ -193,7 +193,7 @@ Example:
 
 #### Movie
 
-key: `movie`, String, [localizable](Localization.md), optional
+key: `movie`, String, [localizable](../Extras/Localization.md), optional
 
 When set, the app will load this movie and display at the top of the step area. When the `image` key is set, that will be displayed instead of a movie.
 
@@ -342,44 +342,152 @@ key: `hide`, boolean: default: false
 
 Launches the app or URL, but hides the app (or keeps the app in the background). This is useful when you need to launch a process that should not be visible to the user.
 
-### Default Browser
+### Default App
 
-kind: `browser`
+kind: `defaultApp`
 
-Prompts the user to set this browser as the default. The user cannot continue without approving the browser choice. When no `image` is given, the target browser's app icon will be used.
+Prompts the user to confirm or choose an app as the default for a url scheme (e.g. `http` or `mailto`) or unified type identifier (e.g. `public.txt` or `com.adobe.pdf`).
 
-![Setup Checklist browser step keys](../Images/SetupChecklist-browser-keys.png)
+![Setup Checklist defaultApp step keys](../Images/SetupChecklist-defaultApp-keys.png)
 
 Example: 
+
+Browser, single choice, user is required to set Microsoft Edge as default browser to continue
 
 ```xml
 <dict>
   <key>bundle-id</key>
   <string>com.microsoft.edgemac</string>
+  <key>icon</key>
+  <string>symbol:network</string>
   <key>identifier</key>
-  <string>browser-edge</string>
+  <string>default-app-browser</string>
   <key>kind</key>
-  <string>browser</string>
+  <string>defaultApp</string>
+  <key>mayKeepCurrent</key>
+  <false/>
   <key>message</key>
-  <string>Confirm Microsoft Edge as default browser</string>
+  <string>Confirm Microsoft Edge as default browser.</string>
+  <key>title</key>
+  <string>Confirm Default Browser</string>
+  <key>urlScheme</key>
+  <string>http</string>
+</dict>
+```
+
+Email app, user can choose between retaining current app (usually Mail) and Microsoft Outlook
+
+```xml
+<dict>
+  <key>bundle-id</key>
+  <string>com.microsoft.Outlook</string>
+  <key>icon</key>
+  <string>symbol:mail</string>
+  <key>identifier</key>
+  <string>default-app-mail</string>
+  <key>kind</key>
+  <string>defaultApp</string>
+  <key>mayKeepCurrent</key>
+  <true/>
+  <key>message</key>
+  <string>Choose your preferred app for email.</string>
+  <key>title</key>
+  <string>Choose Mail App</string>
+  <key>urlScheme</key>
+  <string>mailto</string>
 </dict>
 ```
 
 #### Bundle Identifier
 
-(key: `bundle-id`, String, required)
+key: `bundle-id`, string or array of strings, required
 
 The app [bundle identifier](../Extras/BundleIdentifiers.md) for the browser, e.g. `org.mozilla.firefox`. When the app cannot be found when Welcome app runs (i.e. the browser is not installed yet, this step will be skipped)
 
-Common browser identifiers:
+You can use [`utiluti`](https://github.com/scriptingsox/utiluti) to get a list of apps and their bundle identifiers for a given url scheme or universal type identifier:
 
-|Browser            |identifier           |
-|-------------------|---------------------|
-|Safari             |com.apple.safari     |
-|Firefox            |org.mozilla.firefox  |
-|Google Chrome      |com.google.Chrome    |
-|Microsoft Edge     |com.microsoft.edgemac|
+```shell
+$ utiluti url list mailto --bundle-id
+com.microsoft.Outlook
+com.apple.mail
+```
 
+```shell
+$ utiluti type list public.text --bundle-id
+com.apple.TextEdit
+com.barebones.bbedit
+com.apple.dt.Xcode
+com.microsoft.edgemac
+com.google.Chrome
+com.apple.Notes
+```
+
+Common app identifiers:
+
+| Web Browser               | bundle identifier                 |
+|---------------------------|-----------------------------------|
+| Safari                    | com.apple.safari                  |
+| Firefox                   | org.mozilla.firefox               |
+| Google Chrome             | com.google.Chrome                 |
+| Microsoft Edge            | com.microsoft.edgemac             |
+| Safari Technology Preview | com.apple.SafariTechnologyPreview |
+
+| Mail                      | bundle identifier                 |
+|---------------------------|-----------------------------------|
+| Apple Mail                | com.apple.mail                    |
+| Microsoft Outlook         | com.microsoft.Outlook             |
+| Google Chrome             | com.google.Chrome                 |
+| Microsoft Edge            | com.microsoft.edgemac             |
+| Safari Technology Preview | com.apple.SafariTechnologyPreview |
+
+#### URL scheme
+
+key: `urlScheme`, string or array of strings, one of either `urlScheme` or `uniformTypeIdentifier` is required
+
+The url scheme to set the default application for. E.g. `http` or `mailto`
+
+When multiple values are given the first value is used is used to determine the current default app and whether changing the default app succeeded. The step will attempt to set the selected app as the default for each `urlScheme`.
+
+When both `urlScheme` and `uniformTypeIdentifier` values are provided the first `urlScheme` is used to determine the current default app and whether changing the app succeeded.
+
+Common url schemes:
+
+| App Type    | URL scheme | system default app | Notes                                   |
+|-------------|------------|--------------------|-----------------------------------------|
+| Web Browser | http       | Safari             | also sets `https` and `public.html`     |
+| Mail        | mailto     | Mail               |                                         |
+
+#### Uniform type identifier
+
+key: `uniformTypeIdentifier`, string or array of strings, one of either `urlScheme` or `uniformTypeIdentifier` is required
+
+The uniform type identifier to set the default application for. E.g. `public.text` or `com.adobe.pdf`
+
+When multiple values are given the first value is used is used to determine the current default app and whether changing the default app succeeded. The step will attempt to set the selected app as the default for each value in `uniformTypeIdentifier`.
+
+When both `urlScheme` and `uniformTypeIdentifier` values are provided the first `urlScheme` is used to determine the current default app and whether changing the app succeeded.
+
+You can get the uniform type identifier from a file extension using [`utiluti`](https://github.com/scriptingsox/utiluti):
+
+```shell
+$ utiluti get-uti pdf
+com.adobe.pdf
+```
+
+Common uniform type identifiers:
+
+| File Extension | Uniform Type Identifier      | system default app |
+|----------------|------------------------------|--------------------|
+| txt            | public.text                  | Text Edit          |
+| pdf            | com.adobe.pdf                | Preview            |
+
+#### May keep current
+
+key; `mayKeepCurrent`, boolean, optional, default: false
+
+When this flag is set to `true` Setup Checklist will add the current default app to the list, even when it is not yet listed in the `bundle-ids` and the user is allowed to click 'Continue' without changing the default app.
+
+The difference between setting this flag and including the system default app in the list of `bundle-ids` is that when the system default app is present in the list of `bundle-ids` the step will be marked as `completed` when it is loaded and not shown. When this flag is set and the current default app is not in the list of `bundle-ids` this step will appear in the 'suggested' list.
 
 ### Screen Recording/Sharing
 
@@ -419,7 +527,7 @@ Example:
 
 #### Bundle Identifier
 
-(key: `bundle-id`, String or array of strings, required)
+key: `bundle-id`, String or array of strings, required
 
 The app [bundle identifier](../Extras/BundleIdentifiers.md) or identifiers for the application or tool which should be enabled for Screen Recording.
 
@@ -461,5 +569,101 @@ When enabled, the Screen Recording pane in System Settings app will be opened au
 <true/>
 ```
 
+### Script
 
+kind: `script`
 
+This is a special step where you can configure the behavior in each phase of the step's life cycle with custom scripts, provided in the profile.
+
+You can find [a detailed discussion of an example implementation here](ScriptStep.md).
+
+The `script` step is based on the `open` step, so all those keys are available here as well. In addition you get a number of keys to provide scripts to influence the step's behavior. All keys are optional and default behavior is described in each script description.
+
+#### Lifecycle
+
+App launches/Step is loaded:
+
+- `prepareScript`
+- `updateStatusScript`
+- when status is set to `completed`, or `updatedStatusScript` returns success, Step is sorted under completed
+
+Script is selected/activated:
+
+- `prepareScript`
+- `updateStatusScript`
+- `activateScript`
+- when `openAutomatically` is set, action button is 'clicked' automatically
+- starts polling cycle which calls `updateStatusScript` repeatedly (once per second)
+
+Action Button clicked or opened automatically:
+
+- `actionButtonScript`
+
+Status set to `completed`:
+
+- Continue button enables, action button disables
+
+Continue Button clicked:
+
+- stops polling cycle
+- `willContineScript`
+
+The polling cycle is also stopped when the user selects a different step from the list.
+
+**Note:** `shell` scripts will _not_ respect the `DEBUG` key. You can add checks to your script by checking the value of the DEBUG key with `defaults read com.jamf.setupmanager DEBUG`.
+
+#### Prepare Script
+
+key: `prepareScript`, String, optional
+
+This script will be executed when the app prepares the step. Preparation occurs when the step is loaded _and_ everytime just before the step displayed. You can use this step to evaluate if all the resources for the step are present, if there are missing resources, you should set the step's status to `error` with
+
+```
+setupchecklist status <identifier> error
+```
+
+**Default behavior:** After prepare, Setup Checklist will run the `updateStatusScript` (when present) which should update the status based on facts on the system, so you don't have to check for those facts redundantly in the `prepareScript`
+
+You can also use the `prepareScript` to set dynamically set `title`, `icon`, etc., though generally it is easier to set those with values in the profile.
+
+If an `item` value is set for this step, Setup Checklist will use this to determine default icon and title.
+
+#### Activate Script
+
+key: `activateScript`, String, optional
+
+This script will be run immediately before showing the step in the main area, after the `prepareScript`.
+
+**Default behavior:** When the step has an `item` and `openAutomatically` is set Setup Checklist will open the item in this phase. 
+
+If you have a more complicated system that you want launch automatically when the step is activated/shown, you can do so here.
+
+#### Action Button Script
+
+key: `actionButtonScript`, String, optional
+
+This script is executed when the user clicks the action button or `openAutomatically` is set which sets of this script when the step is shown.
+
+**Default behavior:** When an `item` is set, that item will be opened. The Continue will not be automatically enabled, you need to explicitly do so. When an `updateStatusScript` is set, this will also setup a loop in which the `updateStatusScript` is called once per second to poll the status until it returns success.
+
+#### Update Status Script
+
+key: `updateStatusScript`, String, optional
+
+The `updateStatusScript` behaves differently than other scripts. This script is called at different times during a step's lifecycle. It should evaluate the facts on the system and return and exit code of `0` (success) when the fact match the desired outcome and and exit code of `1` (failure) when the don't.
+
+The updateStatusScript is evaluated at the end of preparation (regardless of whether a `prepareScript` script exists). If the `updateScript` returns `0/success here, the step is immediately marked as completed and not shown in the normal workflow, unless the user explicitly clicks on it.
+
+If an `updateStatusScript` exists, clicking the action button will start a polling cycle that evaluates the `updateStatusScript` _once per second_. For this reason, the update status script needs to be small and fast. The idea here is that the polling cycle monitors the desired outcome and sets the step to completed when that occurs.
+
+When the `updateStatusScript` returns an exit code of `0`/success, the step's status will set to `completed`. Which will enable the 'Continue' button.
+
+**Default behavior:** None
+
+#### Will Continue Script
+
+key: `willContinueScript`, String, optional
+
+This script is called when the user clicks the 'Continue' button. Use this script to 'clean up' things created or launched in activate phase or actionButtonScript. For example, you can quit an app that was launched.
+
+**Default behavior:** None

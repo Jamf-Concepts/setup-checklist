@@ -17,7 +17,7 @@ Updates are published in the '[Releases](https://github.com/Jamf-Concepts/setup-
 
 ## BETA Warning!
 
-This tool is still in beta. While we do test the app and do our best to make sure everything is working, you might quickly leave the 'happy path' in your testing and run into bugs or things that may not work as expected. Your feedback is required and much appreciated for us to find and address these issues, thank you.
+This tool is still in beta. While we do test the app and do our best to make sure everything is working, you might quickly leave the 'happy path' in your testing and run into bugs or things that may not work as expected. [Your feedback](https://github.com/Jamf-Concepts/setup-checklist/issues) is required and much appreciated for us to identify and address these issues. Thank you.
 
 This also means that features and the format of the configuration profile might change from one beta version to the next. We will do our best to document these changes, but be prepared that you might have to update the configuration profile you built frequently.
 
@@ -34,6 +34,7 @@ There is also a [`#jamf-setup-checklist`](https://macadmins.slack.com/archives/C
 - Installation
   - minimum macOS: 15.0
   - device has to be managed by Jamf Pro
+  - [installation instructions](Profile/Overview.md#installation)
 - Configuration
   - [Overview](Profile/Overview.md)
   - [Setup Checklist](Profile/SetupChecklist.md)
@@ -47,8 +48,8 @@ There is also a [`#jamf-setup-checklist`](https://macadmins.slack.com/archives/C
 
 ## Known Issues (and Plans)
 
-- there is a very limited number of steps right now, we have plans for more, but your feedback on which kinds of steps you need is appreciated and will help us prioritize
-- currently, Setup Checklist only works with Jamf Pro, we want to extend that Jamf School at some time
+- there is a limited number of steps right now, we have plans for more, but your feedback on which kinds of steps you need is appreciated and will help us prioritize
+- currently, Setup Checklist only works with Jamf Pro. We want to extend that Jamf School soon.
 - `background` key in Welcome screen only allows local files
-- there is no custom JSON to get a custom profile interface in Jamf Pro and there won't be until the profile schema is stable
-- there is known issue in Self Service Plus where launching an action through a URL stalls
+- there is no custom JSON to get a custom profile interface in Jamf Pro and we are not planning to provide one until the profile schema is stable
+- there is known issue in Self Service Plus where launching an action through a URL stalls in Self Service Plus

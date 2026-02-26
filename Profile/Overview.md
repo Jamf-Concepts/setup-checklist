@@ -1,12 +1,37 @@
 #  Setup Checklist - Overview
 
-Setup Checklist is an app that welcomes the user to their new Mac and guides them through some setup steps that cannot be automated, or that the user should take note of or have a choice in. Setup Checklist allows an admin to configure this first login experience to match your organisation, branding and workflow.
+Setup Checklist is a Jamf-powered tool that presents users with a guided experience on their new Mac.
+
+You define the steps, like setting or choosing default apps, configure permissions, choose wallpapers, and users work through them at first login. Configured with configuration profiles, supports localization, and integrates with your existing Jamf workflows.
+
+The onboarding setup checklist that helps users complete required setup tasks before they start working.
 
 ## The applications
 
 Setup Checklist is comprised of two apps. The main Setup Checklist app and a helper app called "Welcome" which displays the initial full screen welcome message and language chooser. This allows the Welcome app to change the language and localization settings Setup Checklist and other apps, before they launch.
 
 You can skip the the full screen welcome message by setting the `showWelcome` key in the Welcome app's Profile to `true`.
+
+## Installation
+
+Download [the latest pkg installer file](https://github.com/Jamf-Concepts/setup-checklist/releases/latest) from releases.
+
+The easiest is to upload the pkg to your Jamf server and install it early in the enrollment, either as a Prestage pkg or with [Setup Manager](https://github.com/jamf/setup-manager) in a policy.
+
+The pkg installer will install:
+
+- Setup Checklist app in `/Applications`
+- LaunchAgent `com.jamf.setupchecklist.plist` in `/Library/LaunchAgents`
+- a symbolic link `setupchecklist` to the command line tool in `/usr/local/bin`
+
+The LaunchAgent will be loaded (i.e. launch the Welcome app )at installation when a user is logged in. You can prevent the launch of the Welcome app by setting its `completed` default before installation. (Either with defaults or welcome.)
+
+```shell
+defaults write com.jamf.setup.welcome completed -bool YES
+```
+
+You can then later choose to launch Welcome.app or Setup Checklist manually, or using the `setupchecklist` command line tool.
+
 
 ## Configuration
 
@@ -26,8 +51,10 @@ There are different 'kinds' of steps:
 - [message](SetupChecklist.md#message-2)
 - [open](SetupChecklist.md#open)
 - [wallpaper](SetupChecklist.md#wallpaper)
-- [browser](SetupChecklist.md#default-browser)
+- [defaultApp](SetupChecklist.md#default-app)
 - [screensharing](SetupChecklist.md#screen-recordingsharing)
+- [script](SetupChecklist.md#script)
+  - [detailed example implementation](ScriptStep.md)
 
 And we are planning to add more going forward.
 

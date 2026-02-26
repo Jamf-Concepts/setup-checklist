@@ -8,7 +8,11 @@ You can run `setupchecklist help` to get an overview of the available commands.
 
 ## Launch Setup Checklist
 
-Most commands will require Setup Checklist to be running to work properly. You can launch Setup Checklist with `setupchecklist launch`.
+Most commands will require Setup Checklist to be running to work properly. You can launch Setup Checklist with 
+
+```shell
+$ setupchecklist launch
+```
 
 ## Get current step
 
@@ -24,5 +28,65 @@ browser-edge
 You can tell Setup Checklist to go to a specific step, determined by the steps identifier:
 
 ```shell
-$ setupchecklist goto browser-edge
+$ setupchecklist goto <identifier>
 ```
+
+## Get and update status
+
+You can get the status of a step with
+
+```shell
+$ setupchecklist status <identifier>
+suggested
+```
+
+You can set the status of a step with
+
+```shell
+$ setupchecklist status <identifier> <newStatus>
+```
+
+Possible status values are `suggested`, `error`, `canContinue`, and `completed`
+
+## Get and update step values
+
+You can read a value of a step with:
+
+```shell
+$ setupchecklist step <identifier> <key>
+```
+
+e.g.
+```shell
+$ setupchecklist step thankyou-message image
+symbol:hands.and.sparkles
+```
+
+
+
+You can update values of a step with
+
+```shell
+$ setupchecklist step <identifier> <key> <newValue>
+```
+
+e.g.
+
+```shell
+$ setupchecklist step browser-edge image "/Applications/Microsoft Edge.app"
+```
+
+The values you can use are: 
+
+- `title`
+- `icon`
+- `image`
+- `iconColor`
+- `windowPosition`
+- `image`
+- `movie`
+- `accentColor`
+- `item`
+- `actionButtonLabel`
+
+(Note: not all combinations haven been tested yet. Please file issues, when something doesn't work as expected.)

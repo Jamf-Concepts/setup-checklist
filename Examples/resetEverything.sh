@@ -16,7 +16,7 @@ desktoppr=/usr/local/bin/desktoppr
 utiluti=/usr/local/bin/utiluti
 
 echo "clear completed steps"
-defaults delete com.jamf.setupchecklist completedSteps
+defaults delete com.jamf.setupchecklist statuses
 
 echo "clear welcome app completed"
 defaults delete com.jamf.setup.welcome completed
@@ -28,7 +28,8 @@ fi
 
 echo "reset default browser"
 if [ -x "$utiluti" ]; then
-  "$utiluti" url set http com.apple.Safari
+  "$utiluti" url set http com.apple.safari
+  "$utiluti" url set mailto com.apple.mail
 fi
 
 echo "reset Screen Recording in Privacy"
