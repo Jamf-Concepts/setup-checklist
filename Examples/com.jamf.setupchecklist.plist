@@ -9,7 +9,7 @@
 	<key>icon</key>
 	<string>name:Checklist</string>
 	<key>message</key>
-	<string>Let's configure your new Mac!</string>
+	<string>Let&apos;s configure your new Mac!</string>
 	<key>showIconInDock</key>
 	<true/>
 	<key>steps</key>
@@ -51,6 +51,8 @@
 			<string>wallpaper</string>
 			<key>kind</key>
 			<string>wallpaper</string>
+			<key>path</key>
+			<string>/Library/Desktop Pictures/</string>
 			<key>message</key>
 			<dict>
 				<key>de</key>
@@ -58,11 +60,9 @@
 				<key>en</key>
 				<string>Please choose a wallpaper from our list of branded images. You can always change it later.</string>
 				<key>fr</key>
-				<string>Veuillez choisir un fond d'écran dans notre liste d'images. Vous pouvez toujours le changer plus tard.</string>
+				<string>Veuillez choisir un fond d&apos;écran dans notre liste d&apos;images. Vous pouvez toujours le changer plus tard.</string>
 				<key>nl</key>
 				<string>Kies een achtergrond uit onze lijst met afbeeldingen. Je kunt het altijd later veranderen.</string>
-				<key>path</key>
-				<string>/Library/Desktop Pictures/</string>
 			</dict>
 			<key>title</key>
 			<dict>
@@ -71,7 +71,7 @@
 				<key>en</key>
 				<string>Choose a wallpaper</string>
 				<key>fr</key>
-				<string>Choisir un fond d'écran</string>
+				<string>Choisir un fond d&apos;écran</string>
 				<key>nl</key>
 				<string>Kies een achtergrond</string>
 			</dict>
@@ -141,7 +141,7 @@
 				<key>en</key>
 				<string>Choose Mail App</string>
 				<key>fr</key>
-				<string>Choisir l'application Mail</string>
+				<string>Choisir l&apos;application Mail</string>
 				<key>nl</key>
 				<string>Kies de Mail-app</string>
 			</dict>
@@ -167,7 +167,7 @@
 				<key>en</key>
 				<string>Enable Screen &amp; System Audio Recording for Microsoft Teams</string>
 				<key>fr</key>
-				<string>Activer l'enregistrement de l'écran et des sons du système pour Microsoft Teams</string>
+				<string>Activer l&apos;enregistrement de l&apos;écran et des sons du système pour Microsoft Teams</string>
 				<key>nl</key>
 				<string>Scherm- en systeemaudio-opname inschakelen voor Microsoft Teams</string>
 			</dict>
@@ -201,7 +201,7 @@
 				<key>en</key>
 				<string>The configuration is complete. You can re-apply these settings by running the Welcome.app again. Enjoy your Mac!</string>
 				<key>fr</key>
-				<string>La configuration est terminée. Vous pouvez réappliquer ces paramètres en exécutant à nouveau l'application Welcome. Profitez de votre Mac!</string>
+				<string>La configuration est terminée. Vous pouvez réappliquer ces paramètres en exécutant à nouveau l&apos;application Welcome. Profitez de votre Mac!</string>
 				<key>nl</key>
 				<string>De configuratie is voltooid. U kunt deze instellingen opnieuw toepassen door de Welcome.app opnieuw uit te voeren. Veel plezier met uw Mac!</string>
 			</dict>

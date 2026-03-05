@@ -1,5 +1,35 @@
 #  Setup Checklist - Change Log
 
+## v0.3.2
+(2026-03-05)
+
+### Setup Checklist
+
+- Setup Checklist now works with Jamf School
+- Steps:
+  - wallpaper: 
+    - can handle a larger number of image files (#16)
+    - enabling `mayKeepCurrent` allows user to continue without changing
+  - script: 
+    - added `USER` and `HOME` to environment of scripts
+  - defaultApp: 
+    - errors when none of the bundle-ids are installed
+- improved process clean up on closed window
+- improved determination of movie size
+- improved concurrency behaviors
+
+### Welcome app
+
+- added `buttonColor` and `titleColor` to override default colors (#12)
+- added `titleFont`, `titleFontSize`, and `titleFontStyle`
+- added `blur` key to control background blur
+- added animation
+
+### General
+
+- several documentation fixes
+
+
 ## v0.3.1
 
 (2026-02-26)

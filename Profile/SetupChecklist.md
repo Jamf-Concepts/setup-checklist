@@ -49,7 +49,7 @@ Short message shown under the icon and title in the sidebar.
 
 #### Accent Color
 
-key: `accentColor`, String/[color definition](../Extras/DefiningColors.md), optional, default: system accent color
+key: `accentColor`, string/[color definition](../Extras/DefiningColors.md), optional, default: system accent color
 
 Sets the accent color for buttons, progress bar, SF Symbols, and other UI elements. Use this to match branding. See ['Defining Colors'](../Extras/DefiningColors.md) for details.
 
@@ -67,7 +67,7 @@ Examples:
 
 #### Hide other Apps
 
-key: `hideOtherApps`, Boolean, optional, default: `true`
+key: `hideOtherApps`, boolean, optional, default: `true`
 
 Controls whether other apps are hidden at launch. Other apps are _not_ hidden when running in DEBUG mode.
 
@@ -80,7 +80,7 @@ Example:
 
 #### Open When Finished
 
-key: `openWhenFinished`, String, optional
+key: `openWhenFinished`, string, optional
 
 When set, this item will be opened when the user clicks "Done" on the last step and Setup Checklist quits. This item can be written as an absolute path, e.g. `/Applications/Self Service+.app`, a URL scheme, e.g. `jamfselfservice:`, or an app bundle identifer, e.g. `com.jamf.selfserviceplus`.
 
@@ -93,7 +93,7 @@ Example:
 
 #### Show Icon in Dock
 
-key: `showIconInDock`, Boolean, optional, default: `true`
+key: `showIconInDock`, boolean, optional, default: `true`
 
 Controls whether app icon is shown in the Dock. Icon will _always_ show in Dock when running in DEBUG mode.
 
@@ -240,7 +240,7 @@ Example:
   <key>identifier</key>
   <string>message-thankyou</string>
   <key>image</key>
-  <string>/Library/Branding/BrandImage.png
+  <string>/Library/Branding/BrandImage.png</string>
   <key>kind</key>
   <string>message</string>
   <key>message</key>
@@ -277,6 +277,11 @@ key: `path`, string, optional, default: `/Library/Desktop Pictures`
 
 All image files in this folder will be presented.
 
+#### May keep current
+
+key; `mayKeepCurrent`, boolean, optional, default: false
+
+When this key is enabled, the user can continue without changing the wallpaper.
 
 ### Open
 
@@ -348,7 +353,7 @@ kind: `defaultApp`
 
 Prompts the user to confirm or choose an app as the default for a url scheme (e.g. `http` or `mailto`) or unified type identifier (e.g. `public.txt` or `com.adobe.pdf`).
 
-![Setup Checklist defaultApp step keys](../Images/SetupChecklist-defaultApp-keys.png)
+![Setup Checklist defaultApp step keys](../Images/SetupChecklist-browser-keys.png)
 
 Example: 
 
@@ -497,7 +502,7 @@ This step will open the Screen Recording pane in Settings > Privacy & Security a
 
 This step works well with a `windowPosition` setting of `left` or `right`
 
-![Setup Checklist browser step keys](../Images/SetupChecklist-screensharing-keys.png)
+![Setup Checklist screensharing step keys](../Images/SetupChecklist-screensharing-keys.png)
 
 Example: 
 
@@ -579,6 +584,25 @@ You can find [a detailed discussion of an example implementation here](ScriptSte
 
 The `script` step is based on the `open` step, so all those keys are available here as well. In addition you get a number of keys to provide scripts to influence the step's behavior. All keys are optional and default behavior is described in each script description.
 
+**Warning:** _Here there be dragons!_
+
+This step allows you to define your own behavior, but this also means that errors in the script could lead to unwanted or even detrimental outcomes. Setup Checklist runs with user privileges, so scripts launched here can only affect user space, but there is still a lot of damage that could occur here.
+
+While we hope there will be many good examples for script steps byt other Mac Admins, you should not trust any of these blindly and without understanding the code and testing.
+
+_Always test thoroughly!_
+
+#### Debug mode
+
+**Important:** Setup Checklist will execute the scripts defined for this step, _even when debug mode is enabled_. The script will not respect debug mode _unless_ you write that behavior into them. You can check for debug mode within a script by checking the `DEBUG` environment variable.
+
+```sh
+if [ -n $DEBUG ]; then
+  echo "debug mode enabled, stopping"
+  exit 0
+fi
+```
+
 #### Lifecycle
 
 App launches/Step is loaded:
@@ -609,8 +633,6 @@ Continue Button clicked:
 - `willContineScript`
 
 The polling cycle is also stopped when the user selects a different step from the list.
-
-**Note:** `shell` scripts will _not_ respect the `DEBUG` key. You can add checks to your script by checking the value of the DEBUG key with `defaults read com.jamf.setupmanager DEBUG`.
 
 #### Prepare Script
 

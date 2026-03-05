@@ -40,7 +40,7 @@ Skip Welcome screen (and language chooser)
 
 #### Title
 
-key: `title`, string, optional, [localizable](Localization.md), default: `Welcome`, localized to current language
+key: `title`, string, optional, [localizable](../Extras/Localization.md), default: `Welcome`, localized to current language
 
 Use this to customize the welcome message shown. When there is a single string value, it will be used for all languages. When the localization dict does not provide a localization for the current language, it will fall back to the `en` localization
 
@@ -75,13 +75,67 @@ key: `background`, string, optional, default: default system background image
 
 Local path to an image that is used as the background for the welcome screen.
 
-(**Note:** this does not use the [image source](ImageSources.md) syntax yet.)
+(**Note:** this does _not_ use the [image source](../Extras/ImageSources.md) syntax yet.)
 
 Example:
 
 ```xml
 <key>background</key>
 <string>/Library/Desktop Pictures/Jamf.png</string>
+```
+
+#### Background Blur
+
+key: `blur`, boolean, optional, default: true
+
+Controls whether the background image is blurred (default) or not.
+
+Example:
+
+```xml
+<key>blur</key>
+<false/>
+```
+
+#### Title Color, Button Color
+
+key: `titleColor`, string/[color definition](../Extras/DefiningColors.md), optional
+key: `buttonColor`, string/[color definition](../Extras/DefiningColors.md), optional
+
+By default, the Welcome app calculates the overall "lightness" of the background image and displays the title text and the buttons in a white font color for dark images and and black font color for light images.
+
+For certain images that might not work so well, e.g. when the top two thirds are light and the lower third is predominantly dark, a black font will be chosen and the buttons will not have good contrast. Or you might want to choose a different color for branding.
+
+Use this key to override the the default, calculated colors.
+
+Example:
+
+```xml
+<key>buttonColor</key>
+<string>##yellow</string>
+<key>titleColor</key>
+<string>##blue</string>
+```
+
+#### Title Font, Size, and Style
+
+key: `titleFont`, string, optional, default: system font (Helevetica Neue)
+key: `titleFontSize`, number, optional, default: 60
+key: `titleFontStyle`, string, optional
+
+These keys change the font, size and style of the 'Welcome' message on the full screen.
+
+The style needs to match an available style of the font. Check the Font Book app to see which styles a font has available. You can combine two or more styles, e.g. `semibold italic condensed`, when available.
+
+Example:
+
+```xml
+<key>titleFont</key>
+<string>SF Pro Rounded</string>
+<key>titleFontSize</key>
+<integer>120</integer>
+<key>titleFontStyle</key>
+<string>semibold</string>
 ```
 
 #### Show Languages
@@ -115,7 +169,7 @@ By default, the language chooser shows all languages available in macOS. You can
 Example:
 
 ```xml
-	<key>languages-disabled</key>
+	<key>languages</key>
 	<array>
 		<string>en-US</string>
 		<string>en-GB</string>

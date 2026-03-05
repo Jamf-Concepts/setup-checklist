@@ -83,7 +83,6 @@ The values you can use are:
 - `image`
 - `iconColor`
 - `windowPosition`
-- `image`
 - `movie`
 - `accentColor`
 - `item`

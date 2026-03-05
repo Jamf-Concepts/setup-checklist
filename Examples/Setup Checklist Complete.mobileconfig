@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadDisplayName</key>
+			<string>Setup Checklist - Welcome Screen</string>
+			<key>PayloadIdentifier</key>
+			<string>com.jamf.setup.welcome</string>
+			<key>PayloadType</key>
+			<string>com.jamf.setup.welcome</string>
+			<key>PayloadUUID</key>
+			<string>3886DFAB-9055-4399-8B3E-DC9E168BD709</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>background</key>
+			<string>/Library/Desktop Pictures/6-JamfPearl.png</string>
+			<key>languages</key>
+			<array>
+				<string>en-US</string>
+				<string>en-GB</string>
+				<string>de</string>
+				<string>fr</string>
+				<string>nl</string>
+			</array>
+			<key>showLanguages</key>
+			<true/>
+			<key>showWelcome</key>
+			<true/>
+			<key>title</key>
+			<dict>
+				<key>de</key>
+				<string>Willkommen bei Jamf</string>
+				<key>en</key>
+				<string>Welcome to Jamf</string>
+				<key>fr</key>
+				<string>Bienvenue à Jamf</string>
+				<key>nl</key>
+				<string>Welkom bij Jamf</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>PayloadDisplayName</key>
+			<string>Setup Checklist</string>
+			<key>PayloadIdentifier</key>
+			<string>com.jamf.setupchecklist</string>
+			<key>PayloadType</key>
+			<string>com.jamf.setupchecklist</string>
+			<key>PayloadUUID</key>
+			<string>3448A740-ACEF-46CF-AAE5-AB3A55946E28</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>accentColor</key>
+			<string>##green</string>
+			<key>hideOtherApps</key>
+			<false/>
+			<key>icon</key>
+			<string>name:Checklist</string>
+			<key>message</key>
+			<string>Let's configure your new Mac!</string>
+			<key>showIconInDock</key>
+			<true/>
+			<key>steps</key>
+			<array>
+				<dict>
+					<key>icon</key>
+					<string>symbol:slider.horizontal.2.square.on.square</string>
+					<key>identifier</key>
+					<string>welcome-message</string>
+					<key>image</key>
+					<string>name:Computer</string>
+					<key>kind</key>
+					<string>message</string>
+					<key>message</key>
+					<dict>
+						<key>de</key>
+						<string>Nur noch ein paar Schritte, um Ihren neuen Mac zu konfigurieren.</string>
+						<key>en</key>
+						<string>Just a few more steps to configure your new Mac.</string>
+						<key>fr</key>
+						<string>Juste quelques étapes de plus pour configurer votre nouveau Mac.</string>
+						<key>nl</key>
+						<string>Nog een paar stappen om je nieuwe Mac te configureren.</string>
+					</dict>
+					<key>title</key>
+					<dict>
+						<key>de</key>
+						<string>Willkommen bei Setup Checklist</string>
+						<key>en</key>
+						<string>Welcome to Setup Checklist</string>
+						<key>fr</key>
+						<string>Bienvenue à Setup Checklist</string>
+						<key>nl</key>
+						<string>Welkom bij Setup Checklist</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>identifier</key>
+					<string>wallpaper</string>
+					<key>kind</key>
+					<string>wallpaper</string>
+					<key>message</key>
+					<dict>
+						<key>de</key>
+						<string>Bitte wählen Sie ein Hintergrundbild aus unserer Liste. Sie können es später jederzeit ändern.</string>
+						<key>en</key>
+						<string>Please choose a wallpaper from our list of branded images. You can always change it later.</string>
+						<key>fr</key>
+						<string>Veuillez choisir un fond d'écran dans notre liste d'images. Vous pouvez toujours le changer plus tard.</string>
+						<key>nl</key>
+						<string>Kies een achtergrond uit onze lijst met afbeeldingen. Je kunt het altijd later veranderen.</string>
+					</dict>
+					<key>path</key>
+					<string>/Library/Desktop Pictures/</string>
+					<key>title</key>
+					<dict>
+						<key>de</key>
+						<string>Hintergrundbild wählen</string>
+						<key>en</key>
+						<string>Choose a wallpaper</string>
+						<key>fr</key>
+						<string>Choisir un fond d'écran</string>
+						<key>nl</key>
+						<string>Kies een achtergrond</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>bundle-id</key>
+					<string>com.microsoft.edgemac</string>
+					<key>icon</key>
+					<string>symbol:network</string>
+					<key>identifier</key>
+					<string>default-app-browser</string>
+					<key>kind</key>
+					<string>defaultApp</string>
+					<key>mayKeepCurrent</key>
+					<false/>
+					<key>message</key>
+					<dict>
+						<key>de</key>
+						<string>Microsoft Edge als Standardbrowser bestätigen.</string>
+						<key>en</key>
+						<string>Confirm Microsoft Edge as default browser.</string>
+						<key>fr</key>
+						<string>Confirmer Microsoft Edge comme navigateur par défaut.</string>
+						<key>nl</key>
+						<string>Bevestig Microsoft Edge als standaardbrowser.</string>
+					</dict>
+					<key>title</key>
+					<dict>
+						<key>de</key>
+						<string>Standardbrowser bestätigen</string>
+						<key>en</key>
+						<string>Confirm Default Browser</string>
+						<key>fr</key>
+						<string>Confirmer Navigateur par défaut</string>
+						<key>nl</key>
+						<string>Standaardbrowser bevestigen</string>
+					</dict>
+					<key>urlScheme</key>
+					<string>http</string>
+				</dict>
+				<dict>
+					<key>bundle-id</key>
+					<string>com.microsoft.Outlook</string>
+					<key>icon</key>
+					<string>symbol:mail</string>
+					<key>identifier</key>
+					<string>default-app-mail</string>
+					<key>kind</key>
+					<string>defaultApp</string>
+					<key>mayKeepCurrent</key>
+					<true/>
+					<key>message</key>
+					<dict>
+						<key>de</key>
+						<string>Wähle deine bevorzugte app für Email.</string>
+						<key>en</key>
+						<string>Choose your preferred app for email.</string>
+						<key>fr</key>
+						<string>Choisissez votre application préférée pour le courrier électronique.</string>
+						<key>nl</key>
+						<string>Kies uw favoriete app voor e-mail.</string>
+					</dict>
+					<key>title</key>
+					<dict>
+						<key>de</key>
+						<string>Email App wählen</string>
+						<key>en</key>
+						<string>Choose Mail App</string>
+						<key>fr</key>
+						<string>Choisir l'application Mail</string>
+						<key>nl</key>
+						<string>Kies de Mail-app</string>
+					</dict>
+					<key>urlScheme</key>
+					<string>mailto</string>
+				</dict>
+				<dict>
+					<key>bundle-id</key>
+					<array>
+						<string>com.microsoft.teams2</string>
+						<string>us.zoom.xos</string>
+					</array>
+					<key>icon</key>
+					<string>symbol:rectangle.on.rectangle.angled</string>
+					<key>identifier</key>
+					<string>screensharing</string>
+					<key>kind</key>
+					<string>screensharing</string>
+					<key>message</key>
+					<dict>
+						<key>de</key>
+						<string>Aktiviere die Aufnahme von BIldschirm &amp; Systemaudio für Microsoft Teams</string>
+						<key>en</key>
+						<string>Enable Screen &amp; System Audio Recording for Microsoft Teams</string>
+						<key>fr</key>
+						<string>Activer l'enregistrement de l'écran et des sons du système pour Microsoft Teams</string>
+						<key>nl</key>
+						<string>Scherm- en systeemaudio-opname inschakelen voor Microsoft Teams</string>
+					</dict>
+					<key>openAutomatically</key>
+					<true/>
+					<key>title</key>
+					<dict>
+						<key>de</key>
+						<string>Bildschirmfreigabe</string>
+						<key>en</key>
+						<string>Screen Sharing</string>
+						<key>fr</key>
+						<string>Partage d’écran</string>
+						<key>nl</key>
+						<string>Schermdeling</string>
+					</dict>
+					<key>windowPosition</key>
+					<string>right</string>
+				</dict>
+				<dict>
+					<key>icon</key>
+					<string>symbol:hands.and.sparkles</string>
+					<key>identifier</key>
+					<string>thankyou-message</string>
+					<key>kind</key>
+					<string>message</string>
+					<key>message</key>
+					<dict>
+						<key>de</key>
+						<string>Die Konfiguration is abgeschlossen. Sie können diese Einstellungen wiederholen, indem sie die Welcome.app wieder starten. Viel Vergnügen mit Ihrem Mac!</string>
+						<key>en</key>
+						<string>The configuration is complete. You can re-apply these settings by running the Welcome.app again. Enjoy your Mac!</string>
+						<key>fr</key>
+						<string>La configuration est terminée. Vous pouvez réappliquer ces paramètres en exécutant à nouveau l'application Welcome. Profitez de votre Mac!</string>
+						<key>nl</key>
+						<string>De configuratie is voltooid. U kunt deze instellingen opnieuw toepassen door de Welcome.app opnieuw uit te voeren. Veel plezier met uw Mac!</string>
+					</dict>
+					<key>title</key>
+					<dict>
+						<key>de</key>
+						<string>Danke schön</string>
+						<key>en</key>
+						<string>Thank you</string>
+						<key>fr</key>
+						<string>Merci</string>
+						<key>nl</key>
+						<string>Bedankt</string>
+					</dict>
+				</dict>
+			</array>
+			<key>title</key>
+			<string>Checklist</string>
+		</dict>
+		<dict>
+			<key>PayloadDisplayName</key>
+			<string>Setup Checklist - PPPC</string>
+			<key>PayloadEnabled</key>
+			<true/>
+			<key>PayloadIdentifier</key>
+			<string>6819A836-793F-4408-ADA7-55AAE949F4C4</string>
+			<key>PayloadType</key>
+			<string>com.apple.TCC.configuration-profile-policy</string>
+			<key>PayloadUUID</key>
+			<string>6819A836-793F-4408-ADA7-55AAE949F4C4</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>Services</key>
+			<dict>
+				<key>SystemPolicyAllFiles</key>
+				<array>
+					<dict>
+						<key>Allowed</key>
+						<true/>
+						<key>CodeRequirement</key>
+						<string>anchor apple generic and identifier "com.jamf.setupchecklist" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "483DWKW443")</string>
+						<key>Identifier</key>
+						<string>com.jamf.setupchecklist</string>
+						<key>IdentifierType</key>
+						<string>bundleID</string>
+						<key>StaticCode</key>
+						<false/>
+					</dict>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>PayloadDisplayName</key>
+			<string>Setup Checklist - Login Items</string>
+			<key>PayloadIdentifier</key>
+			<string>13887830-5198-4FF4-9E70-7B82182D9F13</string>
+			<key>PayloadType</key>
+			<string>com.apple.servicemanagement</string>
+			<key>PayloadUUID</key>
+			<string>13887830-5198-4FF4-9E70-7B82182D9F13</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>Rules</key>
+			<array>
+				<dict>
+					<key>RuleType</key>
+					<string>BundleIdentifier</string>
+					<key>RuleValue</key>
+					<string>com.jamf.setupchecklist</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+	<key>PayloadDisplayName</key>
+	<string>Setup Checklist</string>
+	<key>PayloadIdentifier</key>
+	<string>com.jamf.setupchecklist</string>
+	<key>PayloadScope</key>
+	<string>System</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>DDF8A7BB-C542-4C90-9E7E-ADAE327F5AE1</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>
