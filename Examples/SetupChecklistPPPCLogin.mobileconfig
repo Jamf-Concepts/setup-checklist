@@ -7,8 +7,6 @@
     <string>2B97D645-ABDE-44E5-8B8B-301BDF34E8A2</string>
     <key>PayloadType</key>
     <string>Configuration</string>
-    <key>PayloadOrganization</key>
-    <string>Armin Briegel</string>
     <key>PayloadIdentifier</key>
     <string>2B97D645-ABDE-44E5-8B8B-301BDF34E8A2</string>
     <key>PayloadDisplayName</key>
@@ -30,12 +28,10 @@
         <string>6819A836-793F-4408-ADA7-55AAE949F4C4</string>
         <key>PayloadType</key>
         <string>com.apple.TCC.configuration-profile-policy</string>
-        <key>PayloadOrganization</key>
-        <string>Armin Briegel</string>
         <key>PayloadIdentifier</key>
         <string>6819A836-793F-4408-ADA7-55AAE949F4C4</string>
         <key>PayloadDisplayName</key>
-        <string>PRIVACY_PREFERENCES_POLICY_CONTROL</string>
+        <string>Setup Checklist - PPPC</string>
         <key>PayloadDescription</key>
         <string />
         <key>PayloadVersion</key>
@@ -63,11 +59,9 @@
       </dict>
       <dict>
         <key>PayloadDisplayName</key>
-        <string>Managed Login Items</string>
+        <string>Setup Checklist - Login Items</string>
         <key>PayloadIdentifier</key>
         <string>13887830-5198-4FF4-9E70-7B82182D9F13</string>
-        <key>PayloadOrganization</key>
-        <string>JAMF Software</string>
         <key>PayloadType</key>
         <string>com.apple.servicemanagement</string>
         <key>PayloadUUID</key>

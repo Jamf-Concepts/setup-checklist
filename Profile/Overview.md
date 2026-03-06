@@ -2,7 +2,7 @@
 
 Setup Checklist is a Jamf-powered tool that presents users with a guided experience on their new Mac.
 
-You define the steps, like setting or choosing default apps, configure permissions, choose wallpapers, and users work through them at first login. Configured with configuration profiles, supports localization, and integrates with your existing Jamf workflows.
+You (the admin) define the steps, like setting or choosing default apps, configure permissions, choose wallpapers, and users work through them at first login. Configured with configuration profiles, supports localization, and integrates with your existing Jamf workflows.
 
 The onboarding setup checklist that helps users complete required setup tasks before they start working.
 
@@ -10,9 +10,11 @@ The onboarding setup checklist that helps users complete required setup tasks be
 
 Setup Checklist is comprised of two apps. The main Setup Checklist app and a helper app called "Welcome" which displays the initial full screen welcome message and language chooser. This allows the Welcome app to change the language and localization settings Setup Checklist and other apps, before they launch.
 
-You can skip the the full screen welcome message by setting the `showWelcome` key in the Welcome app's Profile to `true`.
+You can skip the full screen welcome message by setting the `showWelcome` key in the Welcome app's Profile to `false`.
 
 ## Installation
+
+Setup Checklist works with and _requires_ a Mac managed with either Jamf Pro or Jamf School. When the Mac is managed with Jamf School [the Scripting Module _must_ be enabled](https://learn.jamf.com/en-US/bundle/jamf-school-documentation/page/Scripts.html).
 
 Download [the latest pkg installer file](https://github.com/Jamf-Concepts/setup-checklist/releases/latest) from releases.
 
