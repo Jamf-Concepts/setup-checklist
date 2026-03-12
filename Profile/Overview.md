@@ -98,20 +98,30 @@ When the main Setup Checklist app is launched, it will read the `steps` configur
 
 Some kinds of steps can determine if their target setting is already configured correctly and will be marked as 'Completed' and shown in that section in the sidebar list. A user can still click on the step to call it up and, when possible, re-do the setting. When Setup Checklist is re-launched, the status will be re-evaluated, though the exact behavior depends on the kind of setting.
 
-All steps will store their completed status in the `completedSteps` with the preference domain. You can read this with
+All steps will store their completed status in the `statuses` dictionary in the preference domain. You can read this with
 
 ```shell
- $ defaults read com.jamf.setupchecklist completedSteps
+ $ defaults read com.jamf.setupchecklist statuses
 {
-    "browser-edge" = 1;
-    movie = 1;
-    "screensharing-new" = 1;
-    "thankyou-message" = 1;
-    wallpaper = 1;
-    "welcome-message" = 1;
+    "default-app-browser" = suggested;
+    "default-app-pdf" = completed;
+    "screensharing-new" = completed;
+    "script-remote-login" = suggested;
+    "temporary-placeholder" = suggested;
+    "thankyou-message" = suggested;
+    wallpaper = canContinue;
+    "welcome-message" = canContinue;
 }
 ```
-The keys in this list are the identifier of each step. They will not necessarily be shown in the correct order. When the value of a key is `1` the step is completed. When the value is `0` or the key is missing the step is not completed.
+
+The keys in this list are the identifier of each step. They will not necessarily be shown in the correct order. When the value of a key is `completed` or `canContinue` the step is completed. When the value is `suggested` or the key is missing the step is not completed.
+
+You can also use the `setupchecklist` [command line tool](../Extras/CommandLineTool.md) to get the status for a specific step:
+
+```shell
+setupchecklist status default-app-browser
+suggested
+```
 
 ## Testing
 

@@ -30,6 +30,7 @@ echo "reset default browser"
 if [ -x "$utiluti" ]; then
   "$utiluti" url set http com.apple.safari
   "$utiluti" url set mailto com.apple.mail
+  "$utiluti" type set com.adobe.pdf com.apple.Preview
 fi
 
 echo "reset Screen Recording in Privacy"

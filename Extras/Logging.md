@@ -11,3 +11,7 @@ For example:
 ```
 sudo log show --last 60m --predicate 'subsystem="com.jamf.setupchecklist"'
 ```
+
+## Script step logging
+
+When [the `scriptLogging` key](../Profile/SetupChecklist.md#script-step-logging) in the profile is set to `true`, execution of scripts in a `script` step and their output is written to `~/Library/Logs/SetupChecklist-Scripts.log`.
