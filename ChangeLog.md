@@ -1,5 +1,25 @@
 #  Setup Checklist - Change Log
 
+## v0.3.3
+(2026-03-12)
+
+### Setup Checklist
+
+- Steps:
+  - defaultApp:
+    - improved rendering of apps and selection in single and app list views
+    - default app is set on selection in app lists
+    - when there is only one app and an `image` or `movie` key is set, that will be displayed instead of the app icon
+  - wallpaper:
+    - updated image file icon display and scaling
+    - improved status determination
+  - script:
+    - new top-level key `scriptLogging` to enable script execution logging
+    - status is no longer reset to 'suggested' on prepare
+- image corners are now properly rounded
+- sidebar width now fixed (#25)
+- when wallpaper or default app steps require a scroll view, scroll bars flash on hover to indicate there is more (#31)
+
 ## v0.3.2
 (2026-03-05)
 

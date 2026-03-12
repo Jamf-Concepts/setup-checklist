@@ -150,6 +150,8 @@ In our case, we have our `launchctl` command from earlier which already returns 
 <string>launchctl print system/ | grep -q '"com.openssh.sshd" =&gt; enabled'</string>
 ```
 
+**Note** that the `>` character needs to be escaped to `&gt;`. Same for `&` (`&amp;`) and `<` (`&lt;`).
+
 ## Will Continue Script
 
 We would also like to close the Settings app again, when the user hits the 'Continue' button. The `willContinueScript` is launched then.
@@ -203,3 +205,8 @@ tell app "System Settings" to quit
 ```
 
 Note that you need to insert a real new line into the xml for new line characters.
+
+## Logging
+
+When [the `scriptLogging` key](../Profile/SetupChecklist.md#script-step-logging) in the profile is set to `true`, execution of scripts in a `script` step and their output is written to `~/Library/Logs/SetupChecklist-Scripts.log`.
+

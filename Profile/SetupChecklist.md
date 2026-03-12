@@ -14,7 +14,7 @@ When set to true, the app will not actually perform any steps that will change a
 
 #### Icon
 
-key: `icon`, string/[image source](../Extras/ImageSources.md), [localizable](../Extras/Localization.md), default: Setup Checklist app icon
+key: `icon`, string/[image source](ImageSources.md), [localizable](Localization.md), default: Setup Checklist app icon
 
 The icon used at the top of the sidebar. The size of the icon is 90x90 pixels. (180x180 @ 2x)
 
@@ -27,7 +27,7 @@ The icon used at the top of the sidebar. The size of the icon is 90x90 pixels. (
 
 #### Title
 
-key: `title`, string, [localizable](../Extras/Localization.md), default: 'Setup Checklist'
+key: `title`, string, [localizable](Localization.md), default: 'Setup Checklist'
 
 The title shown at the top of the sidebar, under the icon.
 
@@ -38,7 +38,7 @@ The title shown at the top of the sidebar, under the icon.
 
 #### Message
 
-key: `message`, string/[markdown](../Extras/Markdown.md), [localizable](../Extras/Localization.md), default: 'Start here to set up your Mac.' (localized)
+key: `message`, string/[markdown](../Extras/Markdown.md), [localizable](Localization.md), default: 'Start here to set up your Mac.' (localized)
 
 Short message shown under the icon and title in the sidebar.
 
@@ -49,9 +49,9 @@ Short message shown under the icon and title in the sidebar.
 
 #### Accent Color
 
-key: `accentColor`, string/[color definition](../Extras/DefiningColors.md), optional, default: system accent color
+key: `accentColor`, string/[color definition](DefiningColors.md), optional, default: system accent color
 
-Sets the accent color for buttons, progress bar, SF Symbols, and other UI elements. Use this to match branding. See ['Defining Colors'](../Extras/DefiningColors.md) for details.
+Sets the accent color for buttons, progress bar, SF Symbols, and other UI elements. Use this to match branding. See ['Defining Colors'](DefiningColors.md) for details.
 
 Examples:
 
@@ -102,6 +102,12 @@ Controls whether app icon is shown in the Dock. Icon will _always_ show in Dock 
 <false/>
 ```
 
+#### Script step logging
+
+key: `scriptLogging`, boolean, default: `false`
+
+When enabled, execution of scripts in a `script` step and their output is written to `~/Library/Logs/SetupChecklist-Scripts.log`.
+
 ## Steps
 
 key: `steps`, array of dicts, required
@@ -119,8 +125,10 @@ The available kinds are:
 
 - `message`
 - `wallpaper`
-- `browser`
+- `defaultApp`
 - `open`
+- `scrensharing`
+- `script`
 
 #### Identifier
 
@@ -138,19 +146,19 @@ All steps share these keys:
 
 #### Title
 
-key: `title`, string, [localizable](../Extras/Localization.md), optional, default depends on the step kind
+key: `title`, string, [localizable](Localization.md), optional, default depends on the step kind
 
 The title of the shown in the sidebar list and the step view.
 
 #### Message
 
-key: `message`, string/[markdown](../Extras/Markdown.md), [localizable](../Extras/Localization.md), optional
+key: `message`, string/[markdown](../Extras/Markdown.md), [localizable](Localization.md), optional
 
 A longer description of the step. This should contain some instructions of what needs to done.
 
 #### Icon
 
-key: `icon`, string/[image source](../Extras/ImageSources.md), [localizable](../Extras/Localization.md), optional, default depends on the step kind
+key: `icon`, string/[image source](ImageSources.md), [localizable](Localization.md), optional, default depends on the step kind
 
 The icon used for the step in the sidebar list. When no `image` or `movie` is set for a step, generally the `icon` is displayed in the step area, as well, though some kinds of steps have different behavior here.
 
@@ -163,7 +171,7 @@ The size of the icons in the list view is 36x36 pixels. (72x72 @2x) But since th
 
 #### Image
 
-key: `image`, String/[image source](../Extras/ImageSources.md), [localizable](../Extras/Localization.md), optional, default: `icon`
+key: `image`, String/[image source](ImageSources.md), [localizable](Localization.md), optional, default: `icon`
 
 The image shown at the top of the step area. When the `image` has a value, that will be shown instead of a `movie`. When no `image` or `movie` key is set, `icon` will be used.
 
@@ -178,7 +186,7 @@ The size of the area available to the image will vary with window size and posit
 
 #### Icon Color
 
-key: `iconColor`, String/[color definition](../Extras/DefiningColors.md), optional, default depends on the step kind
+key: `iconColor`, String/[color definition](DefiningColors.md), optional, default depends on the step kind
 
 The highlight color used for SF Symbol icons and images. (Not all SF Symbols have a highlight color.)
 
@@ -193,7 +201,7 @@ Example:
 
 #### Movie
 
-key: `movie`, String, [localizable](../Extras/Localization.md), optional
+key: `movie`, String, [localizable](Localization.md), optional
 
 When set, the app will load this movie and display at the top of the step area. When the `image` key is set, that will be displayed instead of a movie.
 
@@ -353,9 +361,9 @@ kind: `defaultApp`
 
 Prompts the user to confirm or choose an app as the default for a url scheme (e.g. `http` or `mailto`) or unified type identifier (e.g. `public.txt` or `com.adobe.pdf`).
 
-![Setup Checklist defaultApp step keys](../Images/SetupChecklist-browser-keys.png)
+![Setup Checklist defaultApp step keys](../Images/SetupChecklist-defaultApp-keys.png)
 
-Example: 
+Examples: 
 
 Browser, single choice, user is required to set Microsoft Edge as default browser to continue
 
@@ -400,6 +408,50 @@ Email app, user can choose between retaining current app (usually Mail) and Micr
   <string>Choose Mail App</string>
   <key>urlScheme</key>
   <string>mailto</string>
+</dict>
+```
+
+PDF app, user has two choices:
+
+```xml
+<dict>
+  <key>bundle-id</key>
+  <array>
+    <string>com.apple.Preview</string>
+    <string>com.adobe.Acrobat.Pro</string>
+  </array>
+  <key>icon</key>
+  <string>symbol:richtext.page</string>
+  <key>identifier</key>
+  <string>default-app-pdf</string>
+  <key>kind</key>
+  <string>defaultApp</string>
+  <key>mayKeepCurrent</key>
+  <true/>
+  <key>message</key>
+  <dict>
+    <key>de</key>
+    <string>Wähle deine bevorzugte app für PDF.</string>
+    <key>en</key>
+    <string>Choose your preferred app for PDF.</string>
+    <key>fr</key>
+    <string>Choisissez votre application préférée pour PDF.</string>
+    <key>nl</key>
+    <string>Kies uw favoriete app voor PDF.</string>
+  </dict>
+  <key>title</key>
+  <dict>
+    <key>de</key>
+    <string>PDF App wählen</string>
+    <key>en</key>
+    <string>Choose PDF App</string>
+    <key>fr</key>
+    <string>Choisir l'application PDF</string>
+    <key>nl</key>
+    <string>Kies de PDF-app</string>
+  </dict>
+  <key>uniformTypeIdentifier</key>
+  <string>com.adobe.pdf</string>
 </dict>
 ```
 
