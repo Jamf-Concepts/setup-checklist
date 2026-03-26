@@ -48,32 +48,20 @@ $ setupchecklist status <identifier> <newStatus>
 
 Possible status values are `suggested`, `error`, `canContinue`, and `completed`
 
-## Get and update step values
+## Set step values
 
-You can read a value of a step with:
-
-```shell
-$ setupchecklist step <identifier> <key>
-```
-
-e.g.
-```shell
-$ setupchecklist step thankyou-message image
-symbol:hands.and.sparkles
-```
-
-
-
-You can update values of a step with
+You can set or update values of a step with
 
 ```shell
 $ setupchecklist step <identifier> <key> <newValue>
 ```
 
+Changes will not persist when Setup Checklist is quit and re-launched.
+
 e.g.
 
 ```shell
-$ setupchecklist step browser-edge image "/Applications/Microsoft Edge.app"
+$ setupchecklist step default-app-edge image "/Applications/Microsoft Edge.app"
 ```
 
 The values you can use are: 

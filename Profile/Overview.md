@@ -64,7 +64,7 @@ And we are planning to add more going forward.
 
 Setup Checklist requires the following exemptions in privacy, which you should deploy with a PPPC profile:
 
-- SystemPolicyAllFiles (Full disk access): required for `screensharing` step
+- SystemPolicyAllFiles (Full disk access): required for `screensharing` step, likely required for `script` step, depending on what the scripts do
 
 The app identifier is `com.jamf.setupchecklist` and the code requirement is:
 
@@ -76,6 +76,7 @@ You also want to pre-approve the launch agent. Add a 'Managed Login Items' paylo
 
 You can find a [mobileconfig file with these two payloads](../Examples/SetupChecklistPPPCLogin.mobileconfig) in the [Examples](../Examples).
 
+When you have `script` steps start processes that require other PPPC exemptions, such as sending Apple Events/AppleScript to another process, then you need to give this PPPC setting to Setup Checklist, since the system will see it as the parent process. These are not included in the sample profile.
 
 ## Workflow
 

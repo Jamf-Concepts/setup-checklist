@@ -1,5 +1,32 @@
 #  Setup Checklist - Change Log
 
+## v0.3.4
+(2026-03-26)
+
+### Setup Checklist
+
+- Steps:
+  - script:
+    - environment variables are set correctly for `updateStatus` scripts (#38)
+    - `openAutomatically` now works for `script` steps (#35)
+  - screensharing:
+    - added warning in log and user interface when Full Disk Access is not granted
+- added `autoplay`, `loop`, and `mute` keys to control movie behavior
+- minor user interface updates
+
+### Welcome App
+
+- added `excludedAccounts` to suppress launch for certain account names (#19)
+- minor UI updates
+
+### Command Line Tool
+
+- ensures app is running before sending urls
+
+### General
+
+- documentation updates
+
 ## v0.3.3
 (2026-03-12)
 

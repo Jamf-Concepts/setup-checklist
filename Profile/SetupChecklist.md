@@ -216,6 +216,27 @@ The size of the area available to the image will vary with window size and posit
 <string>/Library/Branding/Intro.mov</string>
 ```
 
+key: `autoplay`, boolean, optional, default: true, v0.3.4
+key: `loop`, boolean, optional, default: true, v0.3.4
+key: `mute`, boolean, optional, default: true, v0.3.4
+
+When a `movie` key is set, these keys control the behavior of the movie:
+
+- `autoplay`: controls whether the movie starts playing automatically
+- `loop`: controls whether the movie loops continuously
+- `mute`: controls whether the audio is muted when the movie starts playing
+
+```xml
+<key>autoplay</key>
+<false/>
+<key>loop</key>
+<true/>
+<key>movie</key>
+<string>/Library/Branding/ESA_logo_animation_compressed.mp4</string>
+<key>mute</key>
+<false/>
+```
+
 ### Window Position
 
 key: `windowPosition`, string, default: `center`
@@ -552,6 +573,8 @@ kind: `screensharing`
 
 This step will open the Screen Recording pane in Settings > Privacy & Security and monitor the state of the switches for the designated apps until all are enabled.
 
+**Important:** this steps _requires_ the "Full Disk Access" privacy access enabled, which in a managed environment [is best granted with a PPPC profile.](Overview.md#managed-login-items-and-privacy-preferences-policy-control).
+
 This step works well with a `windowPosition` setting of `left` or `right`
 
 ![Setup Checklist screensharing step keys](../Images/SetupChecklist-screensharing-keys.png)
@@ -643,6 +666,10 @@ This step allows you to define your own behavior, but this also means that error
 While we hope there will be many good examples for script steps byt other Mac Admins, you should not trust any of these blindly and without understanding the code and testing.
 
 _Always test thoroughly!_
+
+It depends on what data the scripts actually access, but it is likely that they will require the "Full Disk Access" privacy access enabled, which in a managed environment [is best granted with a PPPC profile.](Overview.md#managed-login-items-and-privacy-preferences-policy-control).
+
+When you have `script` steps start processes that require other PPPC exemptions, such as sending Apple Events/AppleScript to another process, then you need to give this PPPC setting to Setup Checklist, since the system will see it as the parent process. These are not included in the sample profile.
 
 #### Debug mode
 
