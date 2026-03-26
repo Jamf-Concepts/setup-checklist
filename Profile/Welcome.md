@@ -138,6 +138,24 @@ Example:
 <string>semibold</string>
 ```
 
+#### Excluded Accounts
+
+key: `excludedAccounts`, string array, optional, v0.3.4
+
+Suppresses launch of the Welcome screen for the listed user account names. This also prevents Setup Checklist from launching automatically at login. You can launch Setup Checklist manually later.
+
+Example:
+
+```xml
+<key>excludedAccounts</key>
+<array>
+  <string>localadmin</string>
+  <string>poweruser</string>
+</array>
+```
+
+
+
 #### Show Languages
 
 key: `showLanguages`, boolean, default: true
