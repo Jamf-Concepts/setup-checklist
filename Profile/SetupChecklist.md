@@ -237,7 +237,7 @@ When a `movie` key is set, these keys control the behavior of the movie:
 <false/>
 ```
 
-### Window Position
+#### Window Position
 
 key: `windowPosition`, string, default: `center`
 
@@ -375,6 +375,12 @@ When enabled, the item will be opened automatically when the step is displayed.
 key: `hide`, boolean: default: false
 
 Launches the app or URL, but hides the app (or keeps the app in the background). This is useful when you need to launch a process that should not be visible to the user.
+
+#### Button Label
+
+key: `buttonLabel`, string, [localizable](Localization.md), optional, default depends on step kind
+
+The label used for the button.
 
 ### Default App
 
@@ -649,6 +655,99 @@ When enabled, the Screen Recording pane in System Settings app will be opened au
 <true/>
 ```
 
+### Dock
+
+kind: `dock`
+
+This step will inform their user of items that are recommended to add to the Dock. You can choose whether the user can opt to keep the current dock, add recommended items to the current dock or replace the current dock with the recommended configuration. The step will show a preview of the dock with each choice.
+
+Example:
+
+```xml
+<dict>
+  <key>dockAction</key>
+  <array>
+    <string>add</string>
+    <string>replace</string>
+  </array>
+  <key>dockItems</key>
+  <array>
+    <string>com.apple.systempreferences</string>
+    <string>com.apple.apps.launcher</string>
+    <string>com.jamf.selfserviceplus</string>
+    <string>/Applications/Google Chrome.app</string>
+    <string>com.microsoft.outlook</string>
+    <string>com.microsoft.teams2</string>
+    <string>Downloads</string>
+    <string>smb://server.example.com/share</string>
+  </array>
+  <key>identifier</key>
+  <string>dock</string>
+  <key>kind</key>
+  <string>dock</string>
+  <key>mayKeepCurrent</key>
+  <true/>
+  <key>message</key>
+  <string>For convienient access, we recommend adding these apps and items to your Dock.</string>
+</dict>
+```
+
+#### Dock Action
+
+key: `dockAction`, string or array of string, default: `add`
+
+This key controls the options available to user. The value for this key can be `keep`, `add`, or `replace` or an array with any combination of the three values.
+
+Setting `mayKeepCurrent` to `true` has the same effect as adding `keep` to `dockAction`. 
+
+Example:
+
+```xml
+<key>dockAction</key>
+<array>
+  <string>add</string>
+  <string>replace</string>
+</array>
+```
+
+#### Dock Items
+
+key: `dockItems`, array of strings
+
+This is a list of items, which will be added to the Dock.
+
+Note that all apps will be added to the left (leading) side of the dock and folders, files, and URLs will added to the right (trailing) side, in order.
+
+Finder and Trash are fixed in the Dock and do not need to be listed here, nor can they be removed.
+
+Each item is a string and can be:
+
+- an absolute path to an app, e.g. `/Applications/Google Chrome.app`
+- a bundle identifier of an app, e.g. `com.apple.systempreferences` or `com.jamf.selfserviceplus`
+- an absolute path to a folder or file
+- a relative path to a folder or file, which will be resolved relative to the current user's home directory, e.g. `Downloads` will be resolved to `/Users/username/Downloads`
+- an URL, e.g. `https://jamf.com` or `smb://server.example.com/share`
+
+```xml
+<key>dockItems</key>
+<array>
+  <string>com.apple.systempreferences</string>
+  <string>com.apple.apps.launcher</string>
+  <string>com.jamf.selfserviceplus</string>
+  <string>/Applications/Google Chrome.app</string>
+  <string>com.microsoft.outlook</string>
+  <string>com.microsoft.teams2</string>
+  <string>Downloads</string>
+  <string>smb://server.example.com/share</string>
+</array>
+```
+
+#### May keep current
+
+key; `mayKeepCurrent`, boolean, optional, default: false
+
+When this flag is set to `true` Setup Checklist gives the user a choice to keep their current dock configuration. Setting `mayKeepCurrent` to `true` has the same effect as adding `keep` to `dockAction`. This key exists to provide consistency with other steps that use `mayKeepCurrent`.
+
 ### Script
 
 kind: `script`
@@ -682,6 +781,10 @@ if [ -n $DEBUG ]; then
 fi
 ```
 
+#### Open Step keys
+
+The `script` step is an extension of the `open` step. This means that all keys specific to the `open` step can be used with `script` step, as well.
+
 #### Lifecycle
 
 App launches/Step is loaded:
@@ -700,7 +803,7 @@ Script is selected/activated:
 
 Action Button clicked or opened automatically:
 
-- `actionButtonScript`
+- `buttonScript`
 
 Status set to `completed`:
 
@@ -741,7 +844,7 @@ If you have a more complicated system that you want launch automatically when th
 
 #### Action Button Script
 
-key: `actionButtonScript`, String, optional
+key: `buttonScript`, String, optional
 
 This script is executed when the user clicks the action button or `openAutomatically` is set which sets of this script when the step is shown.
 
@@ -765,6 +868,6 @@ When the `updateStatusScript` returns an exit code of `0`/success, the step's st
 
 key: `willContinueScript`, String, optional
 
-This script is called when the user clicks the 'Continue' button. Use this script to 'clean up' things created or launched in activate phase or actionButtonScript. For example, you can quit an app that was launched.
+This script is called when the user clicks the 'Continue' button. Use this script to 'clean up' things created or launched in activate phase or button script. For example, you can quit an app that was launched.
 
 **Default behavior:** None

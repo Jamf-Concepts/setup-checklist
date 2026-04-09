@@ -118,18 +118,18 @@ The activateScript might contain code that prepares the action. In some cases yo
 
 In our example, we don't really have anything to do at this time, so we don't add an `activateScript`. In most situations, you won't need to implement all script options.
 
-## Action Button Script
+## Button Script
 
-The `actionButtonScript` gets executed when the user clicks the button. In our example, we want to open the url that open the Remote Login pane in System Settings.
+The `buttonScript` gets executed when the user clicks the button. In our example, we want to open the url that open the Remote Login pane in System Settings.
 
 ```xml
-  <key>actionButtonScript</key>
+  <key>buttonScript</key>
   <string>open 'x-apple.systempreferences:com.apple.preferences.sharing?Services_RemoteLogin'</string>
-  <key>actionButtonLabel</key>
+  <key>buttonLabel</key>
   <string>Open Remote Login…</string>
 ```
 
-If you want to enable the 'Continue' button when the `buttonActionScript` is done, you need to do so explictly by setting the step's status to `canContinue` or `completed` with `setupchecklist status script-remote-login completed`.
+If you want to enable the 'Continue' button when the `buttonScript` is done, you need to do so explictly by setting the step's status to `canContinue` or `completed` with `setupchecklist status script-remote-login completed`.
 
 In our example, we do not want to automatically set the step as completed, but need to observe the state of the system until the user enables the 'Remote Login' service.
 
@@ -167,9 +167,9 @@ This brings us to this `script` step:
 
 ```xml
 <dict>
-  <key>actionButtonLabel</key>
+  <key>buttonLabel</key>
   <string>Open Remote Login…</string>
-  <key>actionButtonScript</key>
+  <key>buttonScript</key>
   <string>open 'x-apple.systempreferences:com.apple.preferences.sharing?Services_RemoteLogin'</string>
   <key>identifier</key>
   <string>script-remote-login</string>
