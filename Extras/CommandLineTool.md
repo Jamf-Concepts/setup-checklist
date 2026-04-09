@@ -74,6 +74,6 @@ The values you can use are:
 - `movie`
 - `accentColor`
 - `item`
-- `actionButtonLabel`
+- `buttonLabel`
 
 (Note: not all combinations haven been tested yet. Please file issues, when something doesn't work as expected.)

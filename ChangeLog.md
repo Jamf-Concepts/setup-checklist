@@ -1,5 +1,33 @@
 #  Setup Checklist - Change Log
 
+## v0.4.0
+(2026-04-09)
+
+### Setup Checklist
+
+- NEW: `dock` step kind (#17)
+- added `buttonLabel` key to `open`, `script`, and `screensharing` steps to override button label text
+- improved scrolling and responsiveness of `wallpaper` with many images
+- localization fixes (#42)
+- added toolbar button to show list when it is hidden
+- fixed a user interface issue where the action button disappears when window is not active
+- images and movies scale up when window size is increased
+
+### Welcome app
+
+- fixed an issue where the welcome screen may not go full screen
+
+### General
+
+- added uninstall script
+- documentation updates (#45)
+
+### Deprecations and Removals
+
+- `browser` step kind has been _removed_. Use `defaultApp` with a `urlScheme` of `http` instead
+- `actionButtonLabel` and `actionButtonScript` keys are simplified to `buttonLabel` and `buttonScript`. The old long forms will keep working for now, but be removed in some future update. (#43)
+
+
 ## v0.3.4
 (2026-03-26)
 

@@ -40,7 +40,7 @@ Skip Welcome screen (and language chooser)
 
 #### Title
 
-key: `title`, string, optional, [localizable](../Extras/Localization.md), default: `Welcome`, localized to current language
+key: `title`, string, optional, [localizable](Localization.md), default: `Welcome`, localized to current language
 
 Use this to customize the welcome message shown. When there is a single string value, it will be used for all languages. When the localization dict does not provide a localization for the current language, it will fall back to the `en` localization
 
@@ -75,7 +75,7 @@ key: `background`, string, optional, default: default system background image
 
 Local path to an image that is used as the background for the welcome screen.
 
-(**Note:** this does _not_ use the [image source](../Extras/ImageSources.md) syntax yet.)
+(**Note:** this does _not_ use the [image source](ImageSources.md) syntax yet.)
 
 Example:
 
@@ -99,8 +99,8 @@ Example:
 
 #### Title Color, Button Color
 
-key: `titleColor`, string/[color definition](../Extras/DefiningColors.md), optional
-key: `buttonColor`, string/[color definition](../Extras/DefiningColors.md), optional
+key: `titleColor`, string/[color definition](DefiningColors.md), optional
+key: `buttonColor`, string/[color definition](DefiningColors.md), optional
 
 By default, the Welcome app calculates the overall "lightness" of the background image and displays the title text and the buttons in a white font color for dark images and and black font color for light images.
 
