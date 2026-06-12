@@ -18,6 +18,12 @@ You can tell Setup Checklist to launch and go to a specific step, determined by 
 
 Example: `jamf-setupchecklist:goto/browser-edge`
 
+## Go to Next Step
+
+This will go to the next step.
+
+Example: `jamf-setupchecklist:next`
+
 ## Change Status
 
 You can change the `completed` status of a step with this call.
@@ -29,3 +35,10 @@ You can change the `completed` status of a step with this call.
 Note that many will recalculate the completed status when the step is loaded and right before it is shown, so manually overwriting the completed status may have limited effect.
 
 Valid values are `completed`, `suggested`, `error`
+
+## Reload Steps
+
+This will tell Setup Checklist to reload all steps from the defaults or profile and start over.
+
+Example: `jamf-setupchecklist:reload`
+

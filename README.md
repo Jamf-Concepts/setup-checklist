@@ -24,11 +24,9 @@ Admins can deploy Setup Checklist together with configuration profile to guide t
 
 Setup Checklist works with **Jamf Pro** and **Jamf School**.
 
-## BETA Warning!
+## Call to action
 
-This tool is still in beta. While we do test the app and do our best to make sure everything is working, you might quickly leave the 'happy path' in your testing and run into bugs or things that may not work as expected. [Your feedback](https://github.com/Jamf-Concepts/setup-checklist/issues) is required and much appreciated for us to identify and address these issues. Thank you.
-
-This also means that features and the format of the configuration profile might change from one beta version to the next. We will do our best to document these changes, but be prepared that you might have to update the configuration profile you built frequently.
+While we do test the app and do our best to make sure everything is working, this is a very flexible tool that can be used in many different situations and environments. When you run into bugs or things that may not work as expected, [your feedback](https://github.com/Jamf-Concepts/setup-checklist/issues) is required and much appreciated for us to identify and address these issues. Thank you.
 
 ## Installer and Updates
 
@@ -57,7 +55,6 @@ Updates are published in the '[Releases](https://github.com/Jamf-Concepts/setup-
 - there is a limited number of steps right now, we have plans for more, but your feedback on which kinds of steps you need is appreciated and will help us prioritize
 - `background` key in Welcome screen only allows local files
 - there is no custom JSON to get a custom profile interface in Jamf Pro and we are not planning to provide one until the profile schema is stable
-- there is known issue in Self Service Plus where launching an action through a URL stalls in Self Service Plus
 
 ## Feedback
 
