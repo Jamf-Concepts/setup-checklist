@@ -177,7 +177,7 @@ The image shown at the top of the step area. When the `image` has a value, that 
 
 Some step kinds will have other defaults for the image, i.e. the `browser` step will use the target default browser's app icon. 
 
-The size of the area available to the image will vary with window size and position, but 16:9 ratio landscape or square images work well.
+The size of the area available to the image will vary with window size and position, but 16:9 ratio landscape or square images work well. The available space in the default window is approximately 630 x 440 pixels (1260x 880 @ 2x) but this will change should the user choose to change window size, or with a long `message` text.
 
 ```xml
 <key>image</key>
@@ -209,7 +209,7 @@ The `movie` can be an absolute path to a local movie file or a `https` url.
 
 The movie will loop (start over when it reaches the end) and is muted. Animated GIFs do _not_ work as movies.
 
-The size of the area available to the image will vary with window size and position, but 16:9 ratio landscape or square movies work well.
+The size of the area available to the image will vary with window size and position, but 16:9 ratio landscape or square movies work well. The available space in the default window is approximately 630 x 440 pixels (1260x 880 @ 2x) but this will change should the user choose to change window size. A 720p movie resolution is the recommended minimum, but a 1080p would not be wasteful. Remember that you can drastically reduce the file size of most videos with little quality loss using tools like `ffmpeg` or [Handbrake](https://handbrake.fr)
 
 ```xml
 <key>movie</key>
@@ -488,7 +488,7 @@ key: `bundle-id`, string or array of strings, required
 
 The app [bundle identifier](../Extras/BundleIdentifiers.md) for the browser, e.g. `org.mozilla.firefox`. When the app cannot be found when Welcome app runs (i.e. the browser is not installed yet, this step will be skipped)
 
-You can use [`utiluti`](https://github.com/scriptingsox/utiluti) to get a list of apps and their bundle identifiers for a given url scheme or universal type identifier:
+You can use [`utiluti`](https://github.com/scriptingosx/utiluti) to get a list of apps and their bundle identifiers for a given url scheme or universal type identifier:
 
 ```shell
 $ utiluti url list mailto --bundle-id
@@ -551,7 +551,7 @@ When multiple values are given the first value is used is used to determine the 
 
 When both `urlScheme` and `uniformTypeIdentifier` values are provided the first `urlScheme` is used to determine the current default app and whether changing the app succeeded.
 
-You can get the uniform type identifier from a file extension using [`utiluti`](https://github.com/scriptingsox/utiluti):
+You can get the uniform type identifier from a file extension using [`utiluti`](https://github.com/scriptingosx/utiluti):
 
 ```shell
 $ utiluti get-uti pdf
@@ -581,9 +581,14 @@ This step will open the Screen Recording pane in Settings > Privacy & Security a
 
 **Important:** this steps _requires_ the "Full Disk Access" privacy access enabled, which in a managed environment [is best granted with a PPPC profile.](Overview.md#managed-login-items-and-privacy-preferences-policy-control).
 
-This step works well with a `windowPosition` setting of `left` or `right`
+**Note:** macOS 26 System Settings app will _not_ automatically list apps which might require this approval. The user will have to click on the '+' at the bottom of the list and select the app.
+
+Admins can pre-populate this pane by providing a PPPC profile for the apps to allow standard users to allow screen sharing. This will pre-populate the app(s) in the Screen & System Audio Recording pane, with the note "This setting has been configured by a profile," whether the user is admin or not.
+
 
 ![Setup Checklist screensharing step keys](../Images/SetupChecklist-screensharing-keys.png)
+
+This step works well with a `windowPosition` setting of `left` or `right`
 
 Example: 
 
@@ -854,9 +859,9 @@ This script is executed when the user clicks the action button or `openAutomatic
 
 key: `updateStatusScript`, String, optional
 
-The `updateStatusScript` behaves differently than other scripts. This script is called at different times during a step's lifecycle. It should evaluate the facts on the system and return and exit code of `0` (success) when the fact match the desired outcome and and exit code of `1` (failure) when the don't.
+The `updateStatusScript` behaves differently than other scripts. This script is called at different times during a step's lifecycle. It should evaluate the facts on the system and return an exit code of `0` (success) when the fact matches the desired outcome and an exit code of `1` (failure) when it does not.
 
-The updateStatusScript is evaluated at the end of preparation (regardless of whether a `prepareScript` script exists). If the `updateScript` returns `0/success here, the step is immediately marked as completed and not shown in the normal workflow, unless the user explicitly clicks on it.
+The `updateStatusScript` is evaluated at the end of preparation (regardless of whether a `prepareScript` script exists). If the `updateScript` returns `0/success here, the step is immediately marked as completed and not shown in the normal workflow, unless the user explicitly clicks on it.
 
 If an `updateStatusScript` exists, clicking the action button will start a polling cycle that evaluates the `updateStatusScript` _once per second_. For this reason, the update status script needs to be small and fast. The idea here is that the polling cycle monitors the desired outcome and sets the step to completed when that occurs.
 

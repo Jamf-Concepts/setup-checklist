@@ -1,5 +1,31 @@
 #  Setup Checklist - Change Log
 
+## v1.0
+(2026-06-12)
+
+### Setup Checklist
+- wallpaper step 
+  - now displays image files containing dark and light mode versions, _see notes_
+  - display performance improvements
+- dock step
+  - should now properly determine status in some edge cases (#48)
+- open and script step
+  - `openAutomatically` does not trigger on select when step is already marked `completed` (#62)
+- user interface fixes (#63)
+
+### Automation
+- new command line tool and url scheme commands:
+  - `reload`: reload steps from defaults/profile
+  - `next`: go to next step
+  - `list`: list steps in current configuration
+
+### Notes:
+
+#### Wallpaper: 
+
+There are at least three different variants of combined or dynamic wallpapers. The simplest contains a light and dark version of the wallpaper, the second contains several different images which are chosen according to time of day and the last contains different versions chosen according to solar position (calculated from location, time of day and season). Setup Manager will display a combined preview for the simplest case: dark/light mode. For the other variants, the first image resource will be used for the preview. After selecting the image, the proper image should be used for the wallpaper.
+
+
 ## v0.4.0
 (2026-04-09)
 

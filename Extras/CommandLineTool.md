@@ -14,6 +14,28 @@ Most commands will require Setup Checklist to be running to work properly. You c
 $ setupchecklist launch
 ```
 
+## List steps
+
+You can list the steps in the current configuration.
+
+```shell
+$ setupchecklist list
+welcome-message, kind: message
+dock, kind: dock
+wallpaper, kind: wallpaper
+```
+
+The output will be in the format `<identifier> , kind: <kind>`
+
+When you add the `--identifiers/-i` flag, it will list only the identifiers of the steps.
+
+```shell
+$ setupchecklist list -i           
+welcome-message
+dock
+wallpaper
+```
+
 ## Get current step
 
 Running `setupchecklist current` will return the identifier of the current step:
@@ -29,6 +51,14 @@ You can tell Setup Checklist to go to a specific step, determined by the steps i
 
 ```shell
 $ setupchecklist goto <identifier>
+```
+
+## Go to Next Step
+
+This will go to the next step.
+
+```shell
+$ setupchecklist next
 ```
 
 ## Get and update status
@@ -77,3 +107,12 @@ The values you can use are:
 - `buttonLabel`
 
 (Note: not all combinations haven been tested yet. Please file issues, when something doesn't work as expected.)
+
+## Reload Steps
+
+This will tell Setup Checklist to reload all steps from the defaults or profile and start over.
+
+```shell
+$ setupchecklist reload
+```
+

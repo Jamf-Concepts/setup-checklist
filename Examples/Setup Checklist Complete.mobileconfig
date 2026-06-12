@@ -245,16 +245,16 @@
 					<key>kind</key>
 					<string>message</string>
 					<key>message</key>
-					<dict>
-						<key>de</key>
-						<string>Die Konfiguration is abgeschlossen. Sie können diese Einstellungen wiederholen, indem sie die Welcome.app wieder starten. Viel Vergnügen mit Ihrem Mac!</string>
-						<key>en</key>
-						<string>The configuration is complete. You can re-apply these settings by running the Welcome.app again. Enjoy your Mac!</string>
-						<key>fr</key>
-						<string>La configuration est terminée. Vous pouvez réappliquer ces paramètres en exécutant à nouveau l'application Welcome. Profitez de votre Mac!</string>
-						<key>nl</key>
-						<string>De configuratie is voltooid. U kunt deze instellingen opnieuw toepassen door de Welcome.app opnieuw uit te voeren. Veel plezier met uw Mac!</string>
-					</dict>
+          <dict>
+            <key>de</key>
+            <string>Die Konfiguration is abgeschlossen. Sie können diese Einstellungen wiederholen, indem Sie die Setup Checklist App wieder starten. Viel Vergnügen mit Ihrem Mac!</string>
+            <key>en</key>
+            <string>The configuration is complete. You can re-apply these settings by running the Setup Checklist again. Enjoy your Mac!</string>
+            <key>fr</key>
+            <string>La configuration est terminée. Vous pouvez réappliquer ces paramètres en exécutant à nouveau l'application Setup Welcome. Profitez de votre Mac!</string>
+            <key>nl</key>
+            <string>De configuratie is voltooid. U kunt deze instellingen opnieuw toepassen door de Setup Checklist app opnieuw uit te voeren. Veel plezier met uw Mac!</string>
+          </dict>
 					<key>title</key>
 					<dict>
 						<key>de</key>

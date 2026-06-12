@@ -9,7 +9,7 @@
 	<key>icon</key>
 	<string>name:Checklist</string>
 	<key>message</key>
-	<string>Let&apos;s configure your new Mac!</string>
+	<string>Let's configure your new Mac!</string>
 	<key>showIconInDock</key>
 	<true/>
 	<key>steps</key>
@@ -51,8 +51,6 @@
 			<string>wallpaper</string>
 			<key>kind</key>
 			<string>wallpaper</string>
-			<key>path</key>
-			<string>/Library/Desktop Pictures/</string>
 			<key>message</key>
 			<dict>
 				<key>de</key>
@@ -60,10 +58,12 @@
 				<key>en</key>
 				<string>Please choose a wallpaper from our list of branded images. You can always change it later.</string>
 				<key>fr</key>
-				<string>Veuillez choisir un fond d&apos;écran dans notre liste d&apos;images. Vous pouvez toujours le changer plus tard.</string>
+				<string>Veuillez choisir un fond d'écran dans notre liste d'images. Vous pouvez toujours le changer plus tard.</string>
 				<key>nl</key>
 				<string>Kies een achtergrond uit onze lijst met afbeeldingen. Je kunt het altijd later veranderen.</string>
 			</dict>
+			<key>path</key>
+			<string>/Library/Desktop Pictures/</string>
 			<key>title</key>
 			<dict>
 				<key>de</key>
@@ -71,9 +71,45 @@
 				<key>en</key>
 				<string>Choose a wallpaper</string>
 				<key>fr</key>
-				<string>Choisir un fond d&apos;écran</string>
+				<string>Choisir un fond d'écran</string>
 				<key>nl</key>
 				<string>Kies een achtergrond</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>dockAction</key>
+			<array>
+				<string>replace</string>
+				<string>add</string>
+			</array>
+			<key>dockItems</key>
+			<array>
+				<string>com.apple.systempreferences</string>
+				<string>com.apple.apps.launcher</string>
+				<string>com.jamf.selfserviceplus</string>
+				<string>/Applications/BBEdit.app</string>
+				<string>com.microsoft.outlook</string>
+				<string>com.microsoft.teams2</string>
+				<string>Downloads</string>
+				<string>Documents</string>
+				<string>smb://server.example.com/share</string>
+			</array>
+			<key>identifier</key>
+			<string>dock</string>
+			<key>kind</key>
+			<string>dock</string>
+			<key>mayKeepCurrent</key>
+			<false/>
+			<key>message</key>
+			<dict>
+				<key>de</key>
+				<string>Für einen leichteren Zugriff empfehlen wir, diese Apps und Ordner Ihrem Dock hinzuzufügen.</string>
+				<key>en</key>
+				<string>For convienient access, we recommend adding these apps and items to your Dock.</string>
+				<key>fr</key>
+				<string>Pour un accès pratique, nous vous recommandons d'ajouter ces applications et éléments à votre Dock.</string>
+				<key>nl</key>
+				<string>Voor gemakkende toegang raden we aan deze apps en items aan je Dock toe te voegen.</string>
 			</dict>
 		</dict>
 		<dict>
@@ -141,7 +177,7 @@
 				<key>en</key>
 				<string>Choose Mail App</string>
 				<key>fr</key>
-				<string>Choisir l&apos;application Mail</string>
+				<string>Choisir l'application Mail</string>
 				<key>nl</key>
 				<string>Kies de Mail-app</string>
 			</dict>
@@ -167,7 +203,7 @@
 				<key>en</key>
 				<string>Enable Screen &amp; System Audio Recording for Microsoft Teams</string>
 				<key>fr</key>
-				<string>Activer l&apos;enregistrement de l&apos;écran et des sons du système pour Microsoft Teams</string>
+				<string>Activer l'enregistrement de l'écran et des sons du système pour Microsoft Teams</string>
 				<key>nl</key>
 				<string>Scherm- en systeemaudio-opname inschakelen voor Microsoft Teams</string>
 			</dict>
@@ -197,13 +233,13 @@
 			<key>message</key>
 			<dict>
 				<key>de</key>
-				<string>Die Konfiguration is abgeschlossen. Sie können diese Einstellungen wiederholen, indem sie die Welcome.app wieder starten. Viel Vergnügen mit Ihrem Mac!</string>
+				<string>Die Konfiguration is abgeschlossen. Sie können diese Einstellungen wiederholen, indem Sie die Setup Checklist App wieder starten. Viel Vergnügen mit Ihrem Mac!</string>
 				<key>en</key>
-				<string>The configuration is complete. You can re-apply these settings by running the Welcome.app again. Enjoy your Mac!</string>
+				<string>The configuration is complete. You can re-apply these settings by running the Setup Checklist again. Enjoy your Mac!</string>
 				<key>fr</key>
-				<string>La configuration est terminée. Vous pouvez réappliquer ces paramètres en exécutant à nouveau l&apos;application Welcome. Profitez de votre Mac!</string>
+				<string>La configuration est terminée. Vous pouvez réappliquer ces paramètres en exécutant à nouveau l'application Setup Welcome. Profitez de votre Mac!</string>
 				<key>nl</key>
-				<string>De configuratie is voltooid. U kunt deze instellingen opnieuw toepassen door de Welcome.app opnieuw uit te voeren. Veel plezier met uw Mac!</string>
+				<string>De configuratie is voltooid. U kunt deze instellingen opnieuw toepassen door de Setup Checklist app opnieuw uit te voeren. Veel plezier met uw Mac!</string>
 			</dict>
 			<key>title</key>
 			<dict>
