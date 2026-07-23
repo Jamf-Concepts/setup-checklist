@@ -20,7 +20,7 @@ When this key is unset in the Welcome app domain, it will use the value of the `
 
 key: `showWelcome`, boolean, default: true
 
-When set to `false` the welcome screen will be skipped and Setup Checklist will be opened directly.
+When set to `false` the welcome screen will be skipped and Setup Checklist (or the app set in `openWhenFinished`) will be opened directly.
 
 Examples: 
 
@@ -31,12 +31,41 @@ Show Welcome screen:
 <true/>
 ``` 
 
-Skip Welcome screen (and language chooser)
+Skip Welcome screen
 
 ```xml
 <key>showWelcome</key>
 <false/>
 ```
+
+#### Open When Finished
+
+key: `openWhenFinished`, string, default: `com.jamf.setupchecklist` (Setup Checklist main app)
+
+This key determines the app that will be opened when the Welcome app finishes, either because `showWelcome` is set to `false` or the user clicked on the 'Continue' button. You can set this to a bundle identifier, full path to an app, or a url scheme. Set to an empty string when no app should be opened.
+
+Examples:
+
+```xml
+<key>openWhenFinished</key>
+<string>com.jamf.selfserviceplus</string>
+```
+
+Open Self Service Plus, which will run macOS Onboarding policies if they are configured.
+
+```xml
+<key>openWhenFinished</key>
+<string>jamfselfservice://content?entity=policy&id=XX&action=execute</string>
+```
+
+Runs a policy by id number (replace `XX` with id number) in Self Service.
+
+```xml
+<key>openWhenFinished</key>
+<string/>
+```
+
+Launches nothing when Welcome app finishes.
 
 #### Title
 
@@ -71,13 +100,9 @@ Localized:
 
 #### Background Image
 
-key: `background`, string, optional, default: default system background image
+key: `background`, string/[image source](ImageSources.md), optional, default: `wallpaper`
 
-Local path to an image that is used as the background for the welcome screen.
-
-(**Note:** this does _not_ use the [image source](ImageSources.md) syntax yet.)
-
-Example:
+The background image for the welcome screen.
 
 ```xml
 <key>background</key>
@@ -119,7 +144,7 @@ Example:
 
 #### Title Font, Size, and Style
 
-key: `titleFont`, string, optional, default: system font (Helevetica Neue)
+key: `titleFont`, string, optional, default: system font (Helvetica Neue)
 key: `titleFontSize`, number, optional, default: 60
 key: `titleFontStyle`, string, optional
 
@@ -153,8 +178,6 @@ Example:
   <string>poweruser</string>
 </array>
 ```
-
-
 
 #### Show Languages
 

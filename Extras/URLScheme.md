@@ -34,7 +34,7 @@ You can change the `completed` status of a step with this call.
 
 Note that many will recalculate the completed status when the step is loaded and right before it is shown, so manually overwriting the completed status may have limited effect.
 
-Valid values are `completed`, `suggested`, `error`
+Valid values are `completed`, `suggested`, `canContinue`, `error`
 
 ## Reload Steps
 

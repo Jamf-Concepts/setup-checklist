@@ -33,6 +33,8 @@ When there is no value for the localization, the app will fall back to the value
 
 The following keys can be localized:
 
+## Setup Checklist
+
 ### Top-level keys
 
 - `icon`
@@ -44,23 +46,20 @@ The following keys can be localized:
 - `title`
 - `icon`
 - `message`
+- `buttonLabel` (`open`, `script`, `agreement`)
+- `document` (`agreement`)
 
-### Welcome app (domain `com.jamf.setup.welcome`)
+## Welcome app (domain `com.jamf.setup.welcome`)
 
 - `title`
 
 Use these two-letter codes for these languages:
 
-| Language           | two-letter code |
-|--------------------|-----------------|
-| English            | en (default)    |
-| Dutch (Nederlands) | nl              |
-| French             | fr              |
-| German             | de              |
-| Italian            | it              |
-| Hebrew             | he              |
-| Norwegian          | nb              |
-| Spanish            | es              |
-| Swedish            | sv              |
+| Language           | Native Name  | two-letter code |
+|--------------------|--------------|-----------------|
+| English            |              | en (default)    |
+| Dutch              |  Nederlands  | nl              |
+| French             |  Français    | fr              |
+| German             |  Deutsch     | de              |
 
-The [plist and profile example files](Examples) contain localizations for many of the custom text elements.
+The [plist and profile example files](../Examples) contain localizations for many of the custom text elements.

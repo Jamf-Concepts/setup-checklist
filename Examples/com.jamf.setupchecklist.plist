@@ -237,7 +237,11 @@
 				<key>en</key>
 				<string>The configuration is complete. You can re-apply these settings by running the Setup Checklist again. Enjoy your Mac!</string>
 				<key>fr</key>
-				<string>La configuration est terminée. Vous pouvez réappliquer ces paramètres en exécutant à nouveau l'application Setup Welcome. Profitez de votre Mac!</string>
+				<string>La configuration est terminée. Vous pouvez réappliquer ces paramètres en exécutant à nouveau l'application Setup Checklist. Profitez de votre Mac!</string>
+				<key>it</key>
+				<string>La configurazione è completa. Puoi riapplicare queste impostazioni eseguendo Setup Checklist di nuovo. Goditi il tuo Mac!</string>
+				<key>ja</key>
+				<string>設定が完了しました。Setup Checklistを再度実行すると、これらの設定を再適用できます。Macをお楽しみください！</string>
 				<key>nl</key>
 				<string>De configuratie is voltooid. U kunt deze instellingen opnieuw toepassen door de Setup Checklist app opnieuw uit te voeren. Veel plezier met uw Mac!</string>
 			</dict>

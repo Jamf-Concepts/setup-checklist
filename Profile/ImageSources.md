@@ -53,6 +53,17 @@ Note that the availability and appearance of SF Symbols may vary with the OS ver
 <string>symbol:clock</string>
 ```
 
+## Wallpaper
+
+When the icon source is exactly `wallpaper`, the app will display the current desktop picture of the main screen.
+
+```xml
+<key>background</key>
+<string>wallpaper</string>
+```
+
+If the desktop picture file contains separate light and dark mode images (as with some dynamic wallpapers), the appropriate image is chosen automatically based on the current appearance, and updates automatically when the desktop picture or the system appearance changes.
+
 ## Dark Mode
 
 Some images support providing a different source for dark and light mode.

@@ -1,5 +1,45 @@
 #  Setup Checklist - Change Log
 
+## v1.1beta
+
+(2026-07-23)
+
+### Setup Checklist
+
+- new `agreement` step to show licenses, policies and other agreements
+- new `windowPosition` value `focus`: centers window, hides sidebar, and overlays a full-screen background to block other apps for the current step
+- new `background` key at top and step level to set the image used for the focus background
+- new `blur` key at top and step level to control blur of the focus background
+- new `allowQuit` top-level key to prevent the user from quitting before the workflow completes (#51)
+- new `showSidebar` step level key
+- new `wallpaper` image source
+- new `openWhenFinishedHide` key to determine if the `openWhenFinished` item is opened hidden (#73)
+- new `finishedScript` top-level key to provide a script that is executed when Checklist finishes
+- file path, url, and wallpaper image sources now display correctly for image files containing dark and light mode versions
+- fix dock preview with a large number of items (#74)
+- improved SF Symbol display for wide icons (#82)
+- app now quits when last window is closed
+- `defaultApp` step now respects `buttonLabel` (#84)
+- setting the status to `.error` or `.completed` from a script while the script is shown now works correctly (#67)
+
+### Welcome app
+
+- no user interface "flash" when `showWelcome` is `false` (#66)
+- improved langauge determination for localized text (#75)
+- `background` now works with all image sources
+
+### Command line tool
+
+- the `status` verb without an identifier will list the status of all steps
+- command line tool can now update the `message` data (#64)
+
+### General
+
+- custom JSON Schema for Setup Checklist and Welcome App in Jamf Pro
+- interface improvements
+- documentation updates (#85)
+
+
 ## v1.0
 (2026-06-12)
 

@@ -78,6 +78,13 @@ $ setupchecklist status <identifier> <newStatus>
 
 Possible status values are `suggested`, `error`, `canContinue`, and `completed`
 
+When you run `setupchecklist status` without any identifier, the status of all steps will be listed.
+
+```shell
+$ setupchecklist status
+```
+
+
 ## Set step values
 
 You can set or update values of a step with
@@ -106,7 +113,15 @@ The values you can use are:
 - `item`
 - `buttonLabel`
 
-(Note: not all combinations haven been tested yet. Please file issues, when something doesn't work as expected.)
+(Note: not all combinations have been tested yet. Please file issues, when something doesn't work as expected.)
+
+## Quit Setup Checklist
+
+You can quit the Setup Checklist app with
+
+```shell
+$ setupchecklist quit
+```
 
 ## Reload Steps
 

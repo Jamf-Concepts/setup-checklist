@@ -51,10 +51,12 @@ The main configuration in the Setup Checklist app are the [steps](SetupChecklist
 There are different 'kinds' of steps:
 
 - [message](SetupChecklist.md#message-2)
+- [agreement](SetupChecklist.md#agreement)
 - [open](SetupChecklist.md#open)
 - [wallpaper](SetupChecklist.md#wallpaper)
 - [defaultApp](SetupChecklist.md#default-app)
 - [screensharing](SetupChecklist.md#screen-recordingsharing)
+- [dock](SetupChecklist.md#dock)
 - [script](SetupChecklist.md#script)
   - [detailed example implementation](ScriptStep.md)
 
@@ -78,9 +80,11 @@ You can find a [mobileconfig file with these two payloads](../Examples/SetupChec
 
 When you have `script` steps start processes that require other PPPC exemptions, such as sending Apple Events/AppleScript to another process, then you need to give this PPPC setting to Setup Checklist, since the system will see it as the parent process. These are not included in the sample profile.
 
-## Workflow
+## Launch Workflow and Control
 
 The installation contains a LaunchAgent plist. If a user is logged in during the installation it will launch the Welcome app immediately, otherwise it will be launched at the next log in of a user. 
+
+When `showWelcome` is set to `false` the Welcome app UI will be skipped entirely and proceed to launch the app defined in `openWhenFinished` (default is the main Setup Checklist app)
 
 When the user clicks "Continue" on the welcome screen, a `completed` key in the Welcome app's preference domain is set to `true`. When the Welcome app launches again (at next user login or because it was launched manually) it checks for this key. When it is set, the app will do nothing and terminate immediately.
 
@@ -93,11 +97,13 @@ $ defaults read com.jamf.setup.welcome completed
 
 This will return `1` when the completed key is set and Welcome app will not re-launch. It will return `0` or an error that the 'domain/default pair' does not exist otherwise.
 
-This will prevent the launch of the Welcome app, automated or manual, but the main Setup Checklist app will still be able to be re-launched manually.
+This will prevent the launch of the Welcome app, automated or manual. This will also prevent the indirect launch of the main Setup Checklist app (or another app set in `openWhenFinished`.)
 
 When the main Setup Checklist app is launched, it will read the `steps` configured in the profile one by one and evaluate them. When there is insufficient or erroneous data for a given step kind, an [error is logged](../Extras/Logging.md) and the step will be skipped.
 
 Some kinds of steps can determine if their target setting is already configured correctly and will be marked as 'Completed' and shown in that section in the sidebar list. A user can still click on the step to call it up and, when possible, re-do the setting. When Setup Checklist is re-launched, the status will be re-evaluated, though the exact behavior depends on the kind of setting.
+
+There is no single "Checklist completed" flag or flag file since each step can be completed (or not) independently. Since Setup Checklist can be quit and relaunched at any time, and the user (or other processes in the system) can change settings back to undesired values, the status of a step can change even after all the steps were completed once, rendering a single "completed" state stale and wrong.
 
 All steps will store their completed status in the `statuses` dictionary in the preference domain. You can read this with
 
@@ -126,10 +132,10 @@ suggested
 
 ## Testing
 
-While testing can re-launch Setup Checklist over and over again. Setup Checklist will determine the state of each step when it loads the profile. You may need to reset the `completedSteps` default to get a proper fresh run:
+While testing can re-launch Setup Checklist over and over again. Setup Checklist will determine the state of each step when it loads the profile. You may need to reset the `statuses` default to get a proper fresh run:
 
 ```
-$ defaults delete com.jamf.setupchecklist completedSteps
+$ defaults delete com.jamf.setupchecklist statuses
 ```
 
 Since the app also changes other settings, you may want to build a script that resets the settings to on "out of box" value during your testing. You can find [a sample script here](../Examples/resetEverything.sh), but you will have to adapt it for your particular workflow.

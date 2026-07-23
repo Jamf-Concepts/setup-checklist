@@ -43,6 +43,10 @@ Updates are published in the '[Releases](https://github.com/Jamf-Concepts/setup-
   - [Overview](Profile/Overview.md)
   - [Setup Checklist](Profile/SetupChecklist.md)
   - [Welcome screen and language chooser](Profile/Welcome.md)
+  - [Localization](Profile/Localization.md)
+  - [Image Sources](Profile/ImageSources.md)
+  - [Defining Colors](Profile/DefiningColors.md)
+  - [Script Step Example](Profile/ScriptStep.md)
 - Extras
   - [Logging](Extras/Logging.md)
   - [Telemetry](Extras/Telemetry.md)
@@ -52,13 +56,11 @@ Updates are published in the '[Releases](https://github.com/Jamf-Concepts/setup-
 
 ## Known Issues (and Plans)
 
-- there is a limited number of steps right now, we have plans for more, but your feedback on which kinds of steps you need is appreciated and will help us prioritize
-- `background` key in Welcome screen only allows local files
-- there is no custom JSON to get a custom profile interface in Jamf Pro and we are not planning to provide one until the profile schema is stable
+- there is a limited number of steps right now, we have plans for more, but [your feedback](https://github.com/Jamf-Concepts/setup-checklist/issues) on which kinds of steps you need is appreciated and will help us prioritize
 
 ## Feedback
 
-Please report issues, feature requests [as an issue.](https://github.com/Jamf-Concepts/setup-checklist/issues)
+Please report problems, bugs and feature requests [as an issue.](https://github.com/Jamf-Concepts/setup-checklist/issues)
 
 We have opened the [discussions](https://github.com/Jamf-Concepts/setup-checklist/discussions) area for questions, support and more generic feedback. You can also share solutions or your Setup Checklist workflow there!
 
