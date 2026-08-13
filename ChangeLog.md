@@ -1,5 +1,36 @@
 #  Setup Checklist - Change Log
 
+## v1.1beta2
+
+(2026-08-13)
+
+Changes since first beta:
+
+### Setup Checklist
+
+- uses `tccutil list` on macOS 27 to determine Screen Recording status (requires at least beta 5)
+- fixed an issue where Setup Checklist might not be launched when `showWelcome` is `false`
+- removed sidebar button
+- locked down `focus` mode more
+- list header `title` now properly localized (#75)
+- synchronized window move and background fade animations (#89)
+- wallpaper, default app, and agreement steps now show an error when an operation fails
+- accessibility and localization improvements
+- movies no longer autoplay or loop when 'Auto-Play Animated Images' is turned off in System Settings > Accessibility > Display
+- general bug fixes and improvements
+
+### Welcome
+
+- accessibility improvements
+
+### General
+
+- Hindi (हिन्दी) 🇮🇳 (#95)
+- Italian localization 🇮🇹
+- Korean (한국어) localization 🇰🇷 (#95)
+- Spanish localization 🇪🇸
+- British English localization 🇬🇧
+
 ## v1.1beta
 
 (2026-07-23)

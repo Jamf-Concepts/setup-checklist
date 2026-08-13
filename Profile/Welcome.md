@@ -40,7 +40,7 @@ Skip Welcome screen
 
 #### Open When Finished
 
-key: `openWhenFinished`, string, default: `com.jamf.setupchecklist` (Setup Checklist main app)
+key: `openWhenFinished`, string, default: `com.jamf.setupchecklist` (Setup Checklist main app), v1.1
 
 This key determines the app that will be opened when the Welcome app finishes, either because `showWelcome` is set to `false` or the user clicked on the 'Continue' button. You can set this to a bundle identifier, full path to an app, or a url scheme. Set to an empty string when no app should be opened.
 
@@ -100,7 +100,7 @@ Localized:
 
 #### Background Image
 
-key: `background`, string/[image source](ImageSources.md), optional, default: `wallpaper`
+key: `background`, string/[image source](ImageSources.md), optional, default: `wallpaper` (image source syntax added in v1.1)
 
 The background image for the welcome screen.
 

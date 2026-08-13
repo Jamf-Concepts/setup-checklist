@@ -20,6 +20,8 @@ Example: `jamf-setupchecklist:goto/browser-edge`
 
 ## Go to Next Step
 
+_v1.0_
+
 This will go to the next step.
 
 Example: `jamf-setupchecklist:next`
@@ -37,6 +39,8 @@ Note that many will recalculate the completed status when the step is loaded and
 Valid values are `completed`, `suggested`, `canContinue`, `error`
 
 ## Reload Steps
+
+_v1.0_
 
 This will tell Setup Checklist to reload all steps from the defaults or profile and start over.
 

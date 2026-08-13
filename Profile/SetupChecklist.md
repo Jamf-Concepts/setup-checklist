@@ -80,7 +80,7 @@ Example:
 
 #### Finished Script
 
-key: `finishedScript`, string, optional
+key: `finishedScript`, string, optional, v1.1
 
 When set, the contents will be executed as a script when the user clicks "Done" on the last step and Setup Checklist quits. The `finishedScript` will be executed before an `openWhenFinished` item (if present) is opened.
 
@@ -109,7 +109,7 @@ Example:
 
 #### Open When Finished Hide
 
-key: `openWhenFinishedHide`, boolean, default: `false`
+key: `openWhenFinishedHide`, boolean, default: `false`, v1.1
 
 When set to true, the item designated by `openWhenFinished` will be opened hidden or in the background, i.e. it will be launched without showing windows. (Exact behavior depends on the app launched.)
 
@@ -126,7 +126,7 @@ Controls whether app icon is shown in the Dock. Icon will _always_ show in Dock 
 
 #### Allow Quit
 
-key: `allowQuit`, boolean, optional, default: `true`
+key: `allowQuit`, boolean, optional, default: `true`, v1.1
 
 Controls whether the user can quit the app. When set to `false`, the 'Quit' menu item and its ⌘Q shortcut are removed and the main window's close button is disabled, so the user cannot leave before completing the workflow.
 
@@ -141,7 +141,7 @@ You can use shift-control-command E to terminate Checklist at any time.
 
 #### Background
 
-key: `background`, String/[image source](ImageSources.md), default: `wallpaper`
+key: `background`, String/[image source](ImageSources.md), default: `wallpaper`, v1.1
 
 Configures the full-screen background shown when `windowPosition` is set to `focus`. This can be set at the top level of the profile to apply to all steps, and overridden per-step. The step-level value takes precedence when both are set.
 
@@ -154,7 +154,7 @@ Example:
 
 #### Blur
 
-key: `blur`, boolean, default: `false`
+key: `blur`, boolean, default: `false`, v1.1
 
 When enabled, applies a blur effect to the full-screen background shown when `windowPosition` is set to `focus`. This can be set at the top level of the profile to apply to all steps, and overridden per-step. The step-level value takes precedence when both are set.
 
@@ -191,9 +191,9 @@ The available kinds are:
 - `defaultApp`
 - `open`
 - `screensharing`
-- `dock`
+- `dock` (v0.4)
 - `script`
-- `agreement`
+- `agreement` (v1.1)
 
 #### Identifier
 
@@ -291,6 +291,8 @@ When a `movie` key is set, these keys control the behavior of the movie:
 - `loop`: controls whether the movie loops continuously
 - `mute`: controls whether the audio is muted when the movie starts playing
 
+**Accessibility note:** (v1.1) when the user has turned off 'Auto-Play Animated Images' in System Settings > Accessibility > Display, `autoplay` and `loop` are both ignored. The movie is still loaded and shown with its playback controls, but it will not start on its own and will not repeat. Users who need to avoid continuous motion can rely on this setting, so do not depend on a movie playing automatically to convey information — put anything essential in the step's `title` and `message` as well.
+
 ```xml
 <key>autoplay</key>
 <false/>
@@ -306,7 +308,7 @@ When a `movie` key is set, these keys control the behavior of the movie:
 
 key: `windowPosition`, string, default: `center`
 
-Values can be `center`, `left`, `right`, or `focus`.
+Values can be `center`, `left`, `right`, or `focus`. The `focus` value was added in v1.1.
 
 When this key is set to `left` or `right` the window will be moved to left or right edge of the screen for this step and the sidebar will be hidden.
 
@@ -321,7 +323,7 @@ Example:
 
 #### Show Sidebar
 
-key: `showSidebar`, boolean, optional, default: depends on `windowPosition` (`true` for `center`, `false` for `left`/`right`/`focus`)
+key: `showSidebar`, boolean, optional, default: depends on `windowPosition` (`true` for `center`, `false` for `left`/`right`/`focus`), v1.1
 
 Overrides the sidebar visibility that would otherwise be determined by `windowPosition` for this step.
 
@@ -343,7 +345,7 @@ Example:
 
 #### Background
 
-key: `background`, string/[image source](ImageSources.md), default: `wallpaper`
+key: `background`, string/[image source](ImageSources.md), default: `wallpaper`, v1.1
 
 Configures the full-screen background shown when `windowPosition` is set to `focus`. This can be set at the top level of the profile to apply to all steps, and overridden per-step. The step-level value takes precedence when both are set.
 
@@ -356,7 +358,7 @@ Example:
 
 #### Blur
 
-key: `blur`, boolean, default: `false`
+key: `blur`, boolean, default: `false`, v1.1
 
 When enabled, applies a blur effect to the full-screen background shown when `windowPosition` is set to `focus`. This can be set at the top level of the profile to apply to all steps, and overridden per-step. The step-level value takes precedence when both are set.
 
@@ -430,6 +432,8 @@ key: `mayKeepCurrent`, boolean, optional, default: false
 When this key is enabled, the user can continue without changing the wallpaper.
 
 ### Agreement
+
+_v1.1_
 
 kind: `agreement`
 
@@ -634,7 +638,7 @@ Launches the app or URL, but hides the app (or keeps the app in the background).
 
 #### Button Label
 
-key: `buttonLabel`, string, [localizable](Localization.md), optional, default depends on step kind
+key: `buttonLabel`, string, [localizable](Localization.md), optional, default depends on step kind, v0.4
 
 The label used for the button.
 
@@ -914,6 +918,8 @@ When enabled, the Screen Recording pane in System Settings app will be opened au
 ```
 
 ### Dock
+
+_v0.4_
 
 kind: `dock`
 

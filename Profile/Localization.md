@@ -58,8 +58,13 @@ Use these two-letter codes for these languages:
 | Language           | Native Name  | two-letter code |
 |--------------------|--------------|-----------------|
 | English            |              | en (default)    |
+| English (UK)       |              | en-GB           |
 | Dutch              |  Nederlands  | nl              |
 | French             |  Français    | fr              |
 | German             |  Deutsch     | de              |
+| Hindi              |  हिन्दी         | hi              |
+| Italian            |  Italiano    | it              |
+| Korean             |  한국어        | ko              |
+| Spanish            |  Español     | es              |
 
 The [plist and profile example files](../Examples) contain localizations for many of the custom text elements.

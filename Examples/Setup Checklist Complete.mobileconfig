@@ -22,7 +22,9 @@
 				<string>en-US</string>
 				<string>en-GB</string>
 				<string>de</string>
+				<string>es</string>
 				<string>fr</string>
+				<string>it</string>
 				<string>nl</string>
 			</array>
 			<key>showLanguages</key>
@@ -35,8 +37,12 @@
 				<string>Willkommen bei Jamf</string>
 				<key>en</key>
 				<string>Welcome to Jamf</string>
+				<key>es</key>
+				<string>Bienvenido a Jamf</string>
 				<key>fr</key>
 				<string>Bienvenue à Jamf</string>
+				<key>it</key>
+				<string>Benvenuto a Jamf</string>
 				<key>nl</key>
 				<string>Welkom bij Jamf</string>
 			</dict>
@@ -79,8 +85,12 @@
 						<string>Nur noch ein paar Schritte, um Ihren neuen Mac zu konfigurieren.</string>
 						<key>en</key>
 						<string>Just a few more steps to configure your new Mac.</string>
+						<key>es</key>
+						<string>Solo unos pocos pasos más para configurar tu nuevo Mac.</string>
 						<key>fr</key>
 						<string>Juste quelques étapes de plus pour configurer votre nouveau Mac.</string>
+						<key>it</key>
+						<string>Solo pochi altri passaggi per configurare il tuo nuovo Mac.</string>
 						<key>nl</key>
 						<string>Nog een paar stappen om je nieuwe Mac te configureren.</string>
 					</dict>
@@ -90,8 +100,12 @@
 						<string>Willkommen bei Setup Checklist</string>
 						<key>en</key>
 						<string>Welcome to Setup Checklist</string>
+						<key>es</key>
+						<string>Bienvenido a Setup Checklist</string>
 						<key>fr</key>
 						<string>Bienvenue à Setup Checklist</string>
+						<key>it</key>
+						<string>Benvenuto a Setup Checklist</string>
 						<key>nl</key>
 						<string>Welkom bij Setup Checklist</string>
 					</dict>
@@ -107,8 +121,12 @@
 						<string>Bitte wählen Sie ein Hintergrundbild aus unserer Liste. Sie können es später jederzeit ändern.</string>
 						<key>en</key>
 						<string>Please choose a wallpaper from our list of branded images. You can always change it later.</string>
+						<key>es</key>
+						<string>Elige un fondo de pantalla de nuestra lista de imágenes. Siempre puedes cambiarlo más tarde.</string>
 						<key>fr</key>
 						<string>Veuillez choisir un fond d'écran dans notre liste d'images. Vous pouvez toujours le changer plus tard.</string>
+						<key>it</key>
+						<string>Scegli uno sfondo dalla nostra lista di immagini. Puoi sempre cambiarlo in seguito.</string>
 						<key>nl</key>
 						<string>Kies een achtergrond uit onze lijst met afbeeldingen. Je kunt het altijd later veranderen.</string>
 					</dict>
@@ -120,8 +138,12 @@
 						<string>Hintergrundbild wählen</string>
 						<key>en</key>
 						<string>Choose a wallpaper</string>
+						<key>es</key>
+						<string>Elige un fondo de pantalla</string>
 						<key>fr</key>
 						<string>Choisir un fond d'écran</string>
+						<key>it</key>
+						<string>Scegli uno sfondo</string>
 						<key>nl</key>
 						<string>Kies een achtergrond</string>
 					</dict>
@@ -143,8 +165,12 @@
 						<string>Microsoft Edge als Standardbrowser bestätigen.</string>
 						<key>en</key>
 						<string>Confirm Microsoft Edge as default browser.</string>
+						<key>es</key>
+						<string>Confirmar Microsoft Edge como navegador predeterminado.</string>
 						<key>fr</key>
 						<string>Confirmer Microsoft Edge comme navigateur par défaut.</string>
+						<key>it</key>
+						<string>Conferma Microsoft Edge come browser predefinito.</string>
 						<key>nl</key>
 						<string>Bevestig Microsoft Edge als standaardbrowser.</string>
 					</dict>
@@ -154,8 +180,12 @@
 						<string>Standardbrowser bestätigen</string>
 						<key>en</key>
 						<string>Confirm Default Browser</string>
+						<key>es</key>
+						<string>Confirmar navegador predeterminado</string>
 						<key>fr</key>
 						<string>Confirmer Navigateur par défaut</string>
+						<key>it</key>
+						<string>Conferma browser predefinito</string>
 						<key>nl</key>
 						<string>Standaardbrowser bevestigen</string>
 					</dict>
@@ -179,8 +209,12 @@
 						<string>Wähle deine bevorzugte app für Email.</string>
 						<key>en</key>
 						<string>Choose your preferred app for email.</string>
+						<key>es</key>
+						<string>Elige tu aplicación preferida para el correo electrónico.</string>
 						<key>fr</key>
 						<string>Choisissez votre application préférée pour le courrier électronique.</string>
+						<key>it</key>
+						<string>Scegli la tua app preferita per la posta elettronica.</string>
 						<key>nl</key>
 						<string>Kies uw favoriete app voor e-mail.</string>
 					</dict>
@@ -190,8 +224,12 @@
 						<string>Email App wählen</string>
 						<key>en</key>
 						<string>Choose Mail App</string>
+						<key>es</key>
+						<string>Elige la app de correo</string>
 						<key>fr</key>
 						<string>Choisir l'application Mail</string>
+						<key>it</key>
+						<string>Scegli l'app di posta</string>
 						<key>nl</key>
 						<string>Kies de Mail-app</string>
 					</dict>
@@ -216,8 +254,12 @@
 						<string>Aktiviere die Aufnahme von BIldschirm &amp; Systemaudio für Microsoft Teams</string>
 						<key>en</key>
 						<string>Enable Screen &amp; System Audio Recording for Microsoft Teams</string>
+						<key>es</key>
+						<string>Habilitar la grabación de pantalla y audio del sistema para Microsoft Teams</string>
 						<key>fr</key>
 						<string>Activer l'enregistrement de l'écran et des sons du système pour Microsoft Teams</string>
+						<key>it</key>
+						<string>Abilita la registrazione dello schermo e dell'audio di sistema per Microsoft Teams</string>
 						<key>nl</key>
 						<string>Scherm- en systeemaudio-opname inschakelen voor Microsoft Teams</string>
 					</dict>
@@ -229,8 +271,12 @@
 						<string>Bildschirmfreigabe</string>
 						<key>en</key>
 						<string>Screen Sharing</string>
+						<key>es</key>
+						<string>Compartir pantalla</string>
 						<key>fr</key>
 						<string>Partage d’écran</string>
+						<key>it</key>
+						<string>Condivisione schermo</string>
 						<key>nl</key>
 						<string>Schermdeling</string>
 					</dict>
@@ -250,12 +296,12 @@
             <string>Die Konfiguration is abgeschlossen. Sie können diese Einstellungen wiederholen, indem Sie die Setup Checklist App wieder starten. Viel Vergnügen mit Ihrem Mac!</string>
             <key>en</key>
             <string>The configuration is complete. You can re-apply these settings by running the Setup Checklist again. Enjoy your Mac!</string>
+            <key>es</key>
+            <string>La configuración está completa. Puedes volver a aplicar estos ajustes ejecutando Setup Checklist de nuevo. ¡Disfruta tu Mac!</string>
             <key>fr</key>
             <string>La configuration est terminée. Vous pouvez réappliquer ces paramètres en exécutant à nouveau l'application Setup Checklist. Profitez de votre Mac!</string>
             <key>it</key>
             <string>La configurazione è completa. Puoi riapplicare queste impostazioni eseguendo Setup Checklist di nuovo. Goditi il tuo Mac!</string>
-            <key>ja</key>
-            <string>設定が完了しました。Setup Checklistを再度実行すると、これらの設定を再適用できます。Macをお楽しみください！</string>
             <key>nl</key>
             <string>De configuratie is voltooid. U kunt deze instellingen opnieuw toepassen door de Setup Checklist app opnieuw uit te voeren. Veel plezier met uw Mac!</string>
           </dict>
@@ -265,8 +311,12 @@
 						<string>Danke schön</string>
 						<key>en</key>
 						<string>Thank you</string>
+						<key>es</key>
+						<string>Gracias</string>
 						<key>fr</key>
 						<string>Merci</string>
+						<key>it</key>
+						<string>Grazie</string>
 						<key>nl</key>
 						<string>Bedankt</string>
 					</dict>
