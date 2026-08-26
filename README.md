@@ -24,6 +24,8 @@ Admins can deploy Setup Checklist together with configuration profile to guide t
 
 Setup Checklist works with **Jamf Pro** and **Jamf School**.
 
+To use Setup Checklist with Jamf School it is **required** to enable [Jamf School Scripting](https://learn.jamf.com/en-US/bundle/jamf-school-documentation/page/Scripts.html).
+
 ## Call to action
 
 While we do test the app and do our best to make sure everything is working, this is a very flexible tool that can be used in many different situations and environments. When you run into bugs or things that may not work as expected, [your feedback](https://github.com/Jamf-Concepts/setup-checklist/issues) is required and much appreciated for us to identify and address these issues. Thank you.

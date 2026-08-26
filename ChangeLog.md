@@ -1,5 +1,67 @@
 #  Setup Checklist - Change Log
 
+## v1.1
+(2026-08-25)
+
+**Important Note:** The `screensharing` step of previous versions (1.0 and earlier, as well as 1.1beta) will fail to detect the screen recording status on macOS 27 and later (starting with beta5). This version addresses this issue on macOS 27 (starting with beta5) and, hopefully, going forward.
+
+### Setup Checklist
+
+- new `agreement` step to show licenses, policies and other agreements
+- new `windowPosition` value `focus`: centers window, hides sidebar, and overlays a full-screen background to block other apps for the current step
+- new `background` key at top and step level to set the image used for the focus background
+- new `blur` key at top and step level to control blur of the focus background
+- new `allowQuit` top-level key to prevent the user from quitting before the workflow completes (#51)
+- new `showSidebar` step level key
+- new `wallpaper` image source
+- new `openWhenFinishedHide` key to determine if the `openWhenFinished` item is opened hidden (#73)
+- new `finishedScript` top-level key to provide a script that is executed when Checklist finishes
+- file path, url, and wallpaper image sources now display correctly for image files containing dark and light mode versions
+- fix dock preview with a large number of items (#74)
+- improved SF Symbol display for wide icons (#82)
+- app now quits when last window is closed
+- `defaultApp` step now respects `buttonLabel` (#84)
+- setting the status to `.error` or `.completed` from a script while the script is shown now works correctly (#67)
+- uses `tccutil list` on macOS 27 to determine Screen Recording status (requires at least macOS 27 beta 5)
+- fixed an issue where Setup Checklist might not be launched when `showWelcome` is `false`
+- removed sidebar button (#61)
+- locked down `focus` mode more
+- list header `title` now properly localized (#75)
+- synchronized window move and background fade animations (#89)
+- wallpaper, default app, and agreement steps now show an error when an operation fails
+- accessibility and localization improvements
+- movies no longer autoplay or loop when 'Auto-Play Animated Images' is turned off in System Settings > Accessibility > Display
+- general bug fixes and improvements
+- `screensharing` step does not re-open Settings app when configuration is correct (#100)
+- interface improvements (#94, #91, #99)
+
+### Welcome
+
+- no user interface "flash" when `showWelcome` is `false` (#66)
+- improved langauge determination for localized text (#75)
+- `background` now works with all image sources
+- accessibility improvements
+
+### Command line tool
+
+- the `status` verb without an identifier will list the status of all steps
+- command line tool can now update the `message` data (#64)
+
+### General
+
+- custom JSON Schema for Setup Checklist and Welcome App in Jamf Pro
+- documentation updates (#85)
+- Localizations
+  - Bulgarian (Български) 🇧🇬 (#95)
+  - Swedish (Svenska) 🇸🇪
+  - Norwegian Bokmål (Norsk bokmål) 🇳🇴
+  - Hindi (हिन्दी) 🇮🇳 (#95)
+  - Italian (Italiano) 🇮🇹
+  - Korean (한국어) 🇰🇷 (#95)
+  - Spanish (Español) 🇪🇸
+  - British English 🇬🇧
+
+
 ## v1.1beta2
 
 (2026-08-13)

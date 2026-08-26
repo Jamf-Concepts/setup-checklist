@@ -312,7 +312,14 @@ Values can be `center`, `left`, `right`, or `focus`. The `focus` value was added
 
 When this key is set to `left` or `right` the window will be moved to left or right edge of the screen for this step and the sidebar will be hidden.
 
-When this key is set to `focus` the window will be centered on screen at its default size, the sidebar will be hidden, and a full-screen background will be shown on every connected screen to block access to other apps for this step. By default this background shows the current wallpaper, but it can be configured with the `background` key below.
+When this key is set to `focus` the window will be centered on screen at its default size, the dock, menu bar, and Setup Checklist sidebar will be hidden, and a full-screen background will be shown on every connected screen to block access to other apps for this step. By default this background shows the current wallpaper, but it can be configured with the `background` key below.
+
+The `focus` window position will cover other apps and system windows, dialogs, and notifications. It is not suitable for steps that require interaction with other apps, dialogs, and notifications. The behavior depends on the step kind:
+
+- `screensharing` step: will ignore a value of `focus` and use `center` instead
+-  `defaultApp` step: will ignore a value of `focus` _only when its configuration will create a system prompt_ and use `center` instead
+- `open` and `script` steps: using `focus` is generally not advised, but since there may be configurations where it makes sense, Setup Checklist will use the normal `focus` behavior
+- other step kinds: normal `focus` behavior
 
 Example: 
 
@@ -443,7 +450,6 @@ This step displays a policy, license, or agremment document in the window with a
 
 This step works well with a `windowPosition` setting of `focus`.
 
-
 Example:
 
 ```xml
@@ -474,9 +480,9 @@ The supported file formats are
 - markdown (`md` and `markdown`)
 - PDF
 
-Note that the localization works differently on this document than for other localized keys. The set of languages is _not_ restricted to the languages that Setup Checklist supports. When multiple translations of the document are provided, a 'Languages' button will be shown below the document in the window.
+Note that the localization works differently on this document than for other localized keys. The set of languages is _not_ restricted to [the languages that Setup Checklist supports](Localization.md#supported-languages). When multiple translations of the document are provided, a 'Languages' button will be shown below the document in the window.
 
-You can provide regional versions with a region extension, e.g. `de-DE`, `de-CH`, and `de-AT`. A regional match will be preferred over a more generic match. A none region specfic version (e.g. `de`) will be chosen when no regional match exists, then the system will fall back to the base `en` path.
+You can provide regional versions with a region extension, e.g. `de-DE`, `de-CH`, and `de-AT`. A regional match will be preferred over a more generic match. A language code without a region (e.g. `de`) will be chosen when no regional match exists, then the system will fall back to the base `en` path.
 
 Example:
 
@@ -618,6 +624,8 @@ Since the `icon` is not set this will show the calculator app icon. Since the `t
 </dict>
 ```
 
+Note: Generally, the goal of opening an app will require the user to interact with the app. A `windowPosition` of `focus` will cover the launched app and prevent interaction.
+
 #### Item
 
 key: `item`, string, required
@@ -649,6 +657,10 @@ kind: `defaultApp`
 Prompts the user to confirm or choose an app as the default for a url scheme (e.g. `http` or `mailto`) or unified type identifier (e.g. `public.txt` or `com.adobe.pdf`).
 
 ![Setup Checklist defaultApp step keys](../Images/SetupChecklist-defaultApp-keys.png)
+
+Note: the `http` urlScheme and, starting with macOS 26.4, _all_ file types/uniform type identifier, will prompt the user to confirm the change. When the user clicks "Keep …" in that dialog, the default app will not be changed, and generally, the user will not be able to continue (this depends on whether there are mutliple choices and the `mayKeepCurrent` setting). 
+
+This confirmation dialog is a system prompt. With a window position of `focus` the system prompt would be covered and the user would not be able to confirm or continue. To prevent this, for `http` urlSchemes or any change of a default app for file type/UTI, a value of `focus` for `windowPosition` will be ignored and `center` will be used instead. 
 
 Examples: 
 
@@ -836,16 +848,20 @@ kind: `screensharing`
 
 This step will open the Screen Recording pane in Settings > Privacy & Security and monitor the state of the switches for the designated apps until all are enabled.
 
-**Important:** this steps _requires_ the "Full Disk Access" privacy access enabled, which in a managed environment [is best granted with a PPPC profile.](Overview.md#managed-login-items-and-privacy-preferences-policy-control).
+**Important:** on macOS 26.x and earlier, this steps _requires_ the "Full Disk Access" privacy access enabled, which in a managed environment [is best granted with a PPPC profile.](Overview.md#managed-login-items-and-privacy-preferences-policy-control).
 
-**Note:** macOS 26 System Settings app will _not_ automatically list apps which might require this approval. The user will have to click on the '+' at the bottom of the list and select the app.
+For macOS 27, you need to use Setup Checklist v1.1 or later. Older versions of Setup Checklist will not work on macOS 27. With Setup Checklist v1.1 and macOS 27, the Full Disk Access PPPC excemption is not required for the `screensharing` step any more. (Though it may be required for custom `script` steps.)
+
+**Note:** macOS 26 (and later) System Settings app will _not_ automatically list apps which might require this approval. The user will have to click on the '+' at the bottom of the list and select the app.
 
 Admins can pre-populate this pane by providing a PPPC profile for the apps to allow standard users to allow screen sharing. This will pre-populate the app(s) in the Screen & System Audio Recording pane, with the note "This setting has been configured by a profile," whether the user is admin or not.
-
 
 ![Setup Checklist screensharing step keys](../Images/SetupChecklist-screensharing-keys.png)
 
 This step works well with a `windowPosition` setting of `left` or `right`.
+
+With a window position of `focus` the Settings app would be covered and the user would not be able to allow and proceed. To prevent this, a value of `focus` for `windowPosition` will be ignored and `center` will be used instead. 
+
 
 Example: 
 

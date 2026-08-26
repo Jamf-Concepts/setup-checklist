@@ -53,18 +53,25 @@ The following keys can be localized:
 
 - `title`
 
-Use these two-letter codes for these languages:
+## Supported Languages
 
-| Language           | Native Name  | two-letter code |
+Use these codes for these languages:
+
+| Language           | Native Name  | language code   |
 |--------------------|--------------|-----------------|
-| English            |              | en (default)    |
+| English (US)       |              | en              |
 | English (UK)       |              | en-GB           |
-| Dutch              |  Nederlands  | nl              |
-| French             |  Français    | fr              |
-| German             |  Deutsch     | de              |
-| Hindi              |  हिन्दी         | hi              |
-| Italian            |  Italiano    | it              |
-| Korean             |  한국어        | ko              |
-| Spanish            |  Español     | es              |
+| Bulgarian          | Български    | bg              |
+| Dutch              | Nederlands   | nl              |
+| French             | Français     | fr              |
+| German             | Deutsch      | de              |
+| Hindi              | हिन्दी          | hi              |
+| Italian            | Italiano     | it              |
+| Korean             | 한국어         | ko              |
+| Norwegian Bokmål   | Norsk bokmål | nb              |
+| Spanish            | Español      | es              |
+| Swedish            | Svenska      | sv              |
+
+For unknown codes and languages _not_ in this list, the app will revert to `en` (US English).
 
 The [plist and profile example files](../Examples) contain localizations for many of the custom text elements.
