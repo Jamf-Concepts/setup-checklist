@@ -16,6 +16,8 @@ $ setupchecklist launch
 
 ## List steps
 
+_v1.0_
+
 You can list the steps in the current configuration.
 
 ```shell
@@ -55,6 +57,8 @@ $ setupchecklist goto <identifier>
 
 ## Go to Next Step
 
+_v1.0_
+
 This will go to the next step.
 
 ```shell
@@ -77,6 +81,13 @@ $ setupchecklist status <identifier> <newStatus>
 ```
 
 Possible status values are `suggested`, `error`, `canContinue`, and `completed`
+
+When you run `setupchecklist status` without any identifier, the status of all steps will be listed. (v1.1)
+
+```shell
+$ setupchecklist status
+```
+
 
 ## Set step values
 
@@ -106,9 +117,19 @@ The values you can use are:
 - `item`
 - `buttonLabel`
 
-(Note: not all combinations haven been tested yet. Please file issues, when something doesn't work as expected.)
+(Note: not all combinations have been tested yet. Please file issues, when something doesn't work as expected.)
+
+## Quit Setup Checklist
+
+You can quit the Setup Checklist app with
+
+```shell
+$ setupchecklist quit
+```
 
 ## Reload Steps
+
+_v1.0_
 
 This will tell Setup Checklist to reload all steps from the defaults or profile and start over.
 

@@ -78,6 +78,22 @@ Example:
 <true/>
 ```
 
+#### Finished Script
+
+key: `finishedScript`, string, optional, v1.1
+
+When set, the contents will be executed as a script when the user clicks "Done" on the last step and Setup Checklist quits. The `finishedScript` will be executed before an `openWhenFinished` item (if present) is opened.
+
+Example:
+
+```xml
+<key>finishedScript</key>
+<string>osascript -e 'display dialog "Finished"'
+touch /Users/Shared/.ChecklistFinished
+open -b "com.jamf.selfserviceplus"
+</string>
+```
+
 #### Open When Finished
 
 key: `openWhenFinished`, string, optional
@@ -91,6 +107,12 @@ Example:
 <string>com.jamf.selfserviceplus</string>
 ```
 
+#### Open When Finished Hide
+
+key: `openWhenFinishedHide`, boolean, default: `false`, v1.1
+
+When set to true, the item designated by `openWhenFinished` will be opened hidden or in the background, i.e. it will be launched without showing windows. (Exact behavior depends on the app launched.)
+
 #### Show Icon in Dock
 
 key: `showIconInDock`, boolean, optional, default: `true`
@@ -100,6 +122,47 @@ Controls whether app icon is shown in the Dock. Icon will _always_ show in Dock 
 ```xml
 <key>showIconInDock</key>
 <false/>
+```
+
+#### Allow Quit
+
+key: `allowQuit`, boolean, optional, default: `true`, v1.1
+
+Controls whether the user can quit the app. When set to `false`, the 'Quit' menu item and its ⌘Q shortcut are removed and the main window's close button is disabled, so the user cannot leave before completing the workflow.
+
+Setup Checklist still quits automatically when all steps are completed.
+
+You can use shift-control-command E to terminate Checklist at any time.
+
+```xml
+<key>allowQuit</key>
+<false/>
+```
+
+#### Background
+
+key: `background`, String/[image source](ImageSources.md), default: `wallpaper`, v1.1
+
+Configures the full-screen background shown when `windowPosition` is set to `focus`. This can be set at the top level of the profile to apply to all steps, and overridden per-step. The step-level value takes precedence when both are set.
+
+Example: 
+
+```xml
+<key>background</key>
+<string>/Library/Desktop Pictures/Wallpaper.png</string>
+```
+
+#### Blur
+
+key: `blur`, boolean, default: `false`, v1.1
+
+When enabled, applies a blur effect to the full-screen background shown when `windowPosition` is set to `focus`. This can be set at the top level of the profile to apply to all steps, and overridden per-step. The step-level value takes precedence when both are set.
+
+Example:
+
+```xml
+<key>blur</key>
+<true/>
 ```
 
 #### Script step logging
@@ -112,7 +175,7 @@ When enabled, execution of scripts in a `script` step and their output is writte
 
 key: `steps`, array of dicts, required
 
-The workflow in the Welcome app is divided into steps. Each step is shown as its own page and can perform actions.
+The workflow in the Setup Checklist app is divided into steps. Each step is shown as its own page and can perform actions.
 Some steps will only display a message, an image, and/or a movie. Other steps will interact with the user and perform tasks depending on their selection.
 
 ### The Kind of Step
@@ -127,8 +190,10 @@ The available kinds are:
 - `wallpaper`
 - `defaultApp`
 - `open`
-- `scrensharing`
+- `screensharing`
+- `dock` (v0.4)
 - `script`
+- `agreement` (v1.1)
 
 #### Identifier
 
@@ -171,11 +236,11 @@ The size of the icons in the list view is 36x36 pixels. (72x72 @2x) But since th
 
 #### Image
 
-key: `image`, String/[image source](ImageSources.md), [localizable](Localization.md), optional, default: `icon`
+key: `image`, string/[image source](ImageSources.md), [localizable](Localization.md), optional, default: `icon`
 
 The image shown at the top of the step area. When the `image` has a value, that will be shown instead of a `movie`. When no `image` or `movie` key is set, `icon` will be used.
 
-Some step kinds will have other defaults for the image, i.e. the `browser` step will use the target default browser's app icon. 
+Some step kinds will have other defaults for the image, e.g. the `open` step will use the icon of the app that handles the item. 
 
 The size of the area available to the image will vary with window size and position, but 16:9 ratio landscape or square images work well. The available space in the default window is approximately 630 x 440 pixels (1260x 880 @ 2x) but this will change should the user choose to change window size, or with a long `message` text.
 
@@ -186,7 +251,7 @@ The size of the area available to the image will vary with window size and posit
 
 #### Icon Color
 
-key: `iconColor`, String/[color definition](DefiningColors.md), optional, default depends on the step kind
+key: `iconColor`, string/[color definition](DefiningColors.md), optional, default depends on the step kind
 
 The highlight color used for SF Symbol icons and images. (Not all SF Symbols have a highlight color.)
 
@@ -201,7 +266,7 @@ Example:
 
 #### Movie
 
-key: `movie`, String, [localizable](Localization.md), optional
+key: `movie`, string, [localizable](Localization.md), optional
 
 When set, the app will load this movie and display at the top of the step area. When the `image` key is set, that will be displayed instead of a movie.
 
@@ -226,6 +291,8 @@ When a `movie` key is set, these keys control the behavior of the movie:
 - `loop`: controls whether the movie loops continuously
 - `mute`: controls whether the audio is muted when the movie starts playing
 
+**Accessibility note:** (v1.1) when the user has turned off 'Auto-Play Animated Images' in System Settings > Accessibility > Display, `autoplay` and `loop` are both ignored. The movie is still loaded and shown with its playback controls, but it will not start on its own and will not repeat. Users who need to avoid continuous motion can rely on this setting, so do not depend on a movie playing automatically to convey information — put anything essential in the step's `title` and `message` as well.
+
 ```xml
 <key>autoplay</key>
 <false/>
@@ -241,13 +308,72 @@ When a `movie` key is set, these keys control the behavior of the movie:
 
 key: `windowPosition`, string, default: `center`
 
+Values can be `center`, `left`, `right`, or `focus`. The `focus` value was added in v1.1.
+
 When this key is set to `left` or `right` the window will be moved to left or right edge of the screen for this step and the sidebar will be hidden.
+
+When this key is set to `focus` the window will be centered on screen at its default size, the dock, menu bar, and Setup Checklist sidebar will be hidden, and a full-screen background will be shown on every connected screen to block access to other apps for this step. By default this background shows the current wallpaper, but it can be configured with the `background` key below.
+
+The `focus` window position will cover other apps and system windows, dialogs, and notifications. It is not suitable for steps that require interaction with other apps, dialogs, and notifications. The behavior depends on the step kind:
+
+- `screensharing` step: will ignore a value of `focus` and use `center` instead
+-  `defaultApp` step: will ignore a value of `focus` _only when its configuration will create a system prompt_ and use `center` instead
+- `open` and `script` steps: using `focus` is generally not advised, but since there may be configurations where it makes sense, Setup Checklist will use the normal `focus` behavior
+- other step kinds: normal `focus` behavior
 
 Example: 
 
 ```xml
 <key>windowPosition</key>
 <string>right</string>
+```
+
+#### Show Sidebar
+
+key: `showSidebar`, boolean, optional, default: depends on `windowPosition` (`true` for `center`, `false` for `left`/`right`/`focus`), v1.1
+
+Overrides the sidebar visibility that would otherwise be determined by `windowPosition` for this step.
+
+Example:
+
+```xml
+<key>windowPosition</key>
+<string>focus</string>
+<key>showSidebar</key>
+<true/>
+```
+
+```xml
+<key>windowPosition</key>
+<string>center</string>
+<key>showSidebar</key>
+<false/>
+```
+
+#### Background
+
+key: `background`, string/[image source](ImageSources.md), default: `wallpaper`, v1.1
+
+Configures the full-screen background shown when `windowPosition` is set to `focus`. This can be set at the top level of the profile to apply to all steps, and overridden per-step. The step-level value takes precedence when both are set.
+
+Example: 
+
+```xml
+<key>background</key>
+<string>/Library/Desktop Pictures/Wallpaper.png</string>
+```
+
+#### Blur
+
+key: `blur`, boolean, default: `false`, v1.1
+
+When enabled, applies a blur effect to the full-screen background shown when `windowPosition` is set to `focus`. This can be set at the top level of the profile to apply to all steps, and overridden per-step. The step-level value takes precedence when both are set.
+
+Example:
+
+```xml
+<key>blur</key>
+<true/>
 ```
 
 ## Step Kinds
@@ -308,9 +434,149 @@ All image files in this folder will be presented.
 
 #### May keep current
 
-key; `mayKeepCurrent`, boolean, optional, default: false
+key: `mayKeepCurrent`, boolean, optional, default: false
 
 When this key is enabled, the user can continue without changing the wallpaper.
+
+### Agreement
+
+_v1.1_
+
+kind: `agreement`
+
+This step displays a policy, license, or agremment document in the window with an 'I agree' checkmark below. The user has to scroll to the end of the document before they can click 'I agree'
+
+![Setup Checklist agreement step keys](../Images/SetupChecklist-agreement-keys.png)
+
+This step works well with a `windowPosition` setting of `focus`.
+
+Example:
+
+```xml
+<dict>
+  <key>identifier</key>
+  <string>end-user-license-agreement</string>
+  <key>kind</key>
+  <string>agreement</string>
+  <key>message</key>
+  <string>Please read the agreement carefully and click 'I agree' to continue.</string>
+  <key>document</key>
+  <string>/Library/MyOrg/Legal/EULA.pdf</string>
+  <key>title</key>
+  <string>End User License Agreement</string>
+</dict>
+```
+
+#### Path to document
+
+key: `document`, string or dict of strings, [localizable](Localization.md) (see note below), required
+
+Path to the document to display.
+
+The supported file formats are 
+
+- plain text (`txt`)
+- rich text (`rtf` and `rtfd`)
+- markdown (`md` and `markdown`)
+- PDF
+
+Note that the localization works differently on this document than for other localized keys. The set of languages is _not_ restricted to [the languages that Setup Checklist supports](Localization.md#supported-languages). When multiple translations of the document are provided, a 'Languages' button will be shown below the document in the window.
+
+You can provide regional versions with a region extension, e.g. `de-DE`, `de-CH`, and `de-AT`. A regional match will be preferred over a more generic match. A language code without a region (e.g. `de`) will be chosen when no regional match exists, then the system will fall back to the base `en` path.
+
+Example:
+
+```xml
+<key>document</key>
+<string>/Library/Legal/EULA.pdf</string>
+```
+
+```xml
+<key>document</key>
+<dict>
+  <key>en</key>
+  <string>/Library/Legal/EULA_en.pdf</string>
+  <key>de</key>
+  <string>/Library/Legal/EULA_de.pdf</string>
+  <key>fr</key>
+  <string>/Library/Legal/EULA_fr.pdf</string>
+  <key>nl</key>
+  <string>/Library/Legal/EULA_nl.pdf</string>
+</dict>
+```
+
+#### Receipt
+
+key: `receipt`, string, default `/Users/Shared/.com.jamf.setupchecklist/`
+
+When the user checks the 'I agee' button, a file is written to this directory. The file name is in the format `<identifier>-<username>.plist` where `identifier` is the identifier of the agreement step.
+
+Should the user uncheck the 'I agree' button, this file is deleted.
+
+When the file for the current user is present when Setup Checklist launches, the agreement step is marked as 'completed.'
+
+The property list file contains three keys:
+
+- `path`: the `document` path that the user was seeing when they checked 'I agree'
+- `timestamp`: the timestamp when the user checked 'I agree' (Property list timestamps are stored in GMT time)
+- `username`: the account name of the user
+
+The property list file is generally stored in binary plist format. It is easiest to use `plutil` to parse it, e.g:
+
+```shell
+$ plutil -extract timestamp raw /users/shared/.com.jamf.setupchecklist/agreement-jappleseed.plist
+2026-07-23T08:24:16Z
+```
+
+or `PlistBuddy`:
+
+```shell
+$ /usr/libexec/PlistBuddy -c 'Print path' /users/shared/.com.jamf.setupchecklist/agreement-japplseed.plist
+/Library/Legal/EULA_en.pdf
+```
+
+
+#### Button Label
+
+key: `buttonLabel`, string, [localizable](Localization.md), default: 'I agree'
+
+The label next to the checkmark. This is restricted to a single line only.
+
+```xml
+<key>buttonLabel</key>
+<dict>
+  <key>en</key>
+  <string>Accept</string>
+  <key>de</key>
+  <string>Akzeptieren</string>
+  <key>fr</key>
+  <string>Accepter</string>
+</dict>
+```
+
+#### Save a Copy
+
+key: `saveACopy`, boolean: default: true
+
+Setting this key to `false` will hide the 'Save a Copy…' button.
+
+```xml
+<key>saveACopy</key>
+<false/>
+```
+
+#### Show Languages
+
+key: `showLanguages`, boolean: default: true
+
+Setting this key to `false` will hide the language picker.
+
+(The language picker will only be shown when there are localized languages of the `document` available.)
+
+```xml
+<key>showLanguages</key>
+<false/>
+```
 
 ### Open
 
@@ -358,6 +624,8 @@ Since the `icon` is not set this will show the calculator app icon. Since the `t
 </dict>
 ```
 
+Note: Generally, the goal of opening an app will require the user to interact with the app. A `windowPosition` of `focus` will cover the launched app and prevent interaction.
+
 #### Item
 
 key: `item`, string, required
@@ -378,7 +646,7 @@ Launches the app or URL, but hides the app (or keeps the app in the background).
 
 #### Button Label
 
-key: `buttonLabel`, string, [localizable](Localization.md), optional, default depends on step kind
+key: `buttonLabel`, string, [localizable](Localization.md), optional, default depends on step kind, v0.4
 
 The label used for the button.
 
@@ -389,6 +657,10 @@ kind: `defaultApp`
 Prompts the user to confirm or choose an app as the default for a url scheme (e.g. `http` or `mailto`) or unified type identifier (e.g. `public.txt` or `com.adobe.pdf`).
 
 ![Setup Checklist defaultApp step keys](../Images/SetupChecklist-defaultApp-keys.png)
+
+Note: the `http` urlScheme and, starting with macOS 26.4, _all_ file types/uniform type identifier, will prompt the user to confirm the change. When the user clicks "Keep …" in that dialog, the default app will not be changed, and generally, the user will not be able to continue (this depends on whether there are mutliple choices and the `mayKeepCurrent` setting). 
+
+This confirmation dialog is a system prompt. With a window position of `focus` the system prompt would be covered and the user would not be able to confirm or continue. To prevent this, for `http` urlSchemes or any change of a default app for file type/UTI, a value of `focus` for `windowPosition` will be ignored and `center` will be used instead. 
 
 Examples: 
 
@@ -520,9 +792,6 @@ Common app identifiers:
 |---------------------------|-----------------------------------|
 | Apple Mail                | com.apple.mail                    |
 | Microsoft Outlook         | com.microsoft.Outlook             |
-| Google Chrome             | com.google.Chrome                 |
-| Microsoft Edge            | com.microsoft.edgemac             |
-| Safari Technology Preview | com.apple.SafariTechnologyPreview |
 
 #### URL scheme
 
@@ -530,7 +799,7 @@ key: `urlScheme`, string or array of strings, one of either `urlScheme` or `unif
 
 The url scheme to set the default application for. E.g. `http` or `mailto`
 
-When multiple values are given the first value is used is used to determine the current default app and whether changing the default app succeeded. The step will attempt to set the selected app as the default for each `urlScheme`.
+When multiple values are given the first value is used to determine the current default app and whether changing the default app succeeded. The step will attempt to set the selected app as the default for each `urlScheme`.
 
 When both `urlScheme` and `uniformTypeIdentifier` values are provided the first `urlScheme` is used to determine the current default app and whether changing the app succeeded.
 
@@ -547,7 +816,7 @@ key: `uniformTypeIdentifier`, string or array of strings, one of either `urlSche
 
 The uniform type identifier to set the default application for. E.g. `public.text` or `com.adobe.pdf`
 
-When multiple values are given the first value is used is used to determine the current default app and whether changing the default app succeeded. The step will attempt to set the selected app as the default for each value in `uniformTypeIdentifier`.
+When multiple values are given the first value is used to determine the current default app and whether changing the default app succeeded. The step will attempt to set the selected app as the default for each value in `uniformTypeIdentifier`.
 
 When both `urlScheme` and `uniformTypeIdentifier` values are provided the first `urlScheme` is used to determine the current default app and whether changing the app succeeded.
 
@@ -567,7 +836,7 @@ Common uniform type identifiers:
 
 #### May keep current
 
-key; `mayKeepCurrent`, boolean, optional, default: false
+key: `mayKeepCurrent`, boolean, optional, default: false
 
 When this flag is set to `true` Setup Checklist will add the current default app to the list, even when it is not yet listed in the `bundle-ids` and the user is allowed to click 'Continue' without changing the default app.
 
@@ -579,16 +848,20 @@ kind: `screensharing`
 
 This step will open the Screen Recording pane in Settings > Privacy & Security and monitor the state of the switches for the designated apps until all are enabled.
 
-**Important:** this steps _requires_ the "Full Disk Access" privacy access enabled, which in a managed environment [is best granted with a PPPC profile.](Overview.md#managed-login-items-and-privacy-preferences-policy-control).
+**Important:** on macOS 26.x and earlier, this steps _requires_ the "Full Disk Access" privacy access enabled, which in a managed environment [is best granted with a PPPC profile.](Overview.md#managed-login-items-and-privacy-preferences-policy-control).
 
-**Note:** macOS 26 System Settings app will _not_ automatically list apps which might require this approval. The user will have to click on the '+' at the bottom of the list and select the app.
+For macOS 27, you need to use Setup Checklist v1.1 or later. Older versions of Setup Checklist will not work on macOS 27. With Setup Checklist v1.1 and macOS 27, the Full Disk Access PPPC excemption is not required for the `screensharing` step any more. (Though it may be required for custom `script` steps.)
+
+**Note:** macOS 26 (and later) System Settings app will _not_ automatically list apps which might require this approval. The user will have to click on the '+' at the bottom of the list and select the app.
 
 Admins can pre-populate this pane by providing a PPPC profile for the apps to allow standard users to allow screen sharing. This will pre-populate the app(s) in the Screen & System Audio Recording pane, with the note "This setting has been configured by a profile," whether the user is admin or not.
 
-
 ![Setup Checklist screensharing step keys](../Images/SetupChecklist-screensharing-keys.png)
 
-This step works well with a `windowPosition` setting of `left` or `right`
+This step works well with a `windowPosition` setting of `left` or `right`.
+
+With a window position of `focus` the Settings app would be covered and the user would not be able to allow and proceed. To prevent this, a value of `focus` for `windowPosition` will be ignored and `center` will be used instead. 
+
 
 Example: 
 
@@ -662,9 +935,13 @@ When enabled, the Screen Recording pane in System Settings app will be opened au
 
 ### Dock
 
+_v0.4_
+
 kind: `dock`
 
 This step will inform their user of items that are recommended to add to the Dock. You can choose whether the user can opt to keep the current dock, add recommended items to the current dock or replace the current dock with the recommended configuration. The step will show a preview of the dock with each choice.
+
+![Setup Checklist dock step keys](../Images/SetupChecklist-dock-keys.png)
 
 Example:
 
@@ -693,7 +970,7 @@ Example:
   <key>mayKeepCurrent</key>
   <true/>
   <key>message</key>
-  <string>For convienient access, we recommend adding these apps and items to your Dock.</string>
+  <string>For convenient access, we recommend adding these apps and items to your Dock.</string>
 </dict>
 ```
 
@@ -704,6 +981,8 @@ key: `dockAction`, string or array of string, default: `add`
 This key controls the options available to user. The value for this key can be `keep`, `add`, or `replace` or an array with any combination of the three values.
 
 Setting `mayKeepCurrent` to `true` has the same effect as adding `keep` to `dockAction`. 
+
+The first action in the list is selected when the action is displayed.
 
 Example:
 
@@ -749,7 +1028,7 @@ Each item is a string and can be:
 
 #### May keep current
 
-key; `mayKeepCurrent`, boolean, optional, default: false
+key: `mayKeepCurrent`, boolean, optional, default: false
 
 When this flag is set to `true` Setup Checklist gives the user a choice to keep their current dock configuration. Setting `mayKeepCurrent` to `true` has the same effect as adding `keep` to `dockAction`. This key exists to provide consistency with other steps that use `mayKeepCurrent`.
 
@@ -796,7 +1075,7 @@ App launches/Step is loaded:
 
 - `prepareScript`
 - `updateStatusScript`
-- when status is set to `completed`, or `updatedStatusScript` returns success, Step is sorted under completed
+- when status is set to `completed`, or `updateStatusScript` returns success, Step is sorted under completed
 
 Script is selected/activated:
 
@@ -861,7 +1140,7 @@ key: `updateStatusScript`, String, optional
 
 The `updateStatusScript` behaves differently than other scripts. This script is called at different times during a step's lifecycle. It should evaluate the facts on the system and return an exit code of `0` (success) when the fact matches the desired outcome and an exit code of `1` (failure) when it does not.
 
-The `updateStatusScript` is evaluated at the end of preparation (regardless of whether a `prepareScript` script exists). If the `updateScript` returns `0/success here, the step is immediately marked as completed and not shown in the normal workflow, unless the user explicitly clicks on it.
+The `updateStatusScript` is evaluated at the end of preparation (regardless of whether a `prepareScript` script exists). If the `updateStatusScript` returns `0`/success here, the step is immediately marked as completed and not shown in the normal workflow, unless the user explicitly clicks on it.
 
 If an `updateStatusScript` exists, clicking the action button will start a polling cycle that evaluates the `updateStatusScript` _once per second_. For this reason, the update status script needs to be small and fast. The idea here is that the polling cycle monitors the desired outcome and sets the step to completed when that occurs.
 

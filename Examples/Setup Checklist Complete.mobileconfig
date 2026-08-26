@@ -21,9 +21,23 @@
 			<array>
 				<string>en-US</string>
 				<string>en-GB</string>
+				<string>bg</string>
 				<string>de</string>
+				<string>es</string>
+				<string>fi</string>
 				<string>fr</string>
+				<string>hi</string>
+				<string>it</string>
+				<string>ja</string>
+				<string>ko</string>
+				<string>nb</string>
 				<string>nl</string>
+				<string>pt-BR</string>
+				<string>pt-PT</string>
+				<string>sv</string>
+				<string>zh-Hans</string>
+				<string>zh-Hant</string>
+				<string>zh-TW</string>
 			</array>
 			<key>showLanguages</key>
 			<true/>
@@ -31,14 +45,44 @@
 			<true/>
 			<key>title</key>
 			<dict>
+				<key>bg</key>
+				<string>Добре дошли в Jamf</string>
 				<key>de</key>
 				<string>Willkommen bei Jamf</string>
 				<key>en</key>
 				<string>Welcome to Jamf</string>
+				<key>en-GB</key>
+				<string>Welcome to Jamf</string>
+				<key>es</key>
+				<string>Bienvenido a Jamf</string>
+				<key>fi</key>
+				<string>Tervetuloa Jamfiin</string>
 				<key>fr</key>
 				<string>Bienvenue à Jamf</string>
+				<key>hi</key>
+				<string>Jamf में आपका स्वागत है</string>
+				<key>it</key>
+				<string>Benvenuto a Jamf</string>
+				<key>ja</key>
+				<string>Jamfへようこそ</string>
+				<key>ko</key>
+				<string>Jamf에 오신 것을 환영합니다</string>
+				<key>nb</key>
+				<string>Velkommen til Jamf</string>
 				<key>nl</key>
 				<string>Welkom bij Jamf</string>
+				<key>pt-BR</key>
+				<string>Bem-vindo ao Jamf</string>
+				<key>pt-PT</key>
+				<string>Bem-vindo ao Jamf</string>
+				<key>sv</key>
+				<string>Välkommen till Jamf</string>
+				<key>zh-Hans</key>
+				<string>欢迎使用 Jamf</string>
+				<key>zh-Hant</key>
+				<string>歡迎使用 Jamf</string>
+				<key>zh-TW</key>
+				<string>歡迎使用 Jamf</string>
 			</dict>
 		</dict>
 		<dict>
@@ -59,7 +103,46 @@
 			<key>icon</key>
 			<string>name:Checklist</string>
 			<key>message</key>
-			<string>Let's configure your new Mac!</string>
+			<dict>
+				<key>bg</key>
+				<string>Конфигурирайте вашия нов Mac!</string>
+				<key>de</key>
+				<string>Konfigurieren Sie Ihren neuen Mac!</string>
+				<key>en</key>
+				<string>Configure your new Mac!</string>
+				<key>en-GB</key>
+				<string>Configure your new Mac!</string>
+				<key>es</key>
+				<string>¡Configura tu nuevo Mac!</string>
+				<key>fi</key>
+				<string>Määritä uusi Macisi!</string>
+				<key>fr</key>
+				<string>Configurez votre nouveau Mac !</string>
+				<key>hi</key>
+				<string>अपने नए Mac को कॉन्फ़िगर करें!</string>
+				<key>it</key>
+				<string>Configura il tuo nuovo Mac!</string>
+				<key>ja</key>
+				<string>新しいMacを設定しましょう！</string>
+				<key>ko</key>
+				<string>새 Mac을 설정하세요!</string>
+				<key>nb</key>
+				<string>Konfigurer din nye Mac!</string>
+				<key>nl</key>
+				<string>Let's configure your new Mac!</string>
+				<key>pt-BR</key>
+				<string>Configure seu novo Mac!</string>
+				<key>pt-PT</key>
+				<string>Configure o seu novo Mac!</string>
+				<key>sv</key>
+				<string>Konfigurera din nya Mac!</string>
+				<key>zh-Hans</key>
+				<string>配置您的新 Mac！</string>
+				<key>zh-Hant</key>
+				<string>設定您的新 Mac！</string>
+				<key>zh-TW</key>
+				<string>設定您的新 Mac！</string>
+			</dict>
 			<key>showIconInDock</key>
 			<true/>
 			<key>steps</key>
@@ -75,25 +158,85 @@
 					<string>message</string>
 					<key>message</key>
 					<dict>
+						<key>bg</key>
+						<string>Само няколко стъпки до конфигурирането на вашия нов Mac.</string>
 						<key>de</key>
 						<string>Nur noch ein paar Schritte, um Ihren neuen Mac zu konfigurieren.</string>
 						<key>en</key>
 						<string>Just a few more steps to configure your new Mac.</string>
+						<key>en-GB</key>
+						<string>Just a few more steps to configure your new Mac.</string>
+						<key>es</key>
+						<string>Solo unos pocos pasos más para configurar tu nuevo Mac.</string>
+						<key>fi</key>
+						<string>Vain muutama vaihe jäljellä uuden Macisi määrittämiseen.</string>
 						<key>fr</key>
 						<string>Juste quelques étapes de plus pour configurer votre nouveau Mac.</string>
+						<key>hi</key>
+						<string>अपने नए Mac को कॉन्फ़िगर करने के लिए बस कुछ और चरण।</string>
+						<key>it</key>
+						<string>Solo pochi altri passaggi per configurare il tuo nuovo Mac.</string>
+						<key>ja</key>
+						<string>新しいMacを設定するためのステップがあと少しです。</string>
+						<key>ko</key>
+						<string>새 Mac을 구성하는 데 몇 가지 단계만 남았습니다.</string>
+						<key>nb</key>
+						<string>Bare noen få steg til for å konfigurere din nye Mac.</string>
 						<key>nl</key>
 						<string>Nog een paar stappen om je nieuwe Mac te configureren.</string>
+						<key>pt-BR</key>
+						<string>Apenas mais alguns passos para configurar o seu novo Mac.</string>
+						<key>pt-PT</key>
+						<string>Apenas mais alguns passos para configurar o seu novo Mac.</string>
+						<key>sv</key>
+						<string>Bara några steg till för att konfigurera din nya Mac.</string>
+						<key>zh-Hans</key>
+						<string>只需几个步骤即可配置您的新 Mac。</string>
+						<key>zh-Hant</key>
+						<string>只需幾個步驟即可設定您的新 Mac。</string>
+						<key>zh-TW</key>
+						<string>只需幾個步驟即可設定您的新 Mac。</string>
 					</dict>
 					<key>title</key>
 					<dict>
+						<key>bg</key>
+						<string>Добре дошли в Setup Checklist</string>
 						<key>de</key>
 						<string>Willkommen bei Setup Checklist</string>
 						<key>en</key>
 						<string>Welcome to Setup Checklist</string>
+						<key>en-GB</key>
+						<string>Welcome to Setup Checklist</string>
+						<key>es</key>
+						<string>Bienvenido a Setup Checklist</string>
+						<key>fi</key>
+						<string>Tervetuloa Setup Checklistiin</string>
 						<key>fr</key>
 						<string>Bienvenue à Setup Checklist</string>
+						<key>hi</key>
+						<string>Setup Checklist में आपका स्वागत है</string>
+						<key>it</key>
+						<string>Benvenuto a Setup Checklist</string>
+						<key>ja</key>
+						<string>Setup Checklistへようこそ</string>
+						<key>ko</key>
+						<string>Setup Checklist에 오신 것을 환영합니다</string>
+						<key>nb</key>
+						<string>Velkommen til Setup Checklist</string>
 						<key>nl</key>
 						<string>Welkom bij Setup Checklist</string>
+						<key>pt-BR</key>
+						<string>Bem-vindo ao Setup Checklist</string>
+						<key>pt-PT</key>
+						<string>Bem-vindo ao Setup Checklist</string>
+						<key>sv</key>
+						<string>Välkommen till Setup Checklist</string>
+						<key>zh-Hans</key>
+						<string>欢迎使用 Setup Checklist</string>
+						<key>zh-Hant</key>
+						<string>歡迎使用 Setup Checklist</string>
+						<key>zh-TW</key>
+						<string>歡迎使用 Setup Checklist</string>
 					</dict>
 				</dict>
 				<dict>
@@ -103,27 +246,153 @@
 					<string>wallpaper</string>
 					<key>message</key>
 					<dict>
+						<key>bg</key>
+						<string>Моля, изберете тапет от нашия списък с изображения. Винаги можете да го промените по-късно.</string>
 						<key>de</key>
 						<string>Bitte wählen Sie ein Hintergrundbild aus unserer Liste. Sie können es später jederzeit ändern.</string>
 						<key>en</key>
 						<string>Please choose a wallpaper from our list of branded images. You can always change it later.</string>
+						<key>en-GB</key>
+						<string>Please choose a wallpaper from our list of branded images. You can always change it later.</string>
+						<key>es</key>
+						<string>Elige un fondo de pantalla de nuestra lista de imágenes. Siempre puedes cambiarlo más tarde.</string>
+						<key>fi</key>
+						<string>Valitse taustakuva luettelostamme. Voit aina vaihtaa sen myöhemmin.</string>
 						<key>fr</key>
 						<string>Veuillez choisir un fond d'écran dans notre liste d'images. Vous pouvez toujours le changer plus tard.</string>
+						<key>hi</key>
+						<string>कृपया हमारी सूची से एक वॉलपेपर चुनें। आप इसे बाद में कभी भी बदल सकते हैं।</string>
+						<key>it</key>
+						<string>Scegli uno sfondo dalla nostra lista di immagini. Puoi sempre cambiarlo in seguito.</string>
+						<key>ja</key>
+						<string>画像のリストから壁紙を選択してください。後でいつでも変更できます。</string>
+						<key>ko</key>
+						<string>목록에서 배경 화면을 선택하세요. 나중에 언제든지 변경할 수 있습니다.</string>
+						<key>nb</key>
+						<string>Vennligst velg et bakgrunnsbilde fra vår liste over merkevareprofilerte bilder. Du kan alltid endre det senere.</string>
 						<key>nl</key>
 						<string>Kies een achtergrond uit onze lijst met afbeeldingen. Je kunt het altijd later veranderen.</string>
+						<key>pt-BR</key>
+						<string>Escolha um papel de parede da nossa lista de imagens. Você pode sempre alterá-lo mais tarde.</string>
+						<key>pt-PT</key>
+						<string>Escolha um papel de parede da nossa lista de imagens. Pode sempre alterá-lo mais tarde.</string>
+						<key>sv</key>
+						<string>Välj en skrivbordsbakgrund från vår lista med varumärkesanpassade bilder. Du kan alltid ändra den senare.</string>
+						<key>zh-Hans</key>
+						<string>请从我们的图像列表中选择壁纸。您可以随时更改。</string>
+						<key>zh-Hant</key>
+						<string>請從我們的圖片清單中選擇背景圖片。您隨時可以變更。</string>
+						<key>zh-TW</key>
+						<string>請從我們的圖片清單中選擇背景圖片。您隨時可以變更。</string>
 					</dict>
 					<key>path</key>
 					<string>/Library/Desktop Pictures/</string>
 					<key>title</key>
 					<dict>
+						<key>bg</key>
+						<string>Изберете тапет</string>
 						<key>de</key>
 						<string>Hintergrundbild wählen</string>
 						<key>en</key>
 						<string>Choose a wallpaper</string>
+						<key>en-GB</key>
+						<string>Choose a wallpaper</string>
+						<key>es</key>
+						<string>Elige un fondo de pantalla</string>
+						<key>fi</key>
+						<string>Valitse taustakuva</string>
 						<key>fr</key>
 						<string>Choisir un fond d'écran</string>
+						<key>hi</key>
+						<string>वॉलपेपर चुनें</string>
+						<key>it</key>
+						<string>Scegli uno sfondo</string>
+						<key>ja</key>
+						<string>壁紙を選択</string>
+						<key>ko</key>
+						<string>배경 화면 선택</string>
+						<key>nb</key>
+						<string>Velg et bakgrunnsbilde</string>
 						<key>nl</key>
 						<string>Kies een achtergrond</string>
+						<key>pt-BR</key>
+						<string>Escolha um papel de parede</string>
+						<key>pt-PT</key>
+						<string>Escolha um papel de parede</string>
+						<key>sv</key>
+						<string>Välj en skrivbordsbakgrund</string>
+						<key>zh-Hans</key>
+						<string>选择壁纸</string>
+						<key>zh-Hant</key>
+						<string>選擇背景圖片</string>
+						<key>zh-TW</key>
+						<string>選擇背景圖片</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>dockAction</key>
+					<array>
+						<string>replace</string>
+						<string>add</string>
+					</array>
+					<key>dockItems</key>
+					<array>
+						<string>com.apple.systempreferences</string>
+						<string>com.apple.apps.launcher</string>
+						<string>com.jamf.selfserviceplus</string>
+						<string>/Applications/BBEdit.app</string>
+						<string>com.microsoft.outlook</string>
+						<string>com.microsoft.teams2</string>
+						<string>Downloads</string>
+						<string>Documents</string>
+						<string>smb://server.example.com/share</string>
+					</array>
+					<key>identifier</key>
+					<string>dock</string>
+					<key>kind</key>
+					<string>dock</string>
+					<key>mayKeepCurrent</key>
+					<false/>
+					<key>message</key>
+					<dict>
+						<key>bg</key>
+						<string>За удобен достъп препоръчваме да добавите тези приложения и елементи към вашия Dock.</string>
+						<key>de</key>
+						<string>Für einen leichteren Zugriff empfehlen wir, diese Apps und Ordner Ihrem Dock hinzuzufügen.</string>
+						<key>en</key>
+						<string>For convienient access, we recommend adding these apps and items to your Dock.</string>
+						<key>en-GB</key>
+						<string>For convienient access, we recommend adding these apps and items to your Dock.</string>
+						<key>es</key>
+						<string>Para un acceso conveniente, recomendamos añadir estas aplicaciones y elementos a tu Dock.</string>
+						<key>fi</key>
+						<string>Suosittelemme lisäämään nämä sovellukset ja kohteet Dockiin.</string>
+						<key>fr</key>
+						<string>Pour un accès pratique, nous vous recommandons d'ajouter ces applications et éléments à votre Dock.</string>
+						<key>hi</key>
+						<string>सुविधाजनक पहुँच के लिए, हम इन ऐप्स और आइटम्स को अपने डॉक में जोड़ने की सिफ़ारिश करते हैं।</string>
+						<key>it</key>
+						<string>Per un accesso comodo, consigliamo di aggiungere queste app e elementi al tuo Dock.</string>
+						<key>ja</key>
+						<string>便利にアクセスするために、これらのAppと項目をDockに追加することをお勧めします。</string>
+						<key>ko</key>
+						<string>편리한 접근을 위해 이러한 앱과 항목을 Dock에 추가하는 것을 권장합니다.</string>
+						<key>nb</key>
+						<string>For praktisk tilgang anbefaler vi å legge til disse appene og elementene i Dock.</string>
+						<key>nl</key>
+						<string>Voor gemakkende toegang raden we aan deze apps en items aan je Dock toe te voegen.</string>
+						<key>pt-BR</key>
+						<string>Para um acesso conveniente, recomendamos adicionar esses apps e itens ao seu Dock.</string>
+						<key>pt-PT</key>
+						<string>Para um acesso conveniente, recomendamos adicionar estas aplicações e itens à sua Dock.</string>
+						<key>sv</key>
+						<string>För enkel åtkomst rekommenderar vi att du lägger till dessa program och objekt i ditt Dock.</string>
+						<key>zh-Hans</key>
+						<string>为了方便访问，我们建议将这些应用和项目添加到您的 Dock。</string>
+						<key>zh-Hant</key>
+						<string>為了方便存取，我們建議將這些 App 和項目加入您的 Dock。</string>
+						<key>zh-TW</key>
+						<string>為了方便存取，我們建議將這些 App 和項目加入您的 Dock。</string>
 					</dict>
 				</dict>
 				<dict>
@@ -139,25 +408,85 @@
 					<false/>
 					<key>message</key>
 					<dict>
+						<key>bg</key>
+						<string>Потвърдете Microsoft Edge като браузър по подразбиране.</string>
 						<key>de</key>
 						<string>Microsoft Edge als Standardbrowser bestätigen.</string>
 						<key>en</key>
 						<string>Confirm Microsoft Edge as default browser.</string>
+						<key>en-GB</key>
+						<string>Confirm Microsoft Edge as default browser.</string>
+						<key>es</key>
+						<string>Confirmar Microsoft Edge como navegador predeterminado.</string>
+						<key>fi</key>
+						<string>Vahvista Microsoft Edge oletuselaimeksi.</string>
 						<key>fr</key>
 						<string>Confirmer Microsoft Edge comme navigateur par défaut.</string>
+						<key>hi</key>
+						<string>Microsoft Edge को डिफ़ॉल्ट ब्राउज़र के रूप में पुष्टि करें।</string>
+						<key>it</key>
+						<string>Conferma Microsoft Edge come browser predefinito.</string>
+						<key>ja</key>
+						<string>Microsoft Edgeをデフォルトのブラウザとして設定します。</string>
+						<key>ko</key>
+						<string>Microsoft Edge를 기본 브라우저로 확인합니다.</string>
+						<key>nb</key>
+						<string>Bekreft Microsoft Edge som standardnettleser.</string>
 						<key>nl</key>
 						<string>Bevestig Microsoft Edge als standaardbrowser.</string>
+						<key>pt-BR</key>
+						<string>Confirmar Microsoft Edge como navegador padrão.</string>
+						<key>pt-PT</key>
+						<string>Confirmar Microsoft Edge como navegador predefinido.</string>
+						<key>sv</key>
+						<string>Bekräfta Microsoft Edge som standardwebbläsare.</string>
+						<key>zh-Hans</key>
+						<string>确认 Microsoft Edge 为默认浏览器。</string>
+						<key>zh-Hant</key>
+						<string>確認 Microsoft Edge 為預設瀏覽器。</string>
+						<key>zh-TW</key>
+						<string>確認 Microsoft Edge 為預設瀏覽器。</string>
 					</dict>
 					<key>title</key>
 					<dict>
+						<key>bg</key>
+						<string>Потвърждаване на браузър по подразбиране</string>
 						<key>de</key>
 						<string>Standardbrowser bestätigen</string>
 						<key>en</key>
 						<string>Confirm Default Browser</string>
+						<key>en-GB</key>
+						<string>Confirm Default Browser</string>
+						<key>es</key>
+						<string>Confirmar navegador predeterminado</string>
+						<key>fi</key>
+						<string>Vahvista oletuselainohjelma</string>
 						<key>fr</key>
 						<string>Confirmer Navigateur par défaut</string>
+						<key>hi</key>
+						<string>डिफ़ॉल्ट ब्राउज़र पुष्टि करें</string>
+						<key>it</key>
+						<string>Conferma browser predefinito</string>
+						<key>ja</key>
+						<string>デフォルトブラウザを設定</string>
+						<key>ko</key>
+						<string>기본 브라우저 확인</string>
+						<key>nb</key>
+						<string>Bekreft standardnettleser</string>
 						<key>nl</key>
 						<string>Standaardbrowser bevestigen</string>
+						<key>pt-BR</key>
+						<string>Confirmar navegador padrão</string>
+						<key>pt-PT</key>
+						<string>Confirmar navegador predefinido</string>
+						<key>sv</key>
+						<string>Bekräfta standardwebbläsare</string>
+						<key>zh-Hans</key>
+						<string>确认默认浏览器</string>
+						<key>zh-Hant</key>
+						<string>確認預設瀏覽器</string>
+						<key>zh-TW</key>
+						<string>確認預設瀏覽器</string>
 					</dict>
 					<key>urlScheme</key>
 					<string>http</string>
@@ -175,25 +504,85 @@
 					<true/>
 					<key>message</key>
 					<dict>
+						<key>bg</key>
+						<string>Изберете вашето предпочитано приложение за имейл.</string>
 						<key>de</key>
 						<string>Wähle deine bevorzugte app für Email.</string>
 						<key>en</key>
 						<string>Choose your preferred app for email.</string>
+						<key>en-GB</key>
+						<string>Choose your preferred app for email.</string>
+						<key>es</key>
+						<string>Elige tu aplicación preferida para el correo electrónico.</string>
+						<key>fi</key>
+						<string>Valitse haluamasi sähköpostisovellus.</string>
 						<key>fr</key>
 						<string>Choisissez votre application préférée pour le courrier électronique.</string>
+						<key>hi</key>
+						<string>ईमेल के लिए अपना पसंदीदा ऐप चुनें।</string>
+						<key>it</key>
+						<string>Scegli la tua app preferita per la posta elettronica.</string>
+						<key>ja</key>
+						<string>メール用のAppを選択してください。</string>
+						<key>ko</key>
+						<string>이메일에 사용할 앱을 선택하세요.</string>
+						<key>nb</key>
+						<string>Velg din foretrukne app for e-post.</string>
 						<key>nl</key>
 						<string>Kies uw favoriete app voor e-mail.</string>
+						<key>pt-BR</key>
+						<string>Escolha seu aplicativo preferido para email.</string>
+						<key>pt-PT</key>
+						<string>Escolha a sua app preferida para email.</string>
+						<key>sv</key>
+						<string>Välj din föredragna app för e-post.</string>
+						<key>zh-Hans</key>
+						<string>选择您首选的电子邮件 App。</string>
+						<key>zh-Hant</key>
+						<string>選擇您偏好的電子郵件 App。</string>
+						<key>zh-TW</key>
+						<string>選擇您偏好的電子郵件 App。</string>
 					</dict>
 					<key>title</key>
 					<dict>
+						<key>bg</key>
+						<string>Изберете приложение за поща</string>
 						<key>de</key>
 						<string>Email App wählen</string>
 						<key>en</key>
 						<string>Choose Mail App</string>
+						<key>en-GB</key>
+						<string>Choose Mail App</string>
+						<key>es</key>
+						<string>Elige la app de correo</string>
+						<key>fi</key>
+						<string>Valitse sähköpostisovellus</string>
 						<key>fr</key>
 						<string>Choisir l'application Mail</string>
+						<key>hi</key>
+						<string>मेल ऐप चुनें</string>
+						<key>it</key>
+						<string>Scegli l'app di posta</string>
+						<key>ja</key>
+						<string>メールAppを選択</string>
+						<key>ko</key>
+						<string>메일 앱 선택</string>
+						<key>nb</key>
+						<string>Velg e-postapp</string>
 						<key>nl</key>
 						<string>Kies de Mail-app</string>
+						<key>pt-BR</key>
+						<string>Escolher Aplicativo de Email</string>
+						<key>pt-PT</key>
+						<string>Escolher App de Email</string>
+						<key>sv</key>
+						<string>Välj e-postapp</string>
+						<key>zh-Hans</key>
+						<string>选择邮件 App</string>
+						<key>zh-Hant</key>
+						<string>選擇郵件 App</string>
+						<key>zh-TW</key>
+						<string>選擇郵件 App</string>
 					</dict>
 					<key>urlScheme</key>
 					<string>mailto</string>
@@ -212,27 +601,87 @@
 					<string>screensharing</string>
 					<key>message</key>
 					<dict>
+						<key>bg</key>
+						<string>Активирайте запис на екрана и системния звук за Microsoft Teams</string>
 						<key>de</key>
 						<string>Aktiviere die Aufnahme von BIldschirm &amp; Systemaudio für Microsoft Teams</string>
 						<key>en</key>
 						<string>Enable Screen &amp; System Audio Recording for Microsoft Teams</string>
+						<key>en-GB</key>
+						<string>Enable Screen &amp; System Audio Recording for Microsoft Teams</string>
+						<key>es</key>
+						<string>Habilitar la grabación de pantalla y audio del sistema para Microsoft Teams</string>
+						<key>fi</key>
+						<string>Ota käyttöön näytön ja järjestelmän äänen tallennus Microsoft Teamsille</string>
 						<key>fr</key>
 						<string>Activer l'enregistrement de l'écran et des sons du système pour Microsoft Teams</string>
+						<key>hi</key>
+						<string>Microsoft Teams के लिए स्क्रीन और सिस्टम ऑडियो रिकॉर्डिंग सक्षम करें</string>
+						<key>it</key>
+						<string>Abilita la registrazione dello schermo e dell'audio di sistema per Microsoft Teams</string>
+						<key>ja</key>
+						<string>Microsoft Teamsの画面とシステムオーディオの収録を有効にします</string>
+						<key>ko</key>
+						<string>Microsoft Teams에 대한 화면 및 시스템 오디오 기록 활성화</string>
+						<key>nb</key>
+						<string>Aktiver skjerm- og systemlydopptak for Microsoft Teams</string>
 						<key>nl</key>
 						<string>Scherm- en systeemaudio-opname inschakelen voor Microsoft Teams</string>
+						<key>pt-BR</key>
+						<string>Ativar a Gravação de Tela e Áudio do Sistema para o Microsoft Teams</string>
+						<key>pt-PT</key>
+						<string>Ativar a Gravação de Ecrã e Áudio do Sistema para o Microsoft Teams</string>
+						<key>sv</key>
+						<string>Aktivera skärm- och systemaudioinspelning för Microsoft Teams</string>
+						<key>zh-Hans</key>
+						<string>为 Microsoft Teams 启用屏幕和系统音频录制</string>
+						<key>zh-Hant</key>
+						<string>為 Microsoft Teams 啟用螢幕和系統音訊錄製</string>
+						<key>zh-TW</key>
+						<string>為 Microsoft Teams 啟用螢幕和系統音訊錄製</string>
 					</dict>
 					<key>openAutomatically</key>
 					<true/>
 					<key>title</key>
 					<dict>
+						<key>bg</key>
+						<string>Споделяне на екран</string>
 						<key>de</key>
 						<string>Bildschirmfreigabe</string>
 						<key>en</key>
 						<string>Screen Sharing</string>
+						<key>en-GB</key>
+						<string>Screen Sharing</string>
+						<key>es</key>
+						<string>Compartir pantalla</string>
+						<key>fi</key>
+						<string>Näytön jakaminen</string>
 						<key>fr</key>
-						<string>Partage d’écran</string>
+						<string>Partage d'écran</string>
+						<key>hi</key>
+						<string>स्क्रीन शेयरिंग</string>
+						<key>it</key>
+						<string>Condivisione schermo</string>
+						<key>ja</key>
+						<string>画面共有</string>
+						<key>ko</key>
+						<string>화면 공유</string>
+						<key>nb</key>
+						<string>Skjermdeling</string>
 						<key>nl</key>
 						<string>Schermdeling</string>
+						<key>pt-BR</key>
+						<string>Compartilhamento de Tela</string>
+						<key>pt-PT</key>
+						<string>Partilha de Ecrã</string>
+						<key>sv</key>
+						<string>Skärmdelning</string>
+						<key>zh-Hans</key>
+						<string>屏幕共享</string>
+						<key>zh-Hant</key>
+						<string>螢幕共享</string>
+						<key>zh-TW</key>
+						<string>螢幕共享</string>
 					</dict>
 					<key>windowPosition</key>
 					<string>right</string>
@@ -246,25 +695,85 @@
 					<string>message</string>
 					<key>message</key>
           <dict>
+            <key>bg</key>
+            <string>Конфигурацията е завършена. Можете да приложите отново тези настройки, като стартирате Setup Checklist отново. Наслаждавайте се на вашия Mac!</string>
             <key>de</key>
             <string>Die Konfiguration is abgeschlossen. Sie können diese Einstellungen wiederholen, indem Sie die Setup Checklist App wieder starten. Viel Vergnügen mit Ihrem Mac!</string>
             <key>en</key>
             <string>The configuration is complete. You can re-apply these settings by running the Setup Checklist again. Enjoy your Mac!</string>
+            <key>en-GB</key>
+            <string>The configuration is complete. You can re-apply these settings by running the Setup Checklist again. Enjoy your Mac!</string>
+            <key>es</key>
+            <string>La configuración está completa. Puedes volver a aplicar estos ajustes ejecutando Setup Checklist de nuevo. ¡Disfruta tu Mac!</string>
+            <key>fi</key>
+            <string>Määritys on valmis. Voit käyttää näitä asetuksia uudelleen ajamalla Setup Checklistin uudelleen. Nauti Macistasi!</string>
             <key>fr</key>
-            <string>La configuration est terminée. Vous pouvez réappliquer ces paramètres en exécutant à nouveau l'application Setup Welcome. Profitez de votre Mac!</string>
-            <key>nl</key>
+            <string>La configuration est terminée. Vous pouvez réappliquer ces paramètres en exécutant à nouveau l'application Setup Checklist. Profitez de votre Mac!</string>
+            <key>hi</key>
+            <string>कॉन्फ़िगरेशन पूर्ण हो गया है। आप Setup Checklist को फिर से चलाकर इन सेटिंग्स को फिर से लागू कर सकते हैं। अपने Mac का आनंद लें!</string>
+            <key>it</key>
+            <string>La configurazione è completa. Puoi riapplicare queste impostazioni eseguendo Setup Checklist di nuovo. Goditi il tuo Mac!</string>
+            <key>ja</key>
+            <string>設定が完了しました。Setup Checklistを再度実行すると、これらの設定を再適用できます。Macをお楽しみください！</string>
+            <key>ko</key>
+            <string>구성이 완료되었습니다. Setup Checklist를 다시 실행하여 이 설정을 다시 적용할 수 있습니다. Mac을 즐기세요!</string>
+            <key>nb</key>
+						<string>Konfigurasjonen er fullført. Du kan anvende disse innstillingene på nytt ved å kjøre Setup Checklist igjen. Kos deg med din Mac!</string>
+						<key>nl</key>
             <string>De configuratie is voltooid. U kunt deze instellingen opnieuw toepassen door de Setup Checklist app opnieuw uit te voeren. Veel plezier met uw Mac!</string>
+            <key>pt-BR</key>
+            <string>A configuração está completa. Você pode reaplicar essas configurações executando o Setup Checklist novamente. Aproveite o seu Mac!</string>
+            <key>pt-PT</key>
+            <string>A configuração está concluída. Pode voltar a aplicar estas definições executando o Setup Checklist novamente. Desfrute do seu Mac!</string>
+            <key>sv</key>
+            <string>Konfigurationen är klar. Du kan tillämpa dessa inställningar igen genom att köra Setup Checklist på nytt. Njut av din Mac!</string>
+            <key>zh-Hans</key>
+            <string>配置已完成。您可以通过再次运行 Setup Checklist 来重新应用这些设置。尽情享受您的 Mac 吧！</string>
+            <key>zh-Hant</key>
+            <string>設定已完成。您可以透過再次執行 Setup Checklist 來重新套用這些設定。盡情享受您的 Mac 吧！</string>
+            <key>zh-TW</key>
+            <string>設定已完成。您可以透過再次執行 Setup Checklist 來重新套用這些設定。盡情享受您的 Mac 吧！</string>
           </dict>
 					<key>title</key>
 					<dict>
+						<key>bg</key>
+						<string>Благодаря</string>
 						<key>de</key>
 						<string>Danke schön</string>
 						<key>en</key>
 						<string>Thank you</string>
+						<key>en-GB</key>
+						<string>Thank you</string>
+						<key>es</key>
+						<string>Gracias</string>
+						<key>fi</key>
+						<string>Kiitos</string>
 						<key>fr</key>
 						<string>Merci</string>
+						<key>hi</key>
+						<string>धन्यवाद</string>
+						<key>it</key>
+						<string>Grazie</string>
+						<key>ja</key>
+						<string>ありがとうございます</string>
+						<key>ko</key>
+						<string>감사합니다</string>
+						<key>nb</key>
+						<string>Takk</string>
 						<key>nl</key>
 						<string>Bedankt</string>
+						<key>pt-BR</key>
+						<string>Obrigado</string>
+						<key>pt-PT</key>
+						<string>Obrigado</string>
+						<key>sv</key>
+						<string>Tack</string>
+						<key>zh-Hans</key>
+						<string>谢谢</string>
+						<key>zh-Hant</key>
+						<string>謝謝</string>
+						<key>zh-TW</key>
+						<string>謝謝</string>
 					</dict>
 				</dict>
 			</array>

@@ -10,7 +10,7 @@ For the sake of this example, we will use a Setup Checklist `script` step to hav
 
 ## The shell commands
 
-Before you start implementing a `script` step, you should be familiar with script commands required in this context. Since we are going to delegate.
+Before you start implementing a `script` step, you should be familiar with the shell commands required in this context.
 
 We cannot use the `systemsetup -setRemoteLogin` command, since that requires root access. Instead we are going to open the Remote Login pane in System Settings for the user, where they can click the switch to turn it on. You could open System Settings with `open -a "System Settings"` but there [are many settings/preferences urls](https://github.com/paralevel/macos-settings-urls) that can be used to open System Settings directly to a pane. For the Remote Login pane, the url is `x-apple.systempreferences:com.apple.preferences.sharing?Services_RemoteLogin`.
 
@@ -35,7 +35,7 @@ This command will have an exit code of `0` (success) when the `grep` finds the s
 Finally, we want to quit the System Settings app when the user hits continue. You can quit an app using this command:
 
 ```shell
-osascript -e 'tell app "System Settings" to quit"
+osascript -e 'tell app "System Settings" to quit'
 ```
 
 We can also use the [`setupchecklist` command line tool](../Extras/CommandLineTool.md) to update the status and other values of the step:
@@ -141,7 +141,7 @@ The `updateStatusScript` will be called after the `prepareScript`. When it retur
 
 When an `updateStatusScript` exists, Setup Checklist will start observing by running the `updateStatusScript` once per second, when the action button is clicked. For that reason, it should not have complicated, long running logic.
 
-Not all `script` steps will require an `updateStatusScript` you can also use logic in the `activateScript` or `buttonActionScript` to update the status of the step. If you don't update the status of the script to `completed` or `canContinue`, the 'Continue' button will not activate and the user will be stuck.
+Not all `script` steps will require an `updateStatusScript` you can also use logic in the `activateScript` or `buttonScript` to update the status of the step. If you don't update the status of the script to `completed` or `canContinue`, the 'Continue' button will not activate and the user will be stuck.
 
 In our case, we have our `launchctl` command from earlier which already returns `0` (success) when the service is enabled. so we can add that to the step property list:
 

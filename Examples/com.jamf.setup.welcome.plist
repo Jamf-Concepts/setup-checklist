@@ -8,9 +8,23 @@
 	<array>
 		<string>en-US</string>
 		<string>en-GB</string>
+		<string>bg</string>
 		<string>de</string>
+		<string>es</string>
+		<string>fi</string>
 		<string>fr</string>
+		<string>hi</string>
+		<string>it</string>
+		<string>ja</string>
+		<string>ko</string>
+		<string>nb</string>
 		<string>nl</string>
+		<string>pt-BR</string>
+		<string>pt-PT</string>
+		<string>sv</string>
+		<string>zh-Hans</string>
+		<string>zh-Hant</string>
+		<string>zh-TW</string>
 	</array>
 	<key>showLanguages</key>
 	<true/>
@@ -18,14 +32,44 @@
 	<true/>
 	<key>title</key>
 	<dict>
+		<key>bg</key>
+		<string>Добре дошли в Jamf</string>
 		<key>de</key>
 		<string>Willkommen bei Jamf</string>
 		<key>en</key>
 		<string>Welcome to Jamf</string>
+		<key>en-GB</key>
+		<string>Welcome to Jamf</string>
+		<key>es</key>
+		<string>Bienvenido a Jamf</string>
+		<key>fi</key>
+		<string>Tervetuloa Jamfiin</string>
 		<key>fr</key>
 		<string>Bienvenue à Jamf</string>
+		<key>hi</key>
+		<string>Jamf में आपका स्वागत है</string>
+		<key>it</key>
+		<string>Benvenuto a Jamf</string>
+		<key>ja</key>
+		<string>Jamfへようこそ</string>
+		<key>ko</key>
+		<string>Jamf에 오신 것을 환영합니다</string>
+		<key>nb</key>
+		<string>Velkommen til Jamf</string>
 		<key>nl</key>
 		<string>Welkom bij Jamf</string>
+		<key>pt-BR</key>
+		<string>Bem-vindo ao Jamf</string>
+		<key>pt-PT</key>
+		<string>Bem-vindo ao Jamf</string>
+		<key>sv</key>
+		<string>Välkommen till Jamf</string>
+		<key>zh-Hans</key>
+		<string>欢迎使用 Jamf</string>
+		<key>zh-Hant</key>
+		<string>歡迎使用 Jamf</string>
+		<key>zh-TW</key>
+		<string>歡迎使用 Jamf</string>
 	</dict>
 </dict>
 </plist>

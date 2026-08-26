@@ -33,6 +33,8 @@ When there is no value for the localization, the app will fall back to the value
 
 The following keys can be localized:
 
+## Setup Checklist
+
 ### Top-level keys
 
 - `icon`
@@ -44,23 +46,32 @@ The following keys can be localized:
 - `title`
 - `icon`
 - `message`
+- `buttonLabel` (`open`, `script`, `agreement`)
+- `document` (`agreement`)
 
-### Welcome app (domain `com.jamf.setup.welcome`)
+## Welcome app (domain `com.jamf.setup.welcome`)
 
 - `title`
 
-Use these two-letter codes for these languages:
+## Supported Languages
 
-| Language           | two-letter code |
-|--------------------|-----------------|
-| English            | en (default)    |
-| Dutch (Nederlands) | nl              |
-| French             | fr              |
-| German             | de              |
-| Italian            | it              |
-| Hebrew             | he              |
-| Norwegian          | nb              |
-| Spanish            | es              |
-| Swedish            | sv              |
+Use these codes for these languages:
 
-The [plist and profile example files](Examples) contain localizations for many of the custom text elements.
+| Language           | Native Name  | language code   |
+|--------------------|--------------|-----------------|
+| English (US)       |              | en              |
+| English (UK)       |              | en-GB           |
+| Bulgarian          | Български    | bg              |
+| Dutch              | Nederlands   | nl              |
+| French             | Français     | fr              |
+| German             | Deutsch      | de              |
+| Hindi              | हिन्दी          | hi              |
+| Italian            | Italiano     | it              |
+| Korean             | 한국어         | ko              |
+| Norwegian Bokmål   | Norsk bokmål | nb              |
+| Spanish            | Español      | es              |
+| Swedish            | Svenska      | sv              |
+
+For unknown codes and languages _not_ in this list, the app will revert to `en` (US English).
+
+The [plist and profile example files](../Examples) contain localizations for many of the custom text elements.
