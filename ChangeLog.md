@@ -1,5 +1,11 @@
 #  Setup Checklist - Change Log
 
+## v1.1.1
+(2026-10-26)
+
+- fix for changed TCC tool in 27.2 (#121)
+
+
 ## v1.1
 (2026-08-25)
 
